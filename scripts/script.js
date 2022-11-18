@@ -33,3 +33,7 @@ function loadWritePost() {
 function hideDevButtons() {
     document.getElementById("devbuttons").style.display = "none"
 }
+
+function loadLandingPage() {
+    window.location.href = "../pages/landing.html"
+}
