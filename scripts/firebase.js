@@ -30,6 +30,7 @@ export const storageService = getStorage(app);
 // collection(dbService, "posts")
 
 // doc {
+//     postId: "글ID (고유번호)",
 //     title: "제목",
 //     content: "내용",
 //     createdAt: "생성시간",
