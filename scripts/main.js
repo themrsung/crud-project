@@ -22,11 +22,20 @@ import {
 // })
 
 // addDoc(doc(dbService, "postsTest", "1234"))
-addDoc(collection(dbService, "postsTest"), {
-    title: "test",
-    content: "test content"
-})
-alert("added")
+
+
+// 이렇게 추가하는 겁니다
+
+// addDoc(collection(dbService, "postsTest"), {
+//     title: "test",
+//     content: "test content"
+// })
+// alert("added")
+
+
+
+
+
 // window.onToggle = onToggle;
 // window.handleAuth = handleAuth;
 // window.goToProfile = goToProfile;
