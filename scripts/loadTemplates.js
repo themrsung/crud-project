@@ -10,18 +10,12 @@
 //     console.log("Running CORS Anywhere on " + host + ":" + port)
 // })
 
-fetch("../pages/templates/header.html")
-    .then(response =>{
-        return response.text()
-    })
-    .then(data => {
-        document.querySelector("header").innerHTML = data
-    })
 
-fetch("../pages/templates/footer.html")
-    .then(response =>{
-        return response.text()
-    })
-    .then(data => {
-        document.querySelector("header").innerHTML = data
-    })
+var header = document.getElementById("title")
+header.innerHTML = `<p>header</p>`
+
+var footer = document.getElementById("footer")
+footer.innerHTML = `
+<h3>Made by INFINITY</h3>
+<p>Copyright 2022 INFINITY, All Rights Reserved.</p>
+`
