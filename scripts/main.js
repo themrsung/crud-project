@@ -1,19 +1,28 @@
-import { authService } from "./firebase.js"
+import { authService, dbService } from "./firebase.js"
 import "./script.js"
 
-document.addEventListener("DOMContentLoaded", function() {
-    authService.onAuthStateChanged((user) => {
-        handleLocation()
-        const hash = window.location.hash
+import {
+    doc,
+    addDoc
+  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
-        if (user) {
-            loadNewsfeed()
-        }
-        else {
-            loadLandingPage()
-        }
-    })
-})
+// document.addEventListener("DOMContentLoaded", function() {
+//     authService.onAuthStateChanged((user) => {
+//         handleLocation()
+//         const hash = window.location.hash
+
+//         if (user) {
+//             loadNewsfeed()
+//         }
+//         else {
+//             loadLandingPage()
+//         }
+//     })
+// })
+
+export function addTestPost() {
+    addDoc(doc(dbService, "postsTest", "1234"), data)
+}
 
 // window.onToggle = onToggle;
 // window.handleAuth = handleAuth;
