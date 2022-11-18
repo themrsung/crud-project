@@ -1,13 +1,27 @@
-void async function() {
-    // Get templates
-    var templates = document.createElement("template")
-    templates.innerHTML = await(await fetch("../pages/templates.html")).text()
+// var host = process.env.HOST || "0.0.0.0"
+// var port = process.env.PORT || 8080
 
-    // Fetch templates
-    var titleAreaTemplate = templates.content.getElementById("title-template")
-    var footerTemplate = templates.content.getElementById("footer-template")
+// var corsProxy = require("cors-anywhere")
+// corsProxy.createServer({
+//     originWhiteList: [],
+//     requireHeader: ["origin", "x-requested-with"],
+//     removeHeaders: ["cookie", "cookie2"]
+// }).listen(port, host, function() {
+//     console.log("Running CORS Anywhere on " + host + ":" + port)
+// })
 
+fetch("../pages/templates/header.html")
+    .then(response =>{
+        return response.text()
+    })
+    .then(data => {
+        document.querySelector("header").innerHTML = data
+    })
 
-    
-    console.log(titleAreaTemplate)
-} ()
+fetch("../pages/templates/footer.html")
+    .then(response =>{
+        return response.text()
+    })
+    .then(data => {
+        document.querySelector("header").innerHTML = data
+    })
