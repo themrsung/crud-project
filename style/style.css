@@ -1,6 +1,11 @@
 /* 공통사항입니다. 페이지별 수정은 각 page.css를 이용해주세요. */
 
 body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('https://k.kakaocdn.net/dn/b9u2t9/btrRyB2yqaY/zw3SsqTZcgUKKdTaXETR4K/img.jpg');
+    background-repeat : no-repeat;
+    background-size : cover;
     margin: 0px;
 }
 
@@ -16,9 +21,13 @@ html {
 }
 
 .wrap-inner {
-    background-color: white;
-}
+    background-color: rgba( 255, 255, 255, 0.2);
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow: auto;
 
+    
+}
 
 .outer-wrap {
     height: 1000;
@@ -40,13 +49,12 @@ html {
     .title {
         width: 25%;
         height: 100%;
-        background-color: red;
+        background-color: rgba( 0, 0, 0, 0.2);
         flex-direction: column;
     }
 
     .wrap {
         width: 100%;
-
         display: flex;
         flex-direction: row;
         justify-content: center;
