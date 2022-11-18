@@ -3,7 +3,8 @@ import "./script.js"
 
 import {
     doc,
-    addDoc
+    addDoc,
+    collection
   } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
 // document.addEventListener("DOMContentLoaded", function() {
@@ -20,10 +21,12 @@ import {
 //     })
 // })
 
-export function addTestPost() {
-    addDoc(doc(dbService, "postsTest", "1234"), data)
-}
-
+// addDoc(doc(dbService, "postsTest", "1234"))
+addDoc(collection(dbService, "postsTest"), {
+    title: "test",
+    content: "test content"
+})
+alert("added")
 // window.onToggle = onToggle;
 // window.handleAuth = handleAuth;
 // window.goToProfile = goToProfile;
