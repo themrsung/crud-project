@@ -1,9 +1,8 @@
 .landing-background {
-    background-color: red;
-    width: 500px;
+    width: 400px;
+    background-color: aqua;
     position: absolute;
     top: 50; left: 0; bottom: 0; right: 0;
     height: 50%;
-    margin: 10% auto;
-    text-align: center;
+    margin: 70px 40px 70px 40px;
     }
