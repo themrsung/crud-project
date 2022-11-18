@@ -18,10 +18,6 @@ function loadRegister() {
     $("#content").load("../pages/templates/register.html")
 }
 
-function loadTitle() {
-    $("#content").load("../pages/templates/title.html")
-}
-
 function loadUserProfile() {
     $("#content").load("../pages/templates/userprofile.html")
 }
