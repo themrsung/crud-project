@@ -1,5 +1,5 @@
-import { authService } from "firebase.js"
-import "script.js"
+import { authService } from "./firebase.js"
+import "./script.js"
 
 document.addEventListener("DOMContentLoaded", function() {
     authService.onAuthStateChanged((user) => {
