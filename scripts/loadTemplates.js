@@ -10,9 +10,14 @@
 //     console.log("Running CORS Anywhere on " + host + ":" + port)
 // })
 
+var title = document.title
+var description = document.querySelector("meta[name='description'").content
 
 var header = document.getElementById("title")
-header.innerHTML = `<p>header</p>`
+header.innerHTML = `
+<h1>${title}</h1>
+<p>${description}</p>
+`
 
 var footer = document.getElementById("footer")
 footer.innerHTML = `
