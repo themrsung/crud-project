@@ -15,14 +15,14 @@ document.addEventListener("DOMContentLoaded", function() {
     })
 })
 
-window.onToggle = onToggle;
-window.handleAuth = handleAuth;
-window.goToProfile = goToProfile;
-window.socialLogin = socialLogin;
-window.logout = logout;
-window.onFileChange = onFileChange;
-window.changeProfile = changeProfile;
-window.save_comment = save_comment;
-window.update_comment = update_comment;
-window.onEditing = onEditing;
-window.delete_comment = delete_comment;
+// window.onToggle = onToggle;
+// window.handleAuth = handleAuth;
+// window.goToProfile = goToProfile;
+// window.socialLogin = socialLogin;
+// window.logout = logout;
+// window.onFileChange = onFileChange;
+// window.changeProfile = changeProfile;
+// window.save_comment = save_comment;
+// window.update_comment = update_comment;
+// window.onEditing = onEditing;
+// window.delete_comment = delete_comment;
