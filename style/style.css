@@ -1,4 +1,6 @@
 /* 공통사항입니다. 페이지별 수정은 각 page.css를 이용해주세요. */
+@import url('https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css');
+/* 웹 폰트 적용 */
 
 body {
     height: 100vh;
@@ -7,6 +9,7 @@ body {
     background-repeat : no-repeat;
     background-size : cover;
     margin: 0px;
+    font-family: 'https://cdn.jsdelivr.net/npm/galmuri@latest/dist/galmuri.css';
 }
 
 html {
@@ -35,7 +38,7 @@ html {
 
 .footer {
     margin: 0px;
-    background-color: aqua;
+    text-align: center;
 }
 
 @media (width >=1000px) {
