@@ -35,5 +35,5 @@ function hideDevButtons() {
 }
 
 function loadLandingPage() {
-    window.location.href = "../pages/landing.html"
+    window.location.replace("../pages/landing.html")
 }
