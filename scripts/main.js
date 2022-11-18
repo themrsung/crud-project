@@ -1,10 +1,10 @@
 
 // main.js : ES6 Module 기능을 이용해 모든 js코드들의 root 허브 역할
-import { handleAuth, onToggle, logout } from "./pages/auth.js";
-import { changeProfile, onFileChange } from "./pages/profile.js";
-import { socialLogin } from "./pages/auth.js";
-import { handleLocation, goToProfile } from "./router.js";
-import { authService } from "./firebase.js";
+import { handleAuth, onToggle, logout } from "auth.js";
+import { changeProfile, onFileChange } from "profile.js";
+import { socialLogin } from "auth.js";
+import { handleLocation, goToProfile } from "router.js";
+import { authService } from "firebase.js";
 import {
   save_comment,
   update_comment,
