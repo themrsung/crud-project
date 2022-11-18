@@ -2,7 +2,6 @@
 
 body {
     margin: 0px;
-    overflow:hidden;
 }
 
 html {
@@ -18,17 +17,8 @@ html {
 
 .wrap-inner {
     background-color: white;
-    background-color: rgba(255, 255, 255, 0.3);
-    overflow: scroll;
-    overflow-x: hidden;
-    overflow:auto;
 }
 
-.post {
-    margin: 50px 20px 50px 20px;
-}
-
-/* 텍스트 여백 설정 */
 
 .outer-wrap {
     height: 1000;
