@@ -48,3 +48,7 @@ function gitLogIn()
     // -> 자동로그인, 아이디저장 유무에 따른 쿠키 설정 ()
 }
 
+
+function session(){
+    
+}
