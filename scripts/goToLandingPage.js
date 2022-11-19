@@ -1,6 +1,4 @@
-import { authService } from "./firebase.js"
-
-
+import { authService, getParam } from "./firebase.js"
 
 
 // 로그인 안 된 유저 랜딩으로 보내는 코드
@@ -9,6 +7,7 @@ import { authService } from "./firebase.js"
 // console.log(assumeLoggedIn)
 
 if (getParam("assumeLoggedIn") != "true") {
+    console.log("aaa")
     $(document).ready(function() {
         authService.onAuthStateChanged((user) => {
             if (!user) { // 로그인 안되어있으면 + 로그아웃 된 상태
