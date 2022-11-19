@@ -12,10 +12,10 @@ import {
 //         handleLocation()
 //         const hash = window.location.hash
 
-//         if (user) {
+//         if (user) { // 로그인 ok
 //             loadNewsfeed()
 //         }
-//         else {
+//         else { // 로그인 안되어있으면 + 로그아웃 된 상태
 //             loadLandingPage()
 //         }
 //     })
@@ -31,9 +31,6 @@ import {
 //     content: "test content"
 // })
 // alert("added")
-
-
-
 
 
 // window.onToggle = onToggle;
