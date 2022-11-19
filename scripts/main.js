@@ -1,4 +1,6 @@
 import { authService, dbService } from "./firebase.js"
+import {logIn,logOut,googleLogIn,gitLogIn} from "./pages/login.js";
+//import * as loginFunc from "./pages/login.js";
 import "./script.js"
 
 import {
@@ -44,3 +46,5 @@ import {
 // window.update_comment = update_comment;
 // window.onEditing = onEditing;
 // window.delete_comment = delete_comment;
+ window.logIn = logIn;
+//logIn,googleLogIn,gitLogIn

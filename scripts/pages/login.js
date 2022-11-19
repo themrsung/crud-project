@@ -38,7 +38,7 @@ export const logIn  = () => {
         
         if(true) // 자동 로그인 체크가 되어있다면 
         {
-            
+
         }
 
     }
@@ -72,6 +72,11 @@ export const gitLogIn  = () =>
 }
 
 export const session  = () =>
+{
+
+}
+
+export const logOut  = () =>
 {
 
 }
