@@ -14,7 +14,7 @@ export const logIn  = () => {
     const password = document.getElementById("password");
 
      //자동로그인 체크 유무
-    const autoLogIn = document.getElementById("autoLogIn").checked;
+    const autoLogIn = document.getElementById("autoLogin").checked;
     
     // 이메일 잘 기입 되었는지
     if (!email.value)
