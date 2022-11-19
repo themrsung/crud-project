@@ -1,0 +1,32 @@
+import { addDoc, getDocs, collection, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { authService, dbService } from "../firebase.js"
+
+window.writePost = function() {
+
+    const title = document.getElementById("write-post-title").value || null
+    const content = document.getElementById("write-post-content").value || null
+
+    var createdBy = "user"
+
+    const user = authService.currentUser
+    if (user != null) {
+        createdBy = user.uid
+    }
+
+
+    const createdAt = Date.now() || null
+
+    console.log(title)
+    console.log(content)
+    console.log(createdBy)
+    console.log(createdAt)
+
+    addDoc(collection(dbService, "posts"), {
+        title: title,
+        content: content,
+        createdBy: createdBy,
+        createdAt: createdAt
+    })
+}
+
+// document.querySelector("#write-post-button").addEventListener("click", writePost)

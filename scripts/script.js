@@ -1,57 +1,57 @@
-function loadNewsfeed() {
+import { onViewPostLoad } from "./pages/viewpost.js"
+
+window.loadNewsfeed = function() {
     $("#content").load("../pages/templates/newsfeed.html")
 }
 
-function loadLogin() {
+window.loadLogin = function() {
     $("#content").load("../pages/templates/login.html")
 }
 
-function loadLostAccount() {
+window.loadLostAccount = function() {
     $("#content").load("../pages/templates/lostaccount.html")
 }
 
-function loadMyProfile() {
+window.loadMyProfile = function() {
     $("#content").load("../pages/templates/myprofile.html")
 }
 
-function loadRegister() {
+window.loadRegister = function() {
     $("#content").load("../pages/templates/register.html")
 }
 
-function loadUserProfile() {
+window.loadUserProfile = function() {
     $("#content").load("../pages/templates/userprofile.html")
 }
 
-function loadViewPost() {
+window.loadViewPost = function(postId = "6Xrupp27DH1ZdeVDb3Ek") {
     $("#content").load("../pages/templates/viewpost.html")
+    onViewPostLoad(postId)
 }
 
-function loadWritePost() {
+window.loadWritePost = function() {
     $("#content").load("../pages/templates/writepost.html")
 }
 
-function hideDevButtons() {
+window.hideDevButtons = function() {
     document.getElementById("devbuttons").style.display = "none"
 }
 
-function loadLandingPage() {
+window.loadLandingPage = function() {
     window.location.replace("../pages/landing.html")
 }
 
 
-function registerFromLandingPage() {
+window.registerFromLandingPage = function() {
     window.location.replace("../index.html?assumeLoggedIn=true&goToRegister=true")
-    
-
 }
 
-function loginFromLandingPage() {
+window.loginFromLandingPage = function() {
     window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
-
 }
 
 
 // 개발자용
-function skipLogin() {
+window.skipLogin = function() {
     window.location.replace("../index.html?assumeLoggedIn=true")
 }

@@ -29,7 +29,6 @@ export const storageService = getStorage(app);
 // collection(dbService, "posts")
 
 // doc {
-//     postId: "글ID (고유번호)",
 //     title: "제목",
 //     content: "내용",
 //     createdAt: "생성시간",
@@ -40,10 +39,8 @@ export const storageService = getStorage(app);
 // collections(dbService, "users")
 
 // doc {
-//     userId: "유저ID (고유번호)",
 //     email: "이메일",
-//     name: "이름",
-//     password: "비밀번호",
+//     displayName: "이름",
 //     motd: "상태메시지"
 // }
 
