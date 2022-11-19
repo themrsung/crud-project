@@ -25,7 +25,6 @@ export const authService = getAuth(app);
 export const storageService = getStorage(app);
 
 
-
 // 게시글 데이터 관리
 // collection(dbService, "posts")
 
@@ -47,3 +46,17 @@ export const storageService = getStorage(app);
 //     password: "비밀번호",
 //     motd: "상태메시지"
 // }
+
+
+export function getParam(sname) {
+    var params = location.search.substr(location.search.indexOf("?") + 1)
+    var sval = ""
+
+    params = params.split("&")
+    for (var i = 0; i < params.length; i++) {
+        var temp = params[i].split("=")
+        if ([temp[0]] == sname) { sval = temp[1] }
+    }
+
+    return sval
+}

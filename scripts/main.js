@@ -1,27 +1,19 @@
-import { authService, dbService } from "./firebase.js"
-import {logIn,logOut,googleLogIn,gitLogIn} from "./pages/login.js";
+import { authService, dbService, getParam } from "./firebase.js"
+// import {logIn,logOut,googleLogIn,gitLogIn} from "./pages/login.js";
 //import * as loginFunc from "./pages/login.js";
 import "./script.js"
 
-import {
-    doc,
-    addDoc,
-    collection
-  } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     authService.onAuthStateChanged((user) => {
-//         handleLocation()
-//         const hash = window.location.hash
-
-//         if (user) { // 로그인 ok
-//             loadNewsfeed()
-//         }
-//         else { // 로그인 안되어있으면 + 로그아웃 된 상태
-//             loadLandingPage()
-//         }
-//     })
-// })
+$(document).ready(function() {
+    if (getParam("goToRegister") == "true") {
+        loadRegister()
+    }
+    else if (getParam("goToLogin") == "true") {
+        loadLogin()
+    }
+    else {
+        loadNewsfeed()
+    }
+})
 
 // addDoc(doc(dbService, "postsTest", "1234"))
 
@@ -46,5 +38,5 @@ import {
 // window.update_comment = update_comment;
 // window.onEditing = onEditing;
 // window.delete_comment = delete_comment;
- window.logIn = logIn;
+// window.logIn = logIn;
 //logIn,googleLogIn,gitLogIn

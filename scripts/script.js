@@ -37,3 +37,21 @@ function hideDevButtons() {
 function loadLandingPage() {
     window.location.replace("../pages/landing.html")
 }
+
+
+function registerFromLandingPage() {
+    window.location.replace("../index.html?assumeLoggedIn=true&goToRegister=true")
+    
+
+}
+
+function loginFromLandingPage() {
+    window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
+
+}
+
+
+// 개발자용
+function skipLogin() {
+    window.location.replace("../index.html?assumeLoggedIn=true")
+}
