@@ -24,7 +24,7 @@ window.loadUserProfile = function() {
     $("#content").load("../pages/templates/userprofile.html")
 }
 
-window.loadViewPost = function(postId = "6Xrupp27DH1ZdeVDb3Ek") {
+window.loadViewPost = function(postId) {
     $("#content").load("../pages/templates/viewpost.html")
     onViewPostLoad(postId)
 }
