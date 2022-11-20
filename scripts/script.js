@@ -47,10 +47,10 @@ window.registerFromLandingPage = function() {
 }
 
 window.loginFromLandingPage = function() {
-    if(localStorage.getItem("auto")==="true")
+    if(localStorage.getItem("auto")==="true") 
     {
         window.location.replace("../index.html");
-        loadNewsfeed();
+        loadNewsfeed(); 
 
     } 
     else
