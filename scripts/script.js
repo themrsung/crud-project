@@ -38,7 +38,7 @@ window.hideDevButtons = function() {
 }
 
 window.loadLandingPage = function() {
-    window.location.replace("../pages/landing.html")
+   window.location.replace("../pages/landing.html")
 }
 
 
@@ -47,7 +47,18 @@ window.registerFromLandingPage = function() {
 }
 
 window.loginFromLandingPage = function() {
-    window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
+    if(localStorage.getItem("auto")==="true") 
+    {
+        window.location.replace("../index.html");
+        loadNewsfeed(); 
+
+    } 
+    else
+    {
+        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true");
+    }
+    
+    //window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
 }
 
 
