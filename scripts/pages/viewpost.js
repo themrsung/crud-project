@@ -25,7 +25,7 @@ export async function onViewPostLoad(postId) {
             docSnap.data()["comments"].forEach((comment, i) => {
                 const comment_HTML = `
 <div class="comment" id="${i}">
-    <p><span>${comment["user"]}</span> - <span>${comment["createdAt"]}</span></p>
+    <p><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
 </div>
                 `
@@ -38,29 +38,36 @@ export async function onViewPostLoad(postId) {
         const write_comment_HTML = `
 <div class="write-comment-area">
     <input id="write-comment-content" placeholder="댓글을 입력해주세요...">
-    <button onclick="writeComment('${docSnap.id}')"></button>
+    <button onclick="writeComment('${docSnap.id}')">댓글 달기</button>
 </div>
         `
         $("#comments").append(write_comment_HTML)
     }
 }
 
-window.writeComment = function(postId) {
-    const content = stripHTMLTags(document.getElementById("write-comment-content").innerHTML)
-    const user = authService.currentUser.uid || "user"
+window.writeComment = async function(postId) {
+    const content = stripHTMLTags(document.getElementById("write-comment-content").value)
+
+    var createdBy = "user"
+
+    const user = authService.currentUser
+    if (user != null) {
+        createdBy = user.uid
+    }
+
     const createdAt = Date.now()
     const comment = {
-        user: user,
+        createdBy: createdBy,
         createdAt: createdAt,
         content: content,
         deleted: false
     }
 
-    var comments = getDoc(
-        doc(dbService, "posts", postId).data()["comments"]
-    )
+    const docSnap = await getDoc(doc(dbService, "posts", postId))
+    console.log(docSnap)
+    var comments = docSnap.data()["comments"]
 
-    comments.append(comment)
+    comments.push(comment)
 
     updateDoc(
         doc(dbService, "posts", postId),
