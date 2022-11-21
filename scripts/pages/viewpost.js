@@ -21,6 +21,10 @@ export async function onViewPostLoad(postId) {
     </div>
     <div class="comments" id="comments"></div>
 </div>
+<div>
+<button onclick="updating('${postId.id}')">글 수정</button>
+<button onclick="scratching('${postId.id}')">글 삭제</button>
+</div>
         `
         // console.log(post_HTML)
         $("#viewpost-outer").append(post_HTML)
@@ -34,6 +38,8 @@ export async function onViewPostLoad(postId) {
 <div class="comment" id="${i}">
     <p><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
+    <button onclick="updating('${docSnap.id}')">수정</button>
+    <button onclick="scratching('${docSnap.id}')">삭제</button>
 </div>
                 `
                 // 코멘트가 삭제되지 않았으면
@@ -86,3 +92,15 @@ window.writeComment = async function(postId) {
     $("#viewpost-outer").empty()
     onViewPostLoad(postId)
 }
+
+window.updating = async function(number) {
+    const content = stripHTMLTags(document.getElementById("write-comment-content").value)
+
+    
+}
+
+window.scratching = async function(number) {
+    
+}
+
+
