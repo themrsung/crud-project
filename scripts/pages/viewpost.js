@@ -30,7 +30,7 @@ export async function onViewPostLoad(postId) {
         $("#viewpost-outer").append(post_HTML)
         
         // 코멘트가 있으면
-        if (docSnap.data()["comments"] != null) {
+        if (docSnap.data()["comments"].length > 1) {
             // 1 코멘트당 이 코드 실행 (forEach)
             docSnap.data()["comments"].forEach((comment, i) => {
                 // 댓글 1개 영역
