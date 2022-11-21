@@ -97,7 +97,7 @@ window.googit  = (event) => {
 
 window.logOut  = () =>
 { 
-    authService.signOut().then(function() {
+    authService.signOut().then(function() { 
         alert("로그아웃 되었습니다")
         localStorage.clear;
         loadLandingPage();
