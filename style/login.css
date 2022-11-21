@@ -43,7 +43,7 @@ label {
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
-    background: #8BC34A;
+    background: #BA55D3;
     transition: ease .6s;
   }
   
@@ -55,7 +55,7 @@ label {
     top: -3em;
   }
   
-  .register_button {
+  .login_button {
     display: inline-block;
     padding: 12px 24px;
     background: rgb(220,220,220);
@@ -69,7 +69,7 @@ label {
   }
   
   .button:hover {
-    background: #8BC34A;
+    background: #BA55D3;
     color: #ffffff;
   }
 

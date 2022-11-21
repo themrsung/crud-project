@@ -79,18 +79,21 @@ window.registerFromLandingPage = function() {
 }
 
 window.loginFromLandingPage = function() {
-    if(localStorage.getItem("auto")==="true") 
-    {
-        window.location.replace("../index.html");
-        loadNewsfeed(); 
 
+    let cookie = document.cookie.split("=");
+
+    
+
+    if(cookie[1]==="true") 
+    {
+        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=false");
     } 
     else
     {
         window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true");
     }
     
-    //window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
+   
 }
 
 window.lostAccountFromLandingPage = function() {

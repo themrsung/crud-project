@@ -13,7 +13,7 @@ window.logIn =  function() {
 
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-
+    
      //자동로그인 체크 유무
     const autoLogIn = document.getElementById("autoLogin").checked;
     
@@ -40,7 +40,7 @@ window.logIn =  function() {
    
         if(userInfo)
         {
-            autoLogIn ? localStorage.setItem("auto","true") : localStorage.setItem("auto","false")
+            autoLogIn ?  document.cookie="auto=true" : document.cookie="auto=false"
             return loadNewsfeed();
         }
     
@@ -76,13 +76,13 @@ window.googit  = (event) => {
     const way = event.target.value;
     const autoLogIn = document.getElementById("autoLogin").checked;
     let connection;
-
+    let cookie = document.cookie;
     way==="google" ? connection = new GoogleAuthProvider() : connection = new GithubAuthProvider()
     signInWithPopup(authService, connection).then((result) => {
-      
+       
       if(result.user)
       {
-        autoLogIn ? localStorage.setItem("auto","true") : localStorage.setItem("auto","false")
+        autoLogIn ? cookie="auto=true" : cookie="auto=false"
         return loadNewsfeed();
       }
 
@@ -103,6 +103,7 @@ window.logOut  = () =>
 {
     authService.signOut().then(function() {
         alert("로그아웃 되었습니다")
+        document.cookie="auto=false";
         localStorage.clear;
         loadLandingPage();
     }).catch(function(error) {

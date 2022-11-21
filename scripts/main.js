@@ -4,6 +4,7 @@ import { authService, dbService, getParam } from "./firebase.js"
 import "./script.js"
 
 $(document).ready(function() {
+    
     if (getParam("goToRegister") == "true") {
         loadRegister()
     }
