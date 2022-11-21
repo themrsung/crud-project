@@ -12,9 +12,28 @@ export async function loadNewsfeed() {
 }
 
 window.loadEditPost = async function(postId) {
-    console.log(postId)
-    await $("#content").load("../pages/templates/editpost.html")
-    $("#edit-post-box").append(`<button id="edit-post-button" onclick="editPost('${postId}')">작성하기</button>`)
+    // await $("#content").load("../pages/templates/editpost.html")
+    const editPostHTML = await fetch("../pages/templates/editpost.html").then(function(data) {
+        return data.text()
+    })
+    
+    document.getElementById("content").innerHTML = editPostHTML       
+
+
+    const editButton = `<button id="edit-post-button" class="edit-post-button" onclick="onEditPostCompleted('${postId}')">수정 완료</button>`
+    $("#edit-post-box").append(editButton)
+    // console.log($("#edit-post-box"))
+
+    // var check = false
+    // for (let i = 0; i < 100000000; i++) {
+    //     if (check) {
+    //         check = false
+    //     }
+    //     else {
+    //         check = true
+    //     }
+    // }
+
 }
 
 window.loadLogin = function() {
