@@ -1,4 +1,4 @@
-.register {
+registerform {
   width: 200px;
   position: sticky;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -43,7 +43,7 @@ label {
     top: 0px;
     left: 50%;
     transform: translateX(-50%);
-    background: #8BC34A;
+    background: #BA55D3;
     transition: ease .6s;
   }
   
@@ -69,7 +69,7 @@ label {
   }
   
   button:hover {
-    background: #8BC34A;
+    background: #BA55D3;
     color: #ffffff;
   }
   
