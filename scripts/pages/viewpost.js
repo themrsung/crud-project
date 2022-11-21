@@ -74,4 +74,6 @@ window.writeComment = async function(postId) {
         { comments: comments }
     )
 
+    $("#viewpost-outer").empty()
+    onViewPostLoad(postId)
 }
