@@ -7,8 +7,3 @@ import {
 //   GithubAuthProvider, // 깃 로그인 메서드
 //   signOut, // 로그아웃 메서드
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
-import { loadLandingPage } from "../script.js"
-
-window.regLoadLandingPage = function() {
-  loadLandingPage()
-}
