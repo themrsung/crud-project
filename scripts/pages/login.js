@@ -107,5 +107,5 @@ window.logOut  = () =>
             console.log(error.message);
         }
     })
-}
+} 
 
