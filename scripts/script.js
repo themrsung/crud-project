@@ -1,7 +1,9 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
+import { onNewsfeedLoad } from "./pages/newsfeed.js"
 
 window.loadNewsfeed = function() {
     $("#content").load("../pages/templates/newsfeed.html")
+    onNewsfeedLoad()
 }
 
 window.loadLogin = function() {

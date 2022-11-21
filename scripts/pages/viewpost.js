@@ -10,6 +10,8 @@ export async function onViewPostLoad(postId) {
     const docRef = doc(dbService, "posts", postId)
     const docSnap = await getDoc(docRef)
 
+
+    //TODO Check if deleted
     if (docSnap.exists()) {
         title = docSnap.data()["title"]
         content = docSnap.data()["content"]

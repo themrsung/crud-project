@@ -33,6 +33,7 @@ export const storageService = getStorage(app);
 //     content: "내용",
 //     createdAt: "생성시간",
 //     createdBy: "유저ID",
+//     deleted: false
 // }
 
 // 유저 데이터 관리
