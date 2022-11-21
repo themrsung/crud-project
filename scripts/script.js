@@ -79,7 +79,12 @@ window.registerFromLandingPage = function() {
 }
 
 window.loginFromLandingPage = function() {
-    if(localStorage.getItem("auto")==="true") 
+
+    let cookie = document.cookie.split("=");
+
+    
+
+    if(cookie[1]==="true") 
     {
         window.location.replace("../index.html");
         loadNewsfeed(); 

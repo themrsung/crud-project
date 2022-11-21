@@ -93,14 +93,57 @@ window.writeComment = async function(postId) {
     onViewPostLoad(postId)
 }
 
-window.updating = async function(number) {
-    const content = stripHTMLTags(document.getElementById("write-comment-content").value) 
+// window.updating = async function(number = undefined) {
+//     //const content = stripHTMLTags(document.getElementById("write-comment-content").value)
+    
+//     //const postNumber = document.getElementById("yourPost").value;
+    
+//     const commentRef = doc(dbService, "posts", docSnap.id);
+//     // const commentRef = collection(dbService,"posts");
+//     // const postDoc = doc(dbService, "posts", docSnap.id);
+    
+    
+    
+//     try {
+//         number ? 
+//         await updateDoc(commentRef, JSON.parse(`{ "comments" : { [number] : {"content" : "?" }")`} 
+           
+//             // {
+//             //     content : "바꿀 내용",
+//             //     createdAt : docSnap.data().comments[number].createdAt,
+//             //     createdBy : docSnap.data().comments[number].createdBy,
+//             //     deleted : docSnap.data().comments[number].deleted
+//             // }
+//         }):
+//         await updateDoc(commentRef, { content: "" , title : "" }) // 게시글
+//         return loadViewPost();
+//     } catch (error) {
+//         alert(error);
+//     }
 
     
-}
+// }
 
-window.scratching = async function(number) {
+// window.scratching = async function(number) {
+//     const commentRef = doc(dbService, "posts", docSnap.id)
     
-}
-
-
+    
+    
+//     try {
+//         number ? 
+//         await updateDoc(commentRef, { "comments.1.content" :  
+           
+//             {
+//                 content : "바꿀 내용",
+//                 createdAt : docSnap.data().comments[number].createdAt,
+//                 createdBy : docSnap.data().comments[number].createdBy,},
+//                 deleted : docSnap.data().comments[number].deleted
+//             }
+            
+//         ):
+//         await updateDoc(commentRef, { content : "" , title : "" }) // 게시글
+//         return loadViewPost();
+//     } catch (error) {
+//         alert(error);
+//     }
+// }
