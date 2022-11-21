@@ -1,5 +1,6 @@
-import { getDoc, collection, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
-import { dbService, getParam } from "../firebase.js"
+import { getDoc, collection, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { authService, dbService, getParam } from "../firebase.js"
+import { stripHTMLTags } from "../htmlSecurity.js"
 
 // $(document).ready(function() { onViewPostLoad() })
 
@@ -33,5 +34,37 @@ export async function onViewPostLoad(postId) {
                 }
             })
         }
+
+        const write_comment_HTML = `
+<div class="write-comment-area">
+    <input id="write-comment-content" placeholder="댓글을 입력해주세요...">
+    <button onclick="writeComment(${docSnap.id})"></button>
+</div>
+        `
+        $("#comments").append(write_comment_HTML)
     }
+}
+
+window.writeComment = function(postId) {
+    const content = stripHTMLTags(document.getElementById("write-comment-content").innerHTML)
+    const user = authService.currentUser.uid || "user"
+    const createdAt = Date.now()
+    const comment = {
+        user: user,
+        createdAt: createdAt,
+        content: content,
+        deleted: false
+    }
+
+    var comments = getDoc(
+        doc(dbService, "posts", postId).data()["comments"]
+    )
+
+    comments.append(comment)
+
+    updateDoc(
+        doc(dbService, "posts", postId),
+        { comments: comments }
+    )
+
 }
