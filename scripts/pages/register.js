@@ -20,6 +20,7 @@ document.getElementById('signUpButton').addEventListener('click', (event) => {
       const user = userCredential.user;
       // ...
   })
+  console.log(email, password)
   .catch((error) => {
       console.log('error')
       const errorCode = error.code;
