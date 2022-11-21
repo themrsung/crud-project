@@ -4,8 +4,8 @@ import { stripHTMLTags } from "../htmlSecurity.js"
 
 window.writePost = function() {
 
-    const title = stripHTMLTags(document.getElementById("write-post-title").value || null)
-    const content = stripHTMLTags(document.getElementById("write-post-content").value || null)
+    const title = stripHTMLTags(document.getElementById("write-post-title").value) || null
+    const content = stripHTMLTags(document.getElementById("write-post-content").value) || null
 
     var createdBy = "user"
 
