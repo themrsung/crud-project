@@ -7,7 +7,6 @@ import { authService, getParam } from "./firebase.js"
 // console.log(assumeLoggedIn)
 
 if (getParam("assumeLoggedIn") != "true") {
-    console.log("aaa")
     $(document).ready(function() {
         authService.onAuthStateChanged((user) => {
             if (!user) { // 로그인 안되어있으면 + 로그아웃 된 상태
