@@ -13,7 +13,7 @@ window.logIn =  function() {
 
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-    let cookie = document.cookie;
+    
      //자동로그인 체크 유무
     const autoLogIn = document.getElementById("autoLogin").checked;
     
@@ -40,7 +40,7 @@ window.logIn =  function() {
    
         if(userInfo)
         {
-            autoLogIn ? localStorage.setItem("auto","true") : localStorage.setItem("auto","false")
+            autoLogIn ?  document.cookie="auto=true" : document.cookie="auto=false"
             return loadNewsfeed();
         }
     
@@ -103,7 +103,7 @@ window.logOut  = () =>
 {
     authService.signOut().then(function() {
         alert("로그아웃 되었습니다")
-        localStorage.clear;
+        document.cookie="auto=false";
         loadLandingPage();
     }).catch(function(error) {
         if(error){
