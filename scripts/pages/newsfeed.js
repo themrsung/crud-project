@@ -28,19 +28,19 @@ function renderPost(doc) {
     `
     $("#news-feed").append(post_HTML)
 
-    if (doc.data()["comments"] != null) {
-        doc.data()["comments"].forEach((comment, i) => {
-            const comment_HTML = `
-<div class="comment" id="${i}">
-    <p><span>${comment["user"]}</span> - <span>${comment["createdAt"]}</span></p>
-    <p>${comment["content"]}</p>
-</div>
-            `
-            if (comment["deleted"] == false) {
-                $("#comments").append(comment_HTML)
-            }
-        })
-    }
+//     if (doc.data()["comments"] != null) {
+//         doc.data()["comments"].forEach((comment, i) => {
+//             const comment_HTML = `
+// <div class="comment" id="${i}">
+//     <p><span>${comment["user"]}</span> - <span>${comment["createdAt"]}</span></p>
+//     <p>${comment["content"]}</p>
+// </div>
+//             `
+//             if (comment["deleted"] == false) {
+//                 $("#comments").append(comment_HTML)
+//             }
+//         })
+//     }
 }
 
 
