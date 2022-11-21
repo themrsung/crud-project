@@ -4,11 +4,15 @@ import { stripHTMLTags } from "../htmlSecurity.js"
 
 // $(document).ready(function() { onViewPostLoad() })
 
+// 페이지 로드 시 실행
 export async function onViewPostLoad(postId) {
     const docRef = doc(dbService, "posts", postId)
+    // 게시글 데이터 가져오기
     const docSnap = await getDoc(docRef)
 
+    // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false) {
+        // 게시글 영역
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
@@ -18,23 +22,28 @@ export async function onViewPostLoad(postId) {
     <div class="comments" id="comments"></div>
 </div>
         `
-        console.log(post_HTML)
+        // console.log(post_HTML)
         $("#viewpost-outer").append(post_HTML)
         
+        // 코멘트가 있으면
         if (docSnap.data()["comments"] != null) {
+            // 1 코멘트당 이 코드 실행 (forEach)
             docSnap.data()["comments"].forEach((comment, i) => {
+                // 댓글 1개 영역
                 const comment_HTML = `
 <div class="comment" id="${i}">
     <p><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
 </div>
                 `
+                // 코멘트가 삭제되지 않았으면
                 if (comment["deleted"] == false) {
                     $("#comments").append(comment_HTML)
                 }
             })
         }
-
+        
+        // 댓글 쓰기 영역
         const write_comment_HTML = `
 <div class="write-comment-area">
     <input id="write-comment-content" placeholder="댓글을 입력해주세요...">
