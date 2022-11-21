@@ -7,7 +7,7 @@
 }
 /* 웹 폰트 적용 */
 
-body {
+.page-body {
     /* height: 100vh;
     width: 100vw; */
     background-image: url('https://blog.kakaocdn.net/dn/dBv8G4/btrRzfS8u8s/WDKMwQhPNO3h62j3keRLMk/img.jpg');
@@ -17,7 +17,7 @@ body {
     font-family: 'LeferiPoint-WhiteObliqueA';
 }
 
-body::before {
+.page-body::before {
     position: fixed;
     top: 0;
     left: 0;

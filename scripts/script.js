@@ -6,8 +6,8 @@ window.loadNewsfeed = async function() {
     onNewsfeedLoad()
 }
 
-export function loadNewsfeed() {
-    $("#content").load("../pages/templates/newsfeed.html")
+export async function loadNewsfeed() {
+    await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
 }
 
@@ -66,6 +66,10 @@ window.loginFromLandingPage = function() {
     }
     
     //window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
+}
+
+window.lostAccountFromLandingPage = function() {
+    window.location.replace("../index.html?assumeLoggedIn=true&goToLostAccount=true")
 }
 
 

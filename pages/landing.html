@@ -36,20 +36,27 @@
     <!-- 배경 동영상 태그 -->
 
     <div class="landing-background">
+
+        
         <div id="workarea">
             <div class="position">
-                <div class="buttons">
-                    <h1>Welcome To Our Dream!</h1><br>
-                    <button class="btn-hover color-1" onclick="registerFromLandingPage()">회원가입</button>
-                    <button class="btn-hover color-1" onclick="loginFromLandingPage()">로그인</button>
-                    <br>
+                <h1>Welcome To Our Dream!</h1><br>
+                <a onclick="registerFromLandingPage()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>   
+                    REGISTER
+                </a>
 
-        <a onclick="skipLogin()">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            SKIP LOGIN
-        </a>
+
+                <div class="buttons">
+                    
+                    <button class="btn-hover color-1" onclick="loginFromLandingPage()">LOGIN</button>
+                    <button class="btn-hover color-1" onclick="lostAccountFromLandingPage()">LOST ACCOUNT</button>
+                    <br>
+                </div>
+            </div>
+        </div>
     </div>
 </body>

@@ -10,6 +10,9 @@ $(document).ready(function() {
     else if (getParam("goToLogin") == "true") {
         loadLogin()
     }
+    else if (getParam("goToLostAccount") == "true") {
+        loadLostAccount()
+    }
     else {
         loadNewsfeed()
     }
