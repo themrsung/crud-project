@@ -18,7 +18,7 @@ export async function onViewPostLoad(postId) {
 </div>
         `
         console.log(post_HTML)
-        $("viewpost-outer").append(post_HTML)
+        $("#viewpost-outer").append(post_HTML)
         
         if (docSnap.data()["comments"] != null) {
             docSnap.data()["comments"].forEach((comment, i) => {
