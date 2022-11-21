@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .register-form {
-=======
-.register {
->>>>>>> 789c8ccac3ad0867fb140ff389798c09232951e9
   width: 200px;
   position: sticky;
   top: 0; left: 0; bottom: 0; right: 0;
@@ -15,7 +11,6 @@ label {
     position: relative;
     margin: 40px 0px;
   }
-<<<<<<< HEAD
 
 .label-txt {
   top: -1.6em;
@@ -77,67 +72,3 @@ button:hover {
   background: #8BC34A;
   color: #ffffff;
 }
-=======
-  .label-txt {
-    position: absolute;
-    top: -1.6em;
-    padding: 10px;
-    font-family: sans-serif;
-    font-size: .8em;
-    letter-spacing: 1px;
-    color: #000000
-    transition: ease .3s;
-  }
-  .input {
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: none;
-    outline: none;
-  }
-  
-  .line-box {
-    position: relative;
-    width: 100%;
-    height: 2px;
-    background: #BCBCBC;
-  }
-  
-  .line {
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #BA55D3;
-    transition: ease .6s;
-  }
-  
-  .input:focus + .line-box .line {
-    width: 100%;
-  }
-  
-  .label-active {
-    top: -3em;
-  }
-  
-  .registerButton {
-    display: inline-block;
-    padding: 12px 24px;
-    background: rgb(220,220,220);
-    font-weight: bold;
-    color: rgb(120,120,120);
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    cursor: pointer;
-    transition: ease .3s;
-  }
-  
-  button:hover {
-    background: #BA55D3;
-    color: #ffffff;
-  }
-  
->>>>>>> 789c8ccac3ad0867fb140ff389798c09232951e9
