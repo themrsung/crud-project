@@ -6,6 +6,11 @@ window.loadNewsfeed = function() {
     onNewsfeedLoad()
 }
 
+export function loadNewsfeed() {
+    $("#content").load("../pages/templates/newsfeed.html")
+    onNewsfeedLoad()
+}
+
 window.loadLogin = function() {
     $("#content").load("../pages/templates/login.html")
 }
