@@ -36,11 +36,12 @@ function onRegisterButtonClicked() {
     .then((userCredential) => {
         console.log(userCredential)
         // Signed in 
+        alert('가입완료!');
         const user = userCredential.user;
         // ...
     })
     .catch((error) => {
-        console.log('error')
+        alert('이메일과 비밀번호를 정확히 입력하세요!');
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
