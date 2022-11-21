@@ -1,14 +1,13 @@
 import { authService } from "../firebase.js";
 import { loadNewsfeed } from "../script.js"
 
-window.registerComplete = function() {
+window.registerComplete = async function() {
+    await onRegisterClick()
     loadNewsfeed()
 }
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js ";
-export function onRegisterLoad() {
-    document.getElementById('signUpButton').addEventListener('click', (event) => {
-    event.preventDefault()
+async function onRegisterClick() {
     console.log(1)
     const email = document.getElementById('signUpEmail').value
     const password = document.getElementById('signUpPassword').value
@@ -25,7 +24,6 @@ export function onRegisterLoad() {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
-    });
     })
 }
 // window.regLoadLandingPage = function() {
