@@ -42,3 +42,8 @@ function renderPost(doc) {
         })
     }
 }
+
+
+window.newWritePost = function() {
+    $("#content").load("../pages/templates/writepost.html")
+}
