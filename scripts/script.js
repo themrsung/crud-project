@@ -68,6 +68,10 @@ window.loginFromLandingPage = function() {
     //window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true")
 }
 
+window.lostAccountFromLandingPage = function() {
+    window.location.replace("../index.html?assumeLoggedIn=true&goToLostAccount=true")
+}
+
 
 // 개발자용
 window.skipLogin = function() {
