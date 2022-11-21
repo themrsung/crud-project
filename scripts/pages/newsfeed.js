@@ -9,6 +9,8 @@ export async function onNewsfeedLoad() {
             // ,orderBy("createdAt")
         )
     )
+
+    // 시간순 정렬
     querySnapshot.forEach((doc) => {
         if (doc.data()["deleted"] == false) {
             renderPost(doc)
