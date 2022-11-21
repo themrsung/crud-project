@@ -17,6 +17,19 @@ body {
     font-family: 'LeferiPoint-WhiteObliqueA';
 }
 
+body::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://blog.kakaocdn.net/dn/dBv8G4/btrRzfS8u8s/WDKMwQhPNO3h62j3keRLMk/img.jpg');
+    background-size: cover;
+    filter: blur(4px);
+    z-index: -1;
+    content: "";
+}
+
 html {
     margin: 0px;
 }
