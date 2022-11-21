@@ -94,7 +94,7 @@ window.writeComment = async function(postId) {
 }
 
 window.updating = async function(number) {
-    const content = stripHTMLTags(document.getElementById("write-comment-content").value)
+    const content = stripHTMLTags(document.getElementById("write-comment-content").value) 
 
     
 }
