@@ -22,8 +22,8 @@ export async function onViewPostLoad(postId) {
     <div class="comments" id="comments"></div>
 </div>
 <div>
-<button onclick="updating('${postId.id}')">글 수정</button>
-<button onclick="scratching('${postId.id}')">글 삭제</button>
+<button onclick="editPost('${postId}')">글 수정</button>
+<button onclick="scratching('${postId}')">글 삭제</button>
 </div>
         `
         // console.log(post_HTML)

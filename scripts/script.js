@@ -11,6 +11,19 @@ export async function loadNewsfeed() {
     onNewsfeedLoad()
 }
 
+window.loadEditPost = async function(postId) {
+    console.log(postId)
+    await $("#content").load("../pages/templates/editpost.html")
+    await $("#post-content").append(`
+<div class="edit-post-box">
+    <h1>글 수정</h1>
+    <input type="text" id="edit-post-title" placeholder="글 제목">
+    <input type="text" id="edit-post-content" placeholder="글 내용">
+    <button id="edit-post-button" onclick="editPost('${postId}')">작성하기</button>
+</div>
+`   )
+}
+
 window.loadLogin = function() {
     $("#content").load("../pages/templates/login.html")
 }
