@@ -52,6 +52,10 @@ window.loadRegister = async function() {
     await $("#content").load("../pages/templates/register.html")
 }
 
+export function loadRegister() {
+    $("#content").load("../pages/templates/register.html")
+}
+
 window.loadUserProfile = function() {
     $("#content").load("../pages/templates/userprofile.html")
 }

@@ -1,5 +1,5 @@
 import { authService } from "../firebase.js";
-import { loadNewsfeed } from "../script.js"
+import { loadNewsfeed, loadRegister } from "../script.js"
 
 window.registerComplete = function() {
     loadNewsfeed()
@@ -45,6 +45,7 @@ function onRegisterButtonClicked() {
         const errorCode = error.code;
         const errorMessage = error.message;
         // ..
+        loadRegister()
     });
 }
 
