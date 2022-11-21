@@ -36,3 +36,8 @@ export async function onNewsfeedLoad() {
         $("#news-feed").append(post_HTML)
     })
 }
+
+
+window.newWritePost = function() {
+    $("#content").load("../pages/templates/writepost.html")
+}
