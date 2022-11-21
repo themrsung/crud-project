@@ -10,7 +10,7 @@
 .page-body {
     /* height: 100vh;
     width: 100vw; */
-    background-image: url('https://blog.kakaocdn.net/dn/dBv8G4/btrRzfS8u8s/WDKMwQhPNO3h62j3keRLMk/img.jpg');
+    background-image: url('https://blog.kakaocdn.net/dn/dQ5RgT/btrRK2lKcsJ/ClW5RB3GLlsgrbGt72RSVK/img.png');
     background-repeat : no-repeat;
     background-size : cover;
     margin: 0px;
@@ -23,7 +23,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('https://blog.kakaocdn.net/dn/dBv8G4/btrRzfS8u8s/WDKMwQhPNO3h62j3keRLMk/img.jpg');
+    background-image: url('https://blog.kakaocdn.net/dn/dQ5RgT/btrRK2lKcsJ/ClW5RB3GLlsgrbGt72RSVK/img.png');
     background-size: cover;
     filter: blur(4px);
     z-index: -1;
