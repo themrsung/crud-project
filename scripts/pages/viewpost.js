@@ -17,10 +17,11 @@ export async function onViewPostLoad(postId) {
     <div class="comments" id="comments"></div>
 </div>
         `
-        $("post-outer").append(post_HTML)
+        console.log(post_HTML)
+        $("viewpost-outer").append(post_HTML)
         
         if (docSnap.data()["comments"] != null) {
-            doc.data()["comments"].forEach((comment, i) => {
+            docSnap.data()["comments"].forEach((comment, i) => {
                 const comment_HTML = `
 <div class="comment" id="${i}">
     <p><span>${comment["user"]}</span> - <span>${comment["createdAt"]}</span></p>
