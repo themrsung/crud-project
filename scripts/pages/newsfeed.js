@@ -10,31 +10,37 @@ export async function onNewsfeedLoad() {
         )
     )
     querySnapshot.forEach((doc) => {
-        const post_HTML = `
+        if (doc.data()["deleted"] == false) {
+            renderPost(doc)
+        }
+    })
+}
+
+function renderPost(doc) {
+    const post_HTML = `
 <div class="post" id="${doc.id}" onclick="loadViewPost(this.id)">
     <div class="post-content">
         <h1>${doc.data()["title"]}</h1>
         <p><pre>${doc.data()["content"]}</pre></p>
     </div>
-    <div class="comments">
-        <div class="comment">
-            <p><span>작성자</span> - <span>작성일자</span></p>
-            <p>내용</p>
-        </div>
-        <div class="comment">
-            <p><span>작성자</span> - <span>작성일자</span></p>
-            <p>내용</p>
-        </div>
-        <div class="comment">
-            <p><span>작성자</span> - <span>작성일자</span></p>
-            <p>내용</p>
-        </div>
-    </div>
+    <div class="comments" id="comments"></div>
 </div>
     `
-        console.log(post_HTML)
-        $("#news-feed").append(post_HTML)
-    })
+    $("#news-feed").append(post_HTML)
+
+    if (doc.data()["comments"] != null) {
+        doc.data()["comments"].forEach((comment, i) => {
+            const comment_HTML = `
+<div class="comment" id="${i}">
+    <p><span>${comment["user"]}</span> - <span>${comment["createdAt"]}</span></p>
+    <p>${comment["content"]}</p>
+</div>
+            `
+            if (comment["deleted"] == false) {
+                $("#comments").append(comment_HTML)
+            }
+        })
+    }
 }
 
 
