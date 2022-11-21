@@ -67,6 +67,10 @@ window.logIn =  function() {
     
 }
 
+
+
+// TODO 패스워드 정규식 제한, login register 시 stripHTMLTags 적용
+
 window.googit  = (event) => {
   
     const way = event.target.value;
