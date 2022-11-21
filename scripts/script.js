@@ -1,8 +1,8 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
 
-window.loadNewsfeed = function() {
-    $("#content").load("../pages/templates/newsfeed.html")
+window.loadNewsfeed = async function() {
+    await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
 }
 
@@ -23,8 +23,8 @@ window.loadMyProfile = function() {
     $("#content").load("../pages/templates/myprofile.html")
 }
 
-window.loadRegister = function() {
-    $("#content").load("../pages/templates/register.html")
+window.loadRegister = async function() {
+    await $("#content").load("../pages/templates/register.html")
 }
 
 window.loadUserProfile = function() {

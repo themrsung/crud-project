@@ -13,7 +13,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
+.page-body-landing {
     display: flex;
     justify-content: center;
     align-items: center;
