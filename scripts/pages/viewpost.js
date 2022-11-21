@@ -4,19 +4,33 @@ import { dbService, getParam } from "../firebase.js"
 // $(document).ready(function() { onViewPostLoad() })
 
 export async function onViewPostLoad(postId) {
-    var title = "title"
-    var content = "content"
-
     const docRef = doc(dbService, "posts", postId)
     const docSnap = await getDoc(docRef)
 
-
-    //TODO Check if deleted
-    if (docSnap.exists()) {
-        title = docSnap.data()["title"]
-        content = docSnap.data()["content"]
+    if (docSnap.data()["deleted"] == false) {
+        const post_HTML = `
+<div class="post" id="${docSnap.id}">
+    <div class="post-content">
+        <h1>${docSnap.data()["title"]}</h1>
+        <p><pre>${docSnap.data()["content"]}</pre></p>
+    </div>
+    <div class="comments" id="comments"></div>
+</div>
+        `
+        $("post-outer").append(post_HTML)
+        
+        if (docSnap.data()["comments"] != null) {
+            doc.data()["comments"].forEach((comment, i) => {
+                const comment_HTML = `
+<div class="comment" id="${i}">
+    <p><span>${comment["user"]}</span> - <span>${comment["createdAt"]}</span></p>
+    <p>${comment["content"]}</p>
+</div>
+                `
+                if (comment["deleted"] == false) {
+                    $("#comments").append(comment_HTML)
+                }
+            })
+        }
     }
-
-    document.getElementById("view-post-title").innerHTML = title
-    document.getElementById("view-post-content").innerHTML = content
 }

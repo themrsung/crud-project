@@ -17,12 +17,14 @@ window.writePost = function() {
 
     const createdAt = Date.now() || null
     const deleted = false
+    const comments = null
 
     addDoc(collection(dbService, "posts"), {
         title: title,
         content: content,
         createdBy: createdBy,
         createdAt: createdAt,
+        comments: comments,
         deleted: deleted
     })
 }
