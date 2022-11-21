@@ -84,7 +84,7 @@ window.writeComment = async function(postId) {
 
     comments.push(comment)
 
-    updateDoc(
+    await updateDoc(
         doc(dbService, "posts", postId),
         { comments: comments }
     )
