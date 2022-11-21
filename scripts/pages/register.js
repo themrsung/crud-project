@@ -6,6 +6,7 @@ window.registerComplete = function() {
 }
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js ";
+export function onRegisterLoad() {
     document.getElementById('signUpButton').addEventListener('click', (event) => {
     event.preventDefault()
     console.log(1)
@@ -26,8 +27,7 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
         // ..
     });
     })
-
-
+}
 // window.regLoadLandingPage = function() {
 //   window.location.replace("../pages/landing.html")
 // }

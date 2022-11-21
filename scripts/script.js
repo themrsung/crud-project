@@ -1,5 +1,6 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
+import { onRegisterLoad } from "./pages/register.js"
 
 window.loadNewsfeed = function() {
     $("#content").load("../pages/templates/newsfeed.html")
@@ -25,6 +26,7 @@ window.loadMyProfile = function() {
 
 window.loadRegister = function() {
     $("#content").load("../pages/templates/register.html")
+    onRegisterLoad()
 }
 
 window.loadUserProfile = function() {
