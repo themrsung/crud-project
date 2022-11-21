@@ -104,6 +104,7 @@ window.logOut  = () =>
     authService.signOut().then(function() {
         alert("로그아웃 되었습니다")
         document.cookie="auto=false";
+        localStorage.clear;
         loadLandingPage();
     }).catch(function(error) {
         if(error){
