@@ -38,7 +38,7 @@ export async function onViewPostLoad(postId) {
         const write_comment_HTML = `
 <div class="write-comment-area">
     <input id="write-comment-content" placeholder="댓글을 입력해주세요...">
-    <button onclick="writeComment(${docSnap.id})"></button>
+    <button onclick="writeComment('${docSnap.id}')"></button>
 </div>
         `
         $("#comments").append(write_comment_HTML)
