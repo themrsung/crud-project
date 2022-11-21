@@ -1,5 +1,9 @@
 form {
-    margin: 100px 20px 0px 330px;
+  width: 200px;
+  position: sticky;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height: 10%;
+  margin: 10% auto;
 }
 
 label {
@@ -51,7 +55,7 @@ label {
     top: -3em;
   }
   
-  register_button {
+  .registerButton {
     display: inline-block;
     padding: 12px 24px;
     background: rgb(220,220,220);
