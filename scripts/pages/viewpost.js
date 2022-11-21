@@ -1,14 +1,16 @@
-import { getDoc, collection, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { getDoc, collection, doc, updateDoc , arrayUnion } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService, getParam } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
 
 // $(document).ready(function() { onViewPostLoad() })
 
 // 페이지 로드 시 실행
+let docSnap;
+
 export async function onViewPostLoad(postId) {
     const docRef = doc(dbService, "posts", postId)
     // 게시글 데이터 가져오기
-    const docSnap = await getDoc(docRef)
+    docSnap = await getDoc(docRef)
 
     // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false) {
@@ -22,8 +24,8 @@ export async function onViewPostLoad(postId) {
     <div class="comments" id="comments"></div>
 </div>
 <div>
-<button onclick="updating('${postId.id}')">글 수정</button>
-<button onclick="scratching('${postId.id}')">글 삭제</button>
+<button onclick="updating()">글 수정</button>
+<button onclick="scratching()">글 삭제</button>
 </div>
         `
         // console.log(post_HTML)
@@ -38,8 +40,8 @@ export async function onViewPostLoad(postId) {
 <div class="comment" id="${i}">
     <p><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
-    <button onclick="updating('${docSnap.id}')">수정</button>
-    <button onclick="scratching('${docSnap.id}')">삭제</button>
+    <button onclick="updating('${i}')" >수정</button>
+    <button onclick="scratching('${i}')">삭제</button>
 </div>
                 `
                 // 코멘트가 삭제되지 않았으면
@@ -62,7 +64,7 @@ export async function onViewPostLoad(postId) {
 
 window.writeComment = async function(postId) {
     const content = stripHTMLTags(document.getElementById("write-comment-content").value)
-
+    
     var createdBy = "user"
 
     const user = authService.currentUser
@@ -78,9 +80,9 @@ window.writeComment = async function(postId) {
         deleted: false
     }
 
-    const docSnap = await getDoc(doc(dbService, "posts", postId))
-    console.log(docSnap)
-    var comments = docSnap.data()["comments"]
+    const docSnaps = await getDoc(doc(dbService, "posts", postId))
+    console.log(docSnaps)
+    var comments = docSnaps.data()["comments"]
 
     comments.push(comment)
 
@@ -93,14 +95,59 @@ window.writeComment = async function(postId) {
     onViewPostLoad(postId)
 }
 
-window.updating = async function(number) {
-    const content = stripHTMLTags(document.getElementById("write-comment-content").value) 
+window.updating = async function(number = undefined) {
+    //const content = stripHTMLTags(document.getElementById("write-comment-content").value)
+    
+    //const postNumber = document.getElementById("yourPost").value;
+    
+    const commentRef = doc(dbService, "posts", docSnap.id);
+    // const commentRef = collection(dbService,"posts");
+    // const postDoc = doc(dbService, "posts", docSnap.id);
+    
+    
+    
+    // try {
+    //     number ? 
+    //     // await updateDoc(commentRef, JSON.parse(`{ "comments" : { [number] : {"content" : "?" }")`} 
+           
+    //     //     // {
+    //     //     //     content : "바꿀 내용",
+    //     //     //     createdAt : docSnap.data().comments[number].createdAt,
+    //     //     //     createdBy : docSnap.data().comments[number].createdBy,
+    //     //     //     deleted : docSnap.data().comments[number].deleted
+    //     //     // }
+    //     // }):
+    //     await updateDoc(commentRef, { content: "" , title : "" }) // 게시글
+    //     return loadViewPost();
+    // } catch (error) {
+    //     alert(error);
+    // }
 
     
 }
 
 window.scratching = async function(number) {
+    const commentRef = doc(dbService, "posts", docSnap.id)
     
+    
+    
+    try {
+        number ? 
+        await updateDoc(commentRef, { "comments.1.content" :  
+           
+            {
+                content : "바꿀 내용",
+                createdAt : docSnap.data().comments[number].createdAt,
+                createdBy : docSnap.data().comments[number].createdBy,},
+                deleted : docSnap.data().comments[number].deleted
+            }
+            
+        ):
+        await updateDoc(commentRef, { content : "" , title : "" }) // 게시글
+        return loadViewPost();
+    } catch (error) {
+        alert(error);
+    }
 }
 
 

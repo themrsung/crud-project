@@ -28,7 +28,7 @@ function renderPost(doc) {
     `
     $("#news-feed").append(post_HTML)
 
-    if (doc.data()["comments"] != null) {
+    if (doc.data()["comments"]) {
         doc.data()["comments"].forEach((comment, i) => {
             const comment_HTML = `
 <div class="comment" id="${i}">
