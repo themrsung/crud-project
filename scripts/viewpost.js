@@ -5,12 +5,12 @@ import { stripHTMLTags } from "../htmlSecurity.js"
 // $(document).ready(function() { onViewPostLoad() })
 
 // 페이지 로드 시 실행
-export async function onViewPostLoad(postId) { 
+export async function onViewPostLoad(postId) {
     const docRef = doc(dbService, "posts", postId)
     // 게시글 데이터 가져오기
     const docSnap = await getDoc(docRef)
     $("#viewpost-outer").empty();
-    $("#comments").empty(); 
+    $("#comments").empty();
     // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false){
         // 게시글 영역
