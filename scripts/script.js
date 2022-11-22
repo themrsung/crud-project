@@ -2,6 +2,7 @@ import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
 import { authService } from "./firebase.js"
 import { onMyProfileLoad } from "./pages/myprofile.js"
+import { onProfileLoad } from "./profileLoader.js"
 
 window.loadNewsfeed = async function() {
     await $("#content").load("../pages/templates/newsfeed.html")
@@ -69,8 +70,9 @@ export function loadRegister() {
     $("#content").load("../pages/templates/register.html")
 }
 
-window.loadUserProfile = function() {
-    $("#content").load("../pages/templates/userprofile.html")
+window.loadUserProfile = async function(userId) {
+    await $("#content").load("../pages/templates/userprofile.html")
+    await onProfileLoad(userId)
 }
 
 window.loadViewPost = function(postId) {
