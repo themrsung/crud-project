@@ -33,10 +33,16 @@ export async function onViewPostLoad(postId) {
         if (docSnap.data()["comments"].length > 1) {
             // 1 코멘트당 이 코드 실행 (forEach)
             docSnap.data()["comments"].forEach((comment, i) => {
+                const isOwnComment = authService.currentUser.uid == comment["createdBy"]
+                const createdBy = comment["createdBy"]
+                var onClick = "loadUserProfile('" + createdBy + "')"
+                if (isOwnComment) {
+                    onClick = "loadMyProfile()"
+                }
                 // 댓글 1개 영역
                 const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
-    <p onclick="loadUserProfile(${comment["createdBy"]})"><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
+    <p onclick="${onClick}")"><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
     <button onclick="editComment('${postId}.${i}')">수정</button>
     <button onclick="scratchComment('${postId}.${i}')">삭제</button>
