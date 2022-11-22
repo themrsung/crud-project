@@ -99,6 +99,4 @@ window.writeComment = async function(postId) {
     onViewPostLoad(postId)
 }
 
-window.scratchPost = async function(postId) {
-
-}
+// 삭제 함수는 editpost.js

@@ -1,6 +1,7 @@
 import {  doc, updateDoc , getDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { dbService } from "../firebase.js"
 import "../script.js"
+import { loadNewsfeed } from "../script.js"
 
 window.editPost = function(postId) {
     loadEditPost(postId)
@@ -36,6 +37,7 @@ window.scratchPost = async function(postId) {
         alert(error);
     }
 
+    loadNewsfeed()
 }
 
 
