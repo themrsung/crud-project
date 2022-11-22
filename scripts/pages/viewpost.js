@@ -10,7 +10,7 @@ export async function onViewPostLoad(postId) {
     // 게시글 데이터 가져오기
     const docSnap = await getDoc(docRef)
     $("#viewpost-outer").empty();
-    $("#comments").empty();
+    $("#comments").empty(); 
     // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false){
         // 게시글 영역
