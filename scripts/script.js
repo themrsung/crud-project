@@ -1,6 +1,8 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
-import { authService } from "./firebase.js"
+import { app, authService } from "./firebase.js"
+import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+
 import { onMyProfileLoad } from "./pages/myprofile.js"
 import { onProfileLoad } from "./profileLoader.js"
 
@@ -57,8 +59,15 @@ window.loadLostAccount = function() {
     $("#content").load("../pages/templates/lostaccount.html")
 }
 
-window.loadMyProfile = function() {
-    $("#content").load("../pages/templates/myprofile.html")
+window.loadMyProfile = async function() {
+    // $("#content").load("../pages/templates/myprofile.html")
+
+    const myProfileHTML = await fetch("../pages/templates/myprofile.html").then(function(data) {
+        return data.text()
+    })
+    
+    document.getElementById("content").innerHTML = myProfileHTML 
+
     onMyProfileLoad()
 }
 
@@ -70,9 +79,21 @@ export function loadRegister() {
     $("#content").load("../pages/templates/register.html")
 }
 
+// 유저 프로필 불러오기
+// UID로 유저 찾기 안됨
 window.loadUserProfile = async function(userId) {
-    await $("#content").load("../pages/templates/userprofile.html")
-    await onProfileLoad(userId)
+    // await $("#content").load("../pages/templates/userprofile.html")
+
+    const userProfileHTML = await fetch("../pages/templates/userprofile.html").then(function(data) {
+        return data.text()
+    })
+    
+    document.getElementById("content").innerHTML = userProfileHTML 
+
+    const user = await getAuth().getUser(userId)
+    if (user) {
+        await onProfileLoad(user)
+    }
 }
 
 window.loadViewPost = function(postId) {

@@ -5,7 +5,7 @@ export async function onNewsfeedLoad() {
     const querySnapshot = await getDocs(
         query(
             collection(dbService, "posts"),
-            // where("deleted", "==", false),
+            where("deleted", "==", false),
             // where("createdAt", ">=", 0),
             orderBy("createdAt")
             // ,orderBy("createdAt")
@@ -16,9 +16,7 @@ export async function onNewsfeedLoad() {
     // querySnapshot.reverse()
 
     querySnapshot.forEach((doc) => {
-        if (doc.data()["deleted"] == false) {
-            renderPost(doc)
-        }
+        renderPost(doc)
     })
 
 }
