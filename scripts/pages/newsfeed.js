@@ -20,6 +20,7 @@ export async function onNewsfeedLoad() {
             renderPost(doc)
         }
     })
+
 }
 
 export function renderPostToProfile(doc) {
@@ -36,7 +37,7 @@ function renderPost(doc) {
     <div class="comments" id="comments"></div>
 </div>
     `
-    $("#news-feed").append(post_HTML)
+    $("#news-feed").prepend(post_HTML)
 
 //     if (doc.data()["comments"] != null) {
 //         doc.data()["comments"].forEach((comment, i) => {
