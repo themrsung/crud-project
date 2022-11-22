@@ -1,5 +1,6 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
+import { authService } from "./firebase.js"
 
 window.loadNewsfeed = async function() {
     await $("#content").load("../pages/templates/newsfeed.html")
@@ -9,6 +10,16 @@ window.loadNewsfeed = async function() {
 export async function loadNewsfeed() {
     await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
+}
+
+window.loadNewsfeedFromTitleClick = async function() {
+    await $("#content").load("../pages/templates/newsfeed.html")
+    await onNewsfeedLoad()
+    
+    const user = authService.currentUser
+    if (!user) {
+        loadLandingPage()
+    }
 }
 
 window.loadEditPost = async function(postId) {

@@ -17,7 +17,7 @@ export async function onViewPostLoad(postId) {
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
         <h1>${docSnap.data()["title"]}</h1>
-        <p><pre>${docSnap.data()["content"]}</pre></p>
+        <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
     </div>
     <div class="comments" id="comments"></div>
 </div>

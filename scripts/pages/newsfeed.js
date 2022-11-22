@@ -23,7 +23,7 @@ function renderPost(doc) {
 <div class="post" id="${doc.id}" onclick="loadViewPost(this.id)">
     <div class="post-content">
         <h1>${doc.data()["title"]}</h1>
-        <p><pre>${doc.data()["content"]}</pre></p>
+        <p><pre class="post-content-pre">${doc.data()["content"]}</pre></p>
     </div>
     <div class="comments" id="comments"></div>
 </div>

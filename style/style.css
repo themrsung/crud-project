@@ -7,6 +7,13 @@
 }
 /* 웹 폰트 적용 */
 
+.post-content-pre {
+    font-family: 'LeferiPoint-WhiteObliqueA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .page-body {
     /* height: 100vh;
     width: 100vw; */
