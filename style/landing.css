@@ -6,6 +6,10 @@
     margin: 70px 40px 70px 40px;
 }
 
+.position {
+margin-left: 10%;
+}
+
 /* 로그인 스킵 버튼  */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 *{
@@ -134,7 +138,7 @@ a span:nth-child(4){
 }
 
 .buttons {
-    margin: 10%;
+    margin: 10% 20% 0% 0%;
     text-align: center;
 }
 
