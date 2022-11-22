@@ -1,18 +1,24 @@
-import { getDocs, collection, query, where, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { getDocs, collection, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { dbService } from "../firebase.js"
 
 export async function onNewsfeedLoad() {
     const querySnapshot = await getDocs(
         query(
             collection(dbService, "posts"),
-            where("deleted", "==", false)
+            // where("deleted", "==", false),
+            // where("createdAt", ">=", 0),
+            orderBy("createdAt")
             // ,orderBy("createdAt")
         )
     )
 
-    // 시간순 정렬
+    // // 시간순 정렬
+    // querySnapshot.reverse()
+
     querySnapshot.forEach((doc) => {
-        renderPost(doc)
+        if (doc.data()["deleted"] == false) {
+            renderPost(doc)
+        }
     })
 }
 
