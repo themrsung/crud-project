@@ -1,7 +1,9 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
-import { app, authService } from "./firebase.js"
+import { app, authService, dbService } from "./firebase.js"
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
+
+import { getDoc, collection, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
 import { onMyProfileLoad } from "./pages/myprofile.js"
 import { onProfileLoad } from "./profileLoader.js"
@@ -48,6 +50,11 @@ window.loadEditPost = async function(postId) {
     //         check = true
     //     }
     // }
+
+    const post = await getDoc(doc(dbService, "posts", postId))
+    console.log(post)
+    document.getElementById("edit-post-title").value = post.data()["title"]
+    document.getElementById("edit-post-content").value = post.data()["content"]
 
 }
 
