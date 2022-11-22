@@ -127,11 +127,10 @@ window.registerFromLandingPage = function() {
 
 window.loginFromLandingPage = function() {
 
-    let cookie = document.cookie.split("=");
+    let cookie = document.cookie.match("auto=true");
 
     
-
-    if(cookie[1]==="true") 
+    if(cookie) 
     {
         window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=false");
     } 
