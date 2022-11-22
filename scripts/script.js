@@ -1,6 +1,7 @@
 import { onViewPostLoad } from "./pages/viewpost.js"
 import { onNewsfeedLoad } from "./pages/newsfeed.js"
 import { authService } from "./firebase.js"
+import { onMyProfileLoad } from "./pages/myprofile.js"
 
 window.loadNewsfeed = async function() {
     await $("#content").load("../pages/templates/newsfeed.html")
@@ -57,6 +58,7 @@ window.loadLostAccount = function() {
 
 window.loadMyProfile = function() {
     $("#content").load("../pages/templates/myprofile.html")
+    onMyProfileLoad()
 }
 
 window.loadRegister = async function() {

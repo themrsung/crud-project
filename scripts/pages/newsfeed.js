@@ -12,10 +12,12 @@ export async function onNewsfeedLoad() {
 
     // 시간순 정렬
     querySnapshot.forEach((doc) => {
-        if (doc.data()["deleted"] == false) {
-            renderPost(doc)
-        }
+        renderPost(doc)
     })
+}
+
+export function renderPostToProfile(doc) {
+    renderPost(doc)
 }
 
 function renderPost(doc) {
