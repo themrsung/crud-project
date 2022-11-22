@@ -90,7 +90,7 @@ window.loadUserProfile = async function(userId) {
     
     document.getElementById("content").innerHTML = userProfileHTML 
 
-    const user = await getAuth().getUser(userId)
+    const user = await authService.getUser(userId)
     if (user) {
         await onProfileLoad(user)
     }
