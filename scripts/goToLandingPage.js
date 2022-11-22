@@ -1,4 +1,5 @@
 import { authService, getParam } from "./firebase.js"
+import { onViewPostLoad } from "./pages/viewpost.js"
 
 
 // 로그인 안 된 유저 랜딩으로 보내는 코드
@@ -20,4 +21,20 @@ window.goToLandingPage = function() {
     }
 }
 
+window.goToPost = function() {
+    if (getParam("postNum") != "false" && getParam("postNum") && !getParam("goToLogin")) {
+        $(document).ready(function() {
+            authService.onAuthStateChanged((user) => {
+                if (user) {
+                    loadViewPost(getParam("postNum"));
+                }
+                else{
+                    loadLandingPage() 
+                }
+            })
+        })
+    }
+}
+
 goToLandingPage()
+goToPost()
