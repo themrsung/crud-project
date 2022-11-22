@@ -3,7 +3,7 @@ import { onNewsfeedLoad } from "./pages/newsfeed.js"
 import { app, authService, dbService } from "./firebase.js"
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 
-import { getDoc, collection, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { getDoc, collection, doc, updateDoc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
 import { onMyProfileLoad } from "./pages/myprofile.js"
 import { onProfileLoad } from "./profileLoader.js"
