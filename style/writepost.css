@@ -14,3 +14,7 @@
     overflow: scroll;
     overflow-x: hidden;
 }
+
+#write-post-button {
+    margin-top: 20px;
+}
