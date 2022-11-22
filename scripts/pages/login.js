@@ -76,13 +76,12 @@ window.googit  = (event) => {
     const way = event.target.value;
     const autoLogIn = document.getElementById("autoLogin").checked;
     let connection;
-    let cookie = document.cookie;
     way==="google" ? connection = new GoogleAuthProvider() : connection = new GithubAuthProvider()
     signInWithPopup(authService, connection).then((result) => {
        
       if(result.user)
       {
-        autoLogIn ? cookie="auto=true" : cookie="auto=false"
+        autoLogIn ?  document.cookie="auto=true" : document.cookie="auto=false"
         return loadNewsfeed();
       }
 

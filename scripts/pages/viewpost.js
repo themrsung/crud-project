@@ -9,8 +9,10 @@ export async function onViewPostLoad(postId) {
     const docRef = doc(dbService, "posts", postId)
     // 게시글 데이터 가져오기
     const docSnap = await getDoc(docRef)
-    $("#viewpost-outer").empty();
-    $("#comments").empty(); 
+
+    $("#viewpost-outer").empty(); // 글 초기화
+    $("#comments").empty(); // 댓글 초기화
+    
     // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false){
         // 게시글 영역

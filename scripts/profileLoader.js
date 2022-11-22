@@ -22,5 +22,10 @@ export async function onProfileLoad(user) {
 function renderProfileInfo(user) {    
     document.getElementById("user-name").innerHTML = user.displayName
     document.getElementById("user-tag").innerHTML = user.tag
+    document.getElementById("user-profile-image").src = user.photoURL
     document.getElementById("user-motd").innerHTML = user.motd
+}
+
+window.profileImageSetTest = function() {
+    authService.currentUser.photoURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/PEO_M4_Carbine_RAS_M68_CCO.png/450px-PEO_M4_Carbine_RAS_M68_CCO.png"
 }
