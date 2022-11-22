@@ -137,6 +137,10 @@ html {
     .title-box {
         margin: 0px auto 0px 0px;
     }
+
+    .wrap-inner {
+        height: calc(100vh - 309px);
+    }
 }
 
 @media (width < 500px) {
