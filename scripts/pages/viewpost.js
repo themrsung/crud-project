@@ -99,4 +99,4 @@ window.writeComment = async function(postId) {
     onViewPostLoad(postId)
 }
 
-// 삭제 함수는 editpost.js
+// 삭제 함수는 editpost.jsaaaaaaa

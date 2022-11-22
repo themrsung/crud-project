@@ -20,7 +20,7 @@ export async function onProfileLoad(user) {
 }
 
 function renderProfileInfo(user) {    
-    document.getElementById("user-name").innerHTML = user.name
+    document.getElementById("user-name").innerHTML = user.displayName
     document.getElementById("user-tag").innerHTML = user.tag
     document.getElementById("user-motd").innerHTML = user.motd
 }
