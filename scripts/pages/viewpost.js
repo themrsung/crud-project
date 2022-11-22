@@ -1,4 +1,4 @@
-import { getDoc, collection, doc, updateDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { getDoc, collection, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService, getParam } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
 
@@ -93,3 +93,6 @@ window.writeComment = async function(postId) {
     onViewPostLoad(postId)
 }
 
+window.scratchPost = async function(postId) {
+
+}
