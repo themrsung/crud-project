@@ -1,5 +1,6 @@
-import { authService } from "../firebase.js";
+import { authService, dbService } from "../firebase.js";
 import { loadNewsfeed, loadRegister } from "../script.js"
+import {  updateProfile } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 
 window.registerComplete = function() {
     loadNewsfeed()
@@ -28,9 +29,20 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 //     });
 // }
 
-function onRegisterButtonClicked() {
+window.onRegisterButtonClicked = async function () {
+    // Add a new document in collection "cities"
+    // const db = firebase.firestore();
+    // var regContent = {
+    //     name : $('#signUpName').val()
+    // }
+    // db.collection('test').add(regContent)
+    
+    // updateProfile(auth.currentUser, {
+    //     displayName: $('#signUpName'), photoURL: "https://example.com/jane-q-user/profile.jpg"})
+    
     const email = document.getElementById('signUpEmail').value
     const password = document.getElementById('signUpPassword').value
+
     const auth = getAuth();
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -47,6 +59,8 @@ function onRegisterButtonClicked() {
         // ..
         loadRegister()
     });
+
+    
 }
 
 
