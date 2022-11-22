@@ -99,7 +99,7 @@ window.onEditCommentCompleted = async function(postId) {  //comment 매개로 �
 
 }
 
-window.scratchComment = async function(postId) {
+window.scratchComment = async function(postId) { 
     
     const info = postId.split(".");
     const docRef = doc(dbService, "posts", info[0])

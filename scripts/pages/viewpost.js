@@ -5,7 +5,7 @@ import { stripHTMLTags } from "../htmlSecurity.js"
 // $(document).ready(function() { onViewPostLoad() })
 
 // 페이지 로드 시 실행
-export async function onViewPostLoad(postId) {
+export async function onViewPostLoad(postId) { 
     const docRef = doc(dbService, "posts", postId)
     // 게시글 데이터 가져오기
     const docSnap = await getDoc(docRef)
