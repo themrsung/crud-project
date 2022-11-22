@@ -17,13 +17,13 @@ export async function onViewPostLoad(postId) {
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
         <h1>${docSnap.data()["title"]}</h1>
-        <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
+        <p><pre>${docSnap.data()["content"]}</pre></p>
     </div>
     <div class="comments" id="comments"></div>
 </div>
 <div>
 <button onclick="editPost('${postId}')">글 수정</button>
-<button onclick="scratching('${postId}')">글 삭제</button>
+<button onclick="scratchPost('${postId}')">글 삭제</button>
 </div>
         `
         // console.log(post_HTML)
@@ -35,11 +35,11 @@ export async function onViewPostLoad(postId) {
             docSnap.data()["comments"].forEach((comment, i) => {
                 // 댓글 1개 영역
                 const comment_HTML = `
-<div class="comment" id="${i}">
-    <p onclick="loadUserProfile('${comment["createdBy"]}')"><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
+<div class="comment" id="${postId}.${i}">
+    <p><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
-    <button onclick="updating('${docSnap.id}')">수정</button>
-    <button onclick="scratching('${docSnap.id}')">삭제</button>
+    <button onclick="editComment('${postId}.${i}')">수정</button>
+    <button onclick="scratchComment('${postId}.${i}')">삭제</button>
 </div>
                 `
                 // 코멘트가 삭제되지 않았으면
@@ -93,57 +93,3 @@ window.writeComment = async function(postId) {
     onViewPostLoad(postId)
 }
 
-// window.updating = async function(number = undefined) {
-//     //const content = stripHTMLTags(document.getElementById("write-comment-content").value)
-    
-//     //const postNumber = document.getElementById("yourPost").value;
-    
-//     const commentRef = doc(dbService, "posts", docSnap.id);
-//     // const commentRef = collection(dbService,"posts");
-//     // const postDoc = doc(dbService, "posts", docSnap.id);
-    
-    
-    
-//     try {
-//         number ? 
-//         await updateDoc(commentRef, JSON.parse(`{ "comments" : { [number] : {"content" : "?" }")`} 
-           
-//             // {
-//             //     content : "바꿀 내용",
-//             //     createdAt : docSnap.data().comments[number].createdAt,
-//             //     createdBy : docSnap.data().comments[number].createdBy,
-//             //     deleted : docSnap.data().comments[number].deleted
-//             // }
-//         }):
-//         await updateDoc(commentRef, { content: "" , title : "" }) // 게시글
-//         return loadViewPost();
-//     } catch (error) {
-//         alert(error);
-//     }
-
-    
-// }
-
-// window.scratching = async function(number) {
-//     const commentRef = doc(dbService, "posts", docSnap.id)
-    
-    
-    
-//     try {
-//         number ? 
-//         await updateDoc(commentRef, { "comments.1.content" :  
-           
-//             {
-//                 content : "바꿀 내용",
-//                 createdAt : docSnap.data().comments[number].createdAt,
-//                 createdBy : docSnap.data().comments[number].createdBy,},
-//                 deleted : docSnap.data().comments[number].deleted
-//             }
-            
-//         ):
-//         await updateDoc(commentRef, { content : "" , title : "" }) // 게시글
-//         return loadViewPost();
-//     } catch (error) {
-//         alert(error);
-//     }
-// }
