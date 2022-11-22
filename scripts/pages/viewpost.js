@@ -36,7 +36,7 @@ export async function onViewPostLoad(postId) {
                 // 댓글 1개 영역
                 const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
-    <p><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
+    <p onclick="loadUserProfile(${comment["createdBy"]})"><span>${comment["createdBy"]}</span> - <span>${comment["createdAt"]}</span></p>
     <p>${comment["content"]}</p>
     <button onclick="editComment('${postId}.${i}')">수정</button>
     <button onclick="scratchComment('${postId}.${i}')">삭제</button>
