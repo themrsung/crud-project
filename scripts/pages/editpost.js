@@ -30,14 +30,13 @@ window.scratchPost = async function(postId) {
     const commentRef = doc(dbService, "posts",postId)
     try {
        
-        await updateDoc(commentRef, { deleted : true }) 
-        return loadViewPost();
+        await updateDoc(commentRef, { deleted : true })
+        loadNewsfeed()
+        return
 
     } catch (error) {
         alert(error);
     }
-
-    loadNewsfeed()
 }
 
 
