@@ -26,17 +26,16 @@ $(document).ready(function() {
         const where = window.location.hash;
 
         if(where.match("loadNewsfeed.")){
-            const url = window.location.hash.match("loadNewsfeed.");
-            const postNum = url["input"].split(".");
+            const postNum = where.split(".");
             loadViewPost(postNum[1])
-        }
-        else if(where.match("loadNewsfeed")){
-            
-            loadNewsfeed()
         }
         else if(where.match("loadLogin")){
             
             loadLogin()
+        }
+        else if(where.match("loadUserProfile.")){
+            const postNum = where.split(".");
+            loadUserProfile(postNum[1]);
         }
         else
         {
