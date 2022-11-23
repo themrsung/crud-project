@@ -6,16 +6,24 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth
 import { getDoc, collection, doc, updateDoc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
 import { onMyProfileLoad } from "./pages/myprofile.js"
-import { onProfileLoad, onProfileLoadUID } from "./profileLoader.js"
+import { onProfileLoad } from "./profileLoader.js"
+
+
+
 
 window.loadNewsfeed = async function() {
+
+    window.location.hash = "loadNewsfeed"
     await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
+    
 }
 
 export async function loadNewsfeed() {
+    window.location.hash = "loadNewsfeed"
     await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
+    
 }
 
 window.loadNewsfeedFromTitleClick = async function() {
@@ -59,14 +67,17 @@ window.loadEditPost = async function(postId) {
 }
 
 window.loadLogin = function() {
+    window.location.hash = "loadLogin"
     $("#content").load("../pages/templates/login.html")
 }
 
 window.loadLostAccount = function() {
+    window.location.hash = "loadLostAccount"
     $("#content").load("../pages/templates/lostaccount.html")
 }
 
 window.loadMyProfile = async function() {
+    window.location.hash = "loadMyProfile"
     // $("#content").load("../pages/templates/myprofile.html")
 
     const myProfileHTML = await fetch("../pages/templates/myprofile.html").then(function(data) {
@@ -79,16 +90,19 @@ window.loadMyProfile = async function() {
 }
 
 window.loadRegister = async function() {
+    window.location.hash = "loadRegister"
     await $("#content").load("../pages/templates/register.html")
 }
 
 export function loadRegister() {
+    window.location.hash = "loadRegister"
     $("#content").load("../pages/templates/register.html")
 }
 
 // 유저 프로필 불러오기
 // UID로 유저 찾기 안됨
 window.loadUserProfile = async function(userId) {
+    window.location.hash = "loadUserProfile"
     // await $("#content").load("../pages/templates/userprofile.html")
 
     const userProfileHTML = await fetch("../pages/templates/userprofile.html").then(function(data) {
@@ -97,7 +111,10 @@ window.loadUserProfile = async function(userId) {
     
     document.getElementById("content").innerHTML = userProfileHTML 
 
-    onProfileLoadUID(userId)
+    const user = await authService.getUser(userId)
+    if (user) {
+        await onProfileLoad(user)
+    }
 }
 
 window.loadViewPost = function(postId) {
@@ -106,6 +123,7 @@ window.loadViewPost = function(postId) {
 }
 
 window.loadWritePost = function() {
+    window.location.hash = "loadWritePost"
     $("#content").load("../pages/templates/writepost.html")
 }
 
@@ -119,28 +137,31 @@ window.loadLandingPage = function() {
 
 
 window.registerFromLandingPage = function() {
-    window.location.replace("../index.html?assumeLoggedIn=true&goToRegister=true")
+    window.location.replace("../index.html?assumeLoggedIn=true&goToRegister=true&where=register")
 }
 
 window.loginFromLandingPage = function() {
 
     let cookie = document.cookie.match("auto=true");
 
-    
     if(cookie) 
     {
-        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=false");
+        //window.history.pushState({ 'page_id': 1, 'user_id': 5 }, "title", "/index.html");
+        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=false#Newsfeed");
+        
     } 
     else
     {
-        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true");
+        //window.history.pushState({ 'page_id': 1, 'user_id': 5 }, "title", "/index.html");
+        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=true#loadLogin");
+        
     }
     
    
 }
 
 window.lostAccountFromLandingPage = function() {
-    window.location.replace("../index.html?assumeLoggedIn=true&goToLostAccount=true")
+    window.location.replace("../index.html?assumeLoggedIn=true&goToLostAccount=true#lostAccount")
 }
 
 
