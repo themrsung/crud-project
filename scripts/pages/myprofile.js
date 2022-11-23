@@ -1,10 +1,9 @@
 import { authService } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
 import { onProfileLoad } from "../profileLoader.js"
-import { loadMyProfile } from "../script.js"
 import { updateMyProfileDisplayName, updateMyProfilePassword } from "../userService.js"
 
-export async function onMyProfileLoad(uid) {
+export async function onMyProfileLoad() {
     const user = authService.currentUser
     if (user) {
         onProfileLoad(user)
@@ -44,7 +43,8 @@ window.startMotdChange = async function() {
 window.onDisplayNameChanged = async function() {
     const ndn = stripHTMLTags($("#new-user-name").val())
     await updateMyProfileDisplayName(ndn)
-    loadMyProfile()
+    await $("#edit-user-name-button-container").empty()
+    $("user-name").val(ndn)
 }
 
 window.onPasswordChanged = async function() {
@@ -57,7 +57,7 @@ window.onPasswordChanged = async function() {
     else {
         const msg = updateMyProfilePassword(newPass)
         if (msg == "success") {
-            loadMyProfile()
+            await $("#edit-user-password-button-container").empty()
         }
         else {
             alert(msg)

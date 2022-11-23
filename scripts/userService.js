@@ -1,5 +1,5 @@
 import { addDoc, getDocs, collection, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
-import { authService, dbService, storageService } from "./firebase";
+import { authService, dbService, storageService } from "./firebase.js";
 import { updateProfile, updatePassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import { ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
 
