@@ -26,12 +26,35 @@ export async function onProfileLoad(user) {
 }
 
 export async function onProfileLoadUID(uid) {
-    renderProfileInfo(
+    Promise.all([
         getUserDisplayName(uid),
         getUserEmail(uid),
         getUserPhotoURL(uid),
         getUserMotd(uid)
-    )
+    ]).then(function(response) {
+        console.log("aaaa", response)
+        // renderProfileInfo(
+        //     response[0],
+        //     response[1],
+        //     response[2],
+        //     response[3]
+        // )
+        const [displayName, email, photoURL, motd] = response
+        renderProfileInfo(
+            displayName,
+            email,
+            photoURL,
+            motd
+        )
+    })
+
+    // }
+    // renderProfileInfo(
+    //     getUserDisplayName(uid),
+    //     getUserEmail(uid),
+    //     getUserPhotoURL(uid),
+    //     getUserMotd(uid)
+    // )
 }
 
 // function renderProfileInfo(user) {    
@@ -42,6 +65,7 @@ export async function onProfileLoadUID(uid) {
 // }
 
 function renderProfileInfo(displayName, email, photoURL, motd) {
+    console.log("aaaa", displayName)
     document.getElementById("user-name").innerHTML = displayName
     document.getElementById("user-email").innerHTML = email
     document.getElementById("user-profile-image").src = photoURL
