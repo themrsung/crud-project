@@ -6,14 +6,20 @@
             </div>
             <div class="profile-title">
                 <h1 id="user-name">이름</h1>
-                <button>변경</button>
-                <p id="user-tag">유저네임</p>
-                <button>변경</button>
+                <div id="edit-user-name-button-container">
+                    <button onclick="startDisplayNameChange()">변경</button>
+                </div>
+                <p id="user-email">이메일</p>
+                <div id="edit-user-password-button-container">
+                    <button onclick="startPasswordChange()">비밀번호 변경</button>
+                </div>
             </div>
         </div>
         <div class="profile-desc">
             <p id="user-motd">프로필에 대한 설명</p>
-            <button>변경</button>
+            <div id="edit-user-motd-button-container">
+                <button>변경</button>
+            </div>
         </div>
     </div>
 

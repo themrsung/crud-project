@@ -78,6 +78,16 @@ window.loadMyProfile = async function() {
     onMyProfileLoad()
 }
 
+export async function loadMyProfile() {
+    const myProfileHTML = await fetch("../pages/templates/myprofile.html").then(function(data) {
+        return data.text()
+    })
+    
+    document.getElementById("content").innerHTML = myProfileHTML 
+
+    onMyProfileLoad()
+}
+
 window.loadRegister = async function() {
     await $("#content").load("../pages/templates/register.html")
 }

@@ -17,18 +17,29 @@ export async function updateMyProfilePicture(newPhotoFile) {
     }
 }
 
-export async function updateMyProfileDisplayName(newDisplayName) {
-    const user = authService.currentUser
-    if (user) {
-        updateProfile(user, {
-            displayName: newDisplayName
-        })
+export async function updateMyProfileDisplayName() {
+    const ndn = $("#new-user-name").val()
+    if (ndn) {
+        const user = authService.currentUser
+        if (user) {
+            updateProfile(user, {
+                displayName: newDisplayName
+            })
+        }
     }
 }
 
-export async function updateMyProfilePassword(newPassword) {
-    const user = authService.currentUser
-    if (user) {
-        updatePassword(user, newPassword)
+export async function updateMyProfilePassword() {
+    const pass = $("#new-user-password")
+    if (pass) {
+        const user = authService.currentUser
+        if (user) {
+            updatePassword(user, newPassword).then(() => {
+                // Success
+                return "success"
+            }).catch(error) {
+                return error
+            }
+        }
     }
 }

@@ -21,7 +21,7 @@ export async function onProfileLoad(user) {
 
 function renderProfileInfo(user) {    
     document.getElementById("user-name").innerHTML = user.displayName
-    document.getElementById("user-tag").innerHTML = user.tag
+    document.getElementById("user-email").innerHTML = user.email
     document.getElementById("user-profile-image").src = user.photoURL
     document.getElementById("user-motd").innerHTML = user.motd
 }
