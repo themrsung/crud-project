@@ -35,7 +35,7 @@ function renderPost(doc, isFirst = false) {
         const [displayName] = response
         const thumbnailURL = "../../img/default-profile.png"
         const post_HTML = `
-    <div class="post" id="${doc.id}" onclick="loadViewPost(this.id)">
+    <div class="post" id="${doc.id}" onclick="checkHash('loadNewsfeed.'+this.id)">
         <div class="post-thumbnail-container">
             <img class="post-thumbnail" src="${thumbnailURL}">
         </div>
