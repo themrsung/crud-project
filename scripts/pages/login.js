@@ -7,6 +7,8 @@ import {
   signOut, // 로그아웃 메서드
 } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 
+import { updateUserInfoToCache } from "../userService.js";
+
  
 
 window.logIn =  function() {
@@ -41,6 +43,7 @@ window.logIn =  function() {
         if(userInfo)
         {
             autoLogIn ?  document.cookie="auto=true" : document.cookie="auto=false"
+            updateUserInfoToCache()
             return loadNewsfeed();
         }
     

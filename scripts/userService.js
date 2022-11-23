@@ -1,4 +1,4 @@
-import { addDoc, getDocs, collection, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
+import { addDoc, getDoc, setDoc, collection, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService, storageService } from "./firebase.js";
 import { updateProfile, updatePassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 import { ref, uploadBytes } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-storage.js";
@@ -37,3 +37,40 @@ export async function updateMyProfilePassword(newPassword) {
         })
     }
 }
+
+export async function updateUserInfoToCache() {
+    // console.log("user info updated")
+    const user = authService.currentUser
+    // var motd = document.getElementById("user-motd").innerHTML || null
+    if (user) {
+        // if (motd == null) {
+        //     motd = (await getDoc(
+        //         doc(dbService, "userData", user.uid)
+        //     )).data()["motd"]
+        // }
+        // dbService.collection("userData").doc(user.uid).set({
+        //     displayName: user.displayName,
+        //     email: user.email,
+        //     photoURL: user.photoURL
+        // })
+        // console.log(user.displayName, user.email, user.photoURL)
+        setDoc(
+            doc(dbService, "userData", user.uid),
+            {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL
+            }
+        )
+    }
+}
+
+export async function getUserDisplayName(uid) {
+    await getDoc(
+        doc(dbService, "userData", uid)
+    )
+    return getDoc.data()["displayName"]
+}
+
+console.log("GetUserDisplayName")
+console.log(getUserDisplayName(authService.currentUser.uid))

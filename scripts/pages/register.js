@@ -1,10 +1,12 @@
 import { authService, dbService } from "../firebase.js";
 import { loadNewsfeed, loadRegister } from "../script.js"
+import { updateUserInfoToCache } from "../userService.js";
 
 
 window.registerComplete = function() {
     loadNewsfeed()
     onRegisterButtonClicked()
+    updateUserInfoToCache()
 }
 
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js ";
