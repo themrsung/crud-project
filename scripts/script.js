@@ -171,7 +171,7 @@ window.skipLogin = function() {
 }
 
 window.onpopstate = function(event) {
-	console.log("location: " + document.location + ", state: " + JSON.stringify(event.state)); 
+	console.log(`${JSON.stringify(e.state)} | ${location.origin} | ${location.pathname}`);
 }
 
 function whereYouGet() {
