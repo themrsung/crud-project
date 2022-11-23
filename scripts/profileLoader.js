@@ -39,6 +39,7 @@ export async function onProfileLoadUID(uid) {
             photoURL,
             motd
         )
+        window.location.hash = "loadUserProfile."+uid
     })
 
     // }
