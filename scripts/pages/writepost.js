@@ -1,8 +1,11 @@
 import { addDoc, getDocs, collection, doc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
+import { updateUserInfoToCache } from "../userService.js"
 
 window.writePost = function() {
+
+    updateUserInfoToCache()
 
     const title = stripHTMLTags(document.getElementById("write-post-title").value) || null
     const content = stripHTMLTags(document.getElementById("write-post-content").value) || null

@@ -1,7 +1,7 @@
 import { getDoc, collection, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService, getParam } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
-import { getUserDisplayName, getUserPhotoURL } from "../userService.js"
+import { getUserDisplayName, getUserPhotoURL, updateUserInfoToCache } from "../userService.js"
 
 // $(document).ready(function() { onViewPostLoad() })
 
@@ -52,8 +52,8 @@ export async function onViewPostLoad(postId) {
                 }
 
                 Promise.all([
-                    getUserDisplayName(authService.currentUser.uid),
-                    getUserPhotoURL(authService.currentUser.uid)
+                    getUserDisplayName(comment["createdBy"]),
+                    getUserPhotoURL(comment["createdBy"])
                 ]).then(function(response) {
                     const displayName = response[0]
                     const photoURL = response[1]
@@ -101,6 +101,7 @@ export async function onViewPostLoad(postId) {
 }
 
 window.writeComment = async function(postId) {
+    updateUserInfoToCache()
     const content = stripHTMLTags(document.getElementById("write-comment-content").value)
 
     var createdBy = "user"

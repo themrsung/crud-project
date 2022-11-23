@@ -1,7 +1,9 @@
 import { getDocs, collection, query, where, orderBy, limit } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { dbService } from "../firebase.js"
+import { updateUserInfoToCache } from "../userService.js"
 
 export async function onNewsfeedLoad() {
+    updateUserInfoToCache()
     const querySnapshot = await getDocs(
         query(
             collection(dbService, "posts"),
