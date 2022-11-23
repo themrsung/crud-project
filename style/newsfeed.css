@@ -22,6 +22,15 @@
 
 .post-content {
     max-width: 70%;
+    overflow: auto;
+}
+
+.post-content-text {
+    max-width: 70%;
+}
+
+.post-content-pre {
+    word-wrap: break-word;
 }
 
 .post-title {
