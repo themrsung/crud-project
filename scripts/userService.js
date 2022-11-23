@@ -66,11 +66,22 @@ export async function updateUserInfoToCache() {
 }
 
 export async function getUserDisplayName(uid) {
-    await getDoc(
+    const user = await getDoc(
         doc(dbService, "userData", uid)
     )
-    return getDoc.data()["displayName"]
+    return user.data()["displayName"]
 }
 
-console.log("GetUserDisplayName")
-console.log(getUserDisplayName(authService.currentUser.uid))
+export async function getUserEmail(uid) {
+    const user = await getDoc(
+        doc(dbService, "userData", uid)
+    )
+    return user.data()["email"]
+}
+
+export async function getUserMotd(uid) {
+    const user = await getDoc(
+        doc(dbService, "userData", uid)
+    )
+    return user.data()["motd"]
+}
