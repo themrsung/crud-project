@@ -29,13 +29,14 @@ export function renderPostToProfile(doc) {
 
 function renderPost(doc) {
     Promise.all([
-        getUserDisplayName(doc.data["createdBy"])
+        getUserDisplayName(doc.data()["createdBy"])
     ]).then(function(response) {
+        const [displayName] = response
         const post_HTML = `
     <div class="post" id="${doc.id}" onclick="loadViewPost(this.id)">
         <div class="post-content">
             <h1>${doc.data()["title"]}</h1>
-            <p>by ${response[0]}</p>
+            <p>by ${displayName}</p>
             <p><pre class="post-content-pre">${doc.data()["content"]}</pre></p>
         </div>
         <div class="comments" id="comments"></div>
