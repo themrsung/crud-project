@@ -44,7 +44,8 @@ window.onDisplayNameChanged = async function() {
     const ndn = stripHTMLTags($("#new-user-name").val())
     await updateMyProfileDisplayName(ndn)
     await $("#edit-user-name-button-container").empty()
-    $("user-name").val(ndn)
+    console.log(ndn)
+    document.getElementById("user-name").innerHTML = ndn
 }
 
 window.onPasswordChanged = async function() {
