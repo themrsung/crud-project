@@ -5,8 +5,8 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth
 
 import { getDoc, collection, doc, updateDoc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
-import { onFileChange, onMyProfileLoad } from "./pages/myprofile.js"
-import { onProfileLoad } from "./profileLoader.js"
+import { onMyProfileLoad } from "./pages/myprofile.js"
+import { onProfileLoad, onProfileLoadUID } from "./profileLoader.js"
 
 window.loadNewsfeed = async function() {
     await $("#content").load("../pages/templates/newsfeed.html")
@@ -97,10 +97,7 @@ window.loadUserProfile = async function(userId) {
     
     document.getElementById("content").innerHTML = userProfileHTML 
 
-    const user = await authService.getUser(userId)
-    if (user) {
-        await onProfileLoad(user)
-    }
+    onProfileLoadUID(userId)
 }
 
 window.loadViewPost = function(postId) {
@@ -151,5 +148,3 @@ window.lostAccountFromLandingPage = function() {
 window.skipLogin = function() {
     window.location.replace("../index.html?assumeLoggedIn=true")
 }
-
-window.onFileChange = onFileChange

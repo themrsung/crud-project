@@ -102,7 +102,7 @@ export const changeProfile = async (event) => {
     })
 }
 
-export const onFileChange = (event) => {
+window.onFileChange = event => {
     const theFile = event.target.files[0] // file 객체
     const reader = new FileReader()
     reader.readAsDataURL(theFile) // file 객체를 브라우저가 읽을 수 있는 data URL로 읽음.
