@@ -13,15 +13,13 @@ import { onProfileLoad, onProfileLoadUID } from "./profileLoader.js"
 
 window.loadNewsfeed = async function() {
     
-    window.location.hash = "loadNewsfeed"
-    //whereYouGet();
     await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
     
 }
 
 export async function loadNewsfeed() {
-    window.location.hash = "loadNewsfeed"
+    //window.location.hash = "loadNewsfeed"
     await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
     
@@ -68,17 +66,17 @@ window.loadEditPost = async function(postId) {
 }
 
 window.loadLogin = function() {
-    window.location.hash = "loadLogin"
+    //window.location.hash = "#loadLogin"
     $("#content").load("../pages/templates/login.html")
 }
 
 window.loadLostAccount = function() {
-    window.location.hash = "loadLostAccount"
+    //window.location.hash = "loadLostAccount"
     $("#content").load("../pages/templates/lostaccount.html")
 }
 
 window.loadMyProfile = async function() {
-    window.location.hash = "loadMyProfile"
+    //window.location.hash = "loadMyProfile"
     // $("#content").load("../pages/templates/myprofile.html")
 
     const myProfileHTML = await fetch("../pages/templates/myprofile.html").then(function(data) {
@@ -91,19 +89,19 @@ window.loadMyProfile = async function() {
 }
 
 window.loadRegister = async function() {
-    window.location.hash = "loadRegister"
+    //window.location.hash = "loadRegister"
     await $("#content").load("../pages/templates/register.html")
 }
 
 export function loadRegister() {
-    window.location.hash = "loadRegister"
+    //window.location.hash = "loadRegister"
     $("#content").load("../pages/templates/register.html")
 }
 
 // 유저 프로필 불러오기
 // UID로 유저 찾기 안됨
 window.loadUserProfile = async function(userId) {
-    window.location.hash = "loadUserProfile"
+    //window.location.hash = "loadUserProfile"
     // await $("#content").load("../pages/templates/userprofile.html")
 
     const userProfileHTML = await fetch("../pages/templates/userprofile.html").then(function(data) {
@@ -123,7 +121,7 @@ window.loadViewPost = function(postId) {
 }
 
 window.loadWritePost = function() {
-    window.location.hash = "loadWritePost"
+    //window.location.hash = "loadWritePost"
     $("#content").load("../pages/templates/writepost.html")
 }
 
@@ -170,12 +168,73 @@ window.skipLogin = function() {
     window.location.replace("../index.html?assumeLoggedIn=true")
 }
 
-// window.onpopstate = function(event) {
-//     window.history.back(`${JSON.stringify(event.state)} | ${location.origin} | ${location.pathname}`)
-// 	console.log(`${JSON.stringify(event.state)} | ${location.origin} | ${location.pathname}`);
-// }
 
-// function whereYouGet() {
+window.onpopstate = function() {
+
+    const hashData = window.location.hash;
+
+    if(hashData === "") 
+    {
+        return
+        //
+    }
+    
+    switch (hashData) {
+        case "#loadNewsfeed":
+          loadNewsfeed();
+          break;
+        case "#loadLogin":
+          loadLogin();
+          break;
+        case "#loadLostAccount":
+          loadLostAccount();
+          break;
+        case "#loadMyProfile":
+            loadMyProfile();
+          break;
+        case "#loadRegister":
+            loadRegister();
+          break;
+        case "#loadViewPost":
+            loadViewPost();
+          break;
+        case "#loadWritePost":
+            loadWritePost();
+          break;
+        case "#hideDevButtons":
+            hideDevButtons();
+          break;
+        case "#loadLandingPage":
+            loadLandingPage();
+          break;
+        default :
+        
+        const info = hashData.split(".");
+
+        if (info[0]==="#loadUserProfile") loadUserProfile(info[1]);
+        else if (info[0]==="#loadNewsfeed") loadViewPost(info[1]);
+      
+       
+    }
+      
+
+    
+ }
+
+window.checkHash= function(hashData) 
+{
+    window.location.hash = hashData;
+}
+
+// window.addEventListener('click', function(event){
+//     alert(event.currentTarget.location.hash)
+//     window.location.hash = event.currentTarget.location.hash
+    
+// }); 
+
+
+
+// window.whereYouGet = function(){
 // 	var state = {page_id : window.location.hash, data : 'test'};
 //     var url = location.origin + window.location.hash;
 //     history.pushState(state, null, url);
