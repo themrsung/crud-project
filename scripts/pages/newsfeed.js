@@ -33,12 +33,16 @@ function renderPost(doc, isFirst = false) {
         getUserDisplayName(doc.data()["createdBy"])
     ]).then(function(response) {
         const [displayName] = response
+        const thumbnailURL = "../../img/default-profile.png"
         const post_HTML = `
     <div class="post" id="${doc.id}" onclick="loadViewPost(this.id)">
+        <div class="post-thumbnail-container">
+            <img class="post-thumbnail" src="${thumbnailURL}">
+        </div>
         <div class="post-content">
             <h1 class="post-title">${doc.data()["title"]}</h1>
             <p class="post-author-name">by ${displayName}</p>
-            <p><pre class="post-content-pre">${doc.data()["content"]}</pre></p>
+            <p class="post-content-text"><pre class="post-content-pre">${doc.data()["content"]}</pre></p>
         </div>
         <div class="comments" id="comments"></div>
     </div>
