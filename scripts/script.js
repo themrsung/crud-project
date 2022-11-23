@@ -168,3 +168,7 @@ window.lostAccountFromLandingPage = function() {
 window.skipLogin = function() {
     window.location.replace("../index.html?assumeLoggedIn=true")
 }
+
+window.onpopstate = function(event) {
+	alert("location: " + document.location + ", state: " + JSON.stringify(event.state)); 
+}
