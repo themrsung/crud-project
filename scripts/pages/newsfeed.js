@@ -36,8 +36,8 @@ function renderPost(doc, isFirst = false) {
         const post_HTML = `
     <div class="post" id="${doc.id}" onclick="loadViewPost(this.id)">
         <div class="post-content">
-            <h1>${doc.data()["title"]}</h1>
-            <p>by ${displayName}</p>
+            <h1 class="post-title">${doc.data()["title"]}</h1>
+            <p class="post-author-name">by ${displayName}</p>
             <p><pre class="post-content-pre">${doc.data()["content"]}</pre></p>
         </div>
         <div class="comments" id="comments"></div>

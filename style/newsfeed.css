@@ -2,4 +2,13 @@
     margin: 70px 40px 70px 40px;
 }
 
+.post-title {
+    margin-bottom: 0px;
+}
+
+.post-author-name {
+    margin-top: 0px;
+    font-size: small;
+}
+
 /* 텍스트 여백 설정 */
