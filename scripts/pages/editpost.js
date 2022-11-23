@@ -17,7 +17,7 @@ window.onEditPostCompleted = async function(postId) {
     try {
         
         await updateDoc(commentRef, { content: content , title : title }) // 게시글
-        return onViewPostLoad(postId);
+        return loadViewPost(postId);
      
     } catch (error) {
         alert(error);
