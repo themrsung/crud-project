@@ -175,73 +175,84 @@ window.onpopstate = function() {
     
     if(hashData === "") return;
     
+    let id;
+    const where = hashData.replace("#","");
+    if(where.indexOf(".") > 0)
+    {
+        id = where.split(".");
+        new Function(id[0]+'("'+id[1]+'");')();
+    }
+    else
+    {
+        new Function(where+'();')();
+    }
     
-    switch (hashData) {
+    // switch (hashData) {
         
 
-        case "#loadNewsfeed":
-        loadNewsfeed();
-        break;
+    //     case "#loadNewsfeed":
+    //     loadNewsfeed();
+    //     break;
     
-        case "#loadLogin":
-        loadLogin();
-        break;
+    //     case "#loadLogin":
+    //     loadLogin();
+    //     break;
     
-        case "#loadLostAccount":
-        loadLostAccount();
-        break;
+    //     case "#loadLostAccount":
+    //     loadLostAccount();
+    //     break;
     
-        case "#loadMyProfile":
-        loadMyProfile();
-        break;
+    //     case "#loadMyProfile":
+    //     loadMyProfile();
+    //     break;
     
-        case "#loadRegister":
-        loadRegister();
-        break;
+    //     case "#loadRegister":
+    //     loadRegister();
+    //     break;
     
-        case "#loadViewPost":
-        loadViewPost();
-        break;
+    //     case "#loadViewPost":
+    //     loadViewPost();
+    //     break;
     
-        case "#loadWritePost":
-        loadWritePost();
-        break;
+    //     case "#loadWritePost":
+    //     loadWritePost();
+    //     break;
     
-        case "#hideDevButtons":
-        hideDevButtons();
-        break;
+    //     case "#hideDevButtons":
+    //     hideDevButtons();
+    //     break;
     
-        case "#loadLandingPage":
-        loadLandingPage();
-        break;
+    //     case "#loadLandingPage":
+    //     loadLandingPage();
+    //     break;
 
-        case "#lostAccountFromLandingPage":
-        lostAccountFromLandingPage();
-        break;
+    //     case "#lostAccountFromLandingPage":
+    //     lostAccountFromLandingPage();
+    //     break;
 
-        case "#lostAccountFromLandingPage":
-        lostAccountFromLandingPage();
-        break;
+    //     case "#lostAccountFromLandingPage":
+    //     lostAccountFromLandingPage();
+    //     break;
 
-        case "#loginFromLandingPage":
-        loginFromLandingPage();
-        break;
+    //     case "#loginFromLandingPage":
+    //     loginFromLandingPage();
+    //     break;
 
-        case "#registerFromLandingPage":
-        registerFromLandingPage();
-        break;
+    //     case "#registerFromLandingPage":
+    //     registerFromLandingPage();
+    //     break;
 
            
 
-        default :
+    //     default :
         
-        const info = hashData.split(".");
+    //     const info = hashData.split(".");
 
-        if (info[0]==="#loadUserProfile") loadUserProfile(info[1]);
-        else if (info[0]==="#loadNewsfeed") loadViewPost(info[1]);
+    //     if (info[0]==="#loadUserProfile") loadUserProfile(info[1]);
+    //     else if (info[0]==="#loadNewsfeed") loadViewPost(info[1]);
       
        
-    }
+    // }
       
 
     
