@@ -2,6 +2,7 @@ import { authService, dbService, getParam } from "./firebase.js"
 // import {logIn,logOut,googleLogIn,gitLogIn} from "./pages/login.js";
 //import * as loginFunc from "./pages/login.js";
 import "./script.js"
+import { onViewPostLoad } from "./pages/viewpost.js"
 
 $(document).ready(function() {
     
@@ -14,8 +15,34 @@ $(document).ready(function() {
     else if (getParam("goToLostAccount") == "true") {
         loadLostAccount()
     }
-    else {
-        loadNewsfeed()
+    else
+    {
+        // 링크 받은 유저의 로그인 유무 확인
+        authService.onAuthStateChanged((user) => {
+            if (!user) { // 로그인 안되어있으면 + 로그아웃 된 상태
+                loadLandingPage()
+            }
+        })
+        const where = window.location.hash;
+
+        if(where.match("loadNewsfeed.")){
+            const url = window.location.hash.match("loadNewsfeed.");
+            const postNum = url["input"].split(".");
+            loadViewPost(postNum[1])
+        }
+        else if(where.match("loadNewsfeed")){
+            
+            loadNewsfeed()
+        }
+        else if(where.match("loadLogin")){
+            
+            loadLogin()
+        }
+        else
+        {
+            loadNewsfeed()
+        }
+        
     }
 })
 
