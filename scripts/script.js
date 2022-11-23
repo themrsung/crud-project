@@ -14,7 +14,7 @@ import { onProfileLoad, onProfileLoadUID } from "./profileLoader.js"
 window.loadNewsfeed = async function() {
     
     window.location.hash = "loadNewsfeed"
-    whereYouGet();
+    //whereYouGet();
     await $("#content").load("../pages/templates/newsfeed.html")
     onNewsfeedLoad()
     
@@ -170,12 +170,13 @@ window.skipLogin = function() {
     window.location.replace("../index.html?assumeLoggedIn=true")
 }
 
-window.onpopstate = function(event) {
-	console.log("location: " + document.location + ", state: " + JSON.stringify(event.state)); 
-}
+// window.onpopstate = function(event) {
+//     window.history.back(`${JSON.stringify(event.state)} | ${location.origin} | ${location.pathname}`)
+// 	console.log(`${JSON.stringify(event.state)} | ${location.origin} | ${location.pathname}`);
+// }
 
-function whereYouGet() {
-	var state = {page_id : window.location.hash, data : 'test'};
-    var url = location.origin + window.location.hash;
-    history.pushState(state, null, url);
-}
+// function whereYouGet() {
+// 	var state = {page_id : window.location.hash, data : 'test'};
+//     var url = location.origin + window.location.hash;
+//     history.pushState(state, null, url);
+// }
