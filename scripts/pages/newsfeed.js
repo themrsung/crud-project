@@ -16,9 +16,10 @@ export async function onNewsfeedLoad() {
 
     // // 시간순 정렬
     // querySnapshot.reverse()
-
+    var isFirst = true
     querySnapshot.forEach((doc) => {
-        renderPost(doc)
+        renderPost(doc, isFirst)
+        isFirst = false
     })
 
 }
@@ -27,7 +28,7 @@ export function renderPostToProfile(doc) {
     renderPost(doc)
 }
 
-function renderPost(doc) {
+function renderPost(doc, isFirst = false) {
     Promise.all([
         getUserDisplayName(doc.data()["createdBy"])
     ]).then(function(response) {
@@ -42,7 +43,11 @@ function renderPost(doc) {
         <div class="comments" id="comments"></div>
     </div>
         `
+        if (!isFirst) {
+            renderPostDivider()
+        }
         $("#news-feed").prepend(post_HTML)
+        
     })
     
 
@@ -61,6 +66,12 @@ function renderPost(doc) {
 //     }
 }
 
+function renderPostDivider() {
+    const divider_HTML = `
+    <hr class="newsfeed-divider">
+    `
+    $("#news-feed").prepend(divider_HTML)
+}
 
 window.newWritePost = function() {
     $("#content").load("../pages/templates/writepost.html")
