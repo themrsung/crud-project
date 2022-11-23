@@ -15,8 +15,8 @@ export async function onViewPostLoad(postId) {
     
     // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false){
-        let isOwnPost = authService.currentUser.uid == docSnap.data()["createdBy"]
-        let createdBy = docSnap.data()["createdBy"]
+        const isOwnPost = authService.currentUser.uid == docSnap.data()["createdBy"]
+        const postCreatedBy = docSnap.data()["createdBy"]
         // 게시글 영역
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
@@ -34,7 +34,7 @@ export async function onViewPostLoad(postId) {
         `
         // console.log(post_HTML)
         $("#viewpost-outer").append(post_HTML)
-        if (createdBy===authService.currentUser.uid)
+        if (postCreatedBy===authService.currentUser.uid)
                 {
                     $("#viewpost-outer").append(post_Btn)
                 }
@@ -43,9 +43,9 @@ export async function onViewPostLoad(postId) {
         if (docSnap.data()["comments"].length > 1) {
             // 1 코멘트당 이 코드 실행 (forEach)
             docSnap.data()["comments"].forEach((comment, i) => {
-                let isOwnComment = authService.currentUser.uid == comment["createdBy"]
-                let createdBy = comment["createdBy"]
-                var onClick = "loadUserProfile('" + createdBy + "')"
+                const isOwnComment = authService.currentUser.uid == comment["createdBy"]
+                const commCreatedBy = comment["createdBy"]
+                var onClick = "loadUserProfile('" + commCreatedBy + "')"
                 if (isOwnComment) {
                     onClick = "loadMyProfile()"
                 }
@@ -67,7 +67,7 @@ export async function onViewPostLoad(postId) {
                 // 코멘트가 삭제되지 않았으면 
                 if (comment["deleted"] == false) {
                     $("#comments").append(comment_HTML)
-                    if (createdBy===authService.currentUser.uid)
+                    if (commCreatedBy===authService.currentUser.uid)
                     {
                         $("#comments").append(comment_BNT)
                     }
