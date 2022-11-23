@@ -79,6 +79,13 @@ export async function getUserEmail(uid) {
     return user.data()["email"]
 }
 
+export async function getUserPhotoURL(uid) {
+    const user = await getDoc(
+        doc(dbService, "userData", uid)
+    )
+    return user.data()["photoURL"]
+}
+
 export async function getUserMotd(uid) {
     const user = await getDoc(
         doc(dbService, "userData", uid)
