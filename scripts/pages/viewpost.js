@@ -22,9 +22,11 @@ export async function onViewPostLoad(postId) {
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
-        <img id="post-creator-profile" src="../img/default-profile.png">
-        <p id="post-creator-name"></p>
         <h1>${docSnap.data()["title"]}</h1>
+        <div class="post-creator-info">
+            <img id="post-creator-profile" class="post-creator-profile" src="../img/default-profile.png">
+            <p id="post-creator-name" class="post-creator-name"></p>
+        </div>
         <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
     </div>
     <div class="comments" id="comments"></div>
