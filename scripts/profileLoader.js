@@ -1,6 +1,7 @@
 import { getDocs, collection, query, where, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService } from "./firebase.js"
 import { renderPostToProfile } from "./pages/newsfeed.js"
+import { getUserDisplayName, getUserEmail, getUserMotd, getUserPhotoURL } from "./userService.js"
 
 export async function onProfileLoad(user) {
     const querySnapshot = await getDocs(
@@ -16,14 +17,35 @@ export async function onProfileLoad(user) {
         renderPostToProfile(doc)
     })
 
-    renderProfileInfo(user)
+    renderProfileInfo(
+        user.displayName,
+        user.email,
+        user.photoURL,
+        "motd"
+    )
 }
 
-function renderProfileInfo(user) {    
-    document.getElementById("user-name").innerHTML = user.displayName
-    document.getElementById("user-email").innerHTML = user.email
-    document.getElementById("user-profile-image").src = user.photoURL
-    document.getElementById("user-motd").innerHTML = user.motd
+export async function onProfileLoadUID(uid) {
+    renderProfileInfo(
+        getUserDisplayName(uid),
+        getUserEmail(uid),
+        getUserPhotoURL(uid),
+        getUserMotd(uid)
+    )
+}
+
+// function renderProfileInfo(user) {    
+//     document.getElementById("user-name").innerHTML = user.displayName
+//     document.getElementById("user-email").innerHTML = user.email
+//     document.getElementById("user-profile-image").src = user.photoURL
+//     document.getElementById("user-motd").innerHTML = user.motd
+// }
+
+function renderProfileInfo(displayName, email, photoURL, motd) {
+    document.getElementById("user-name").innerHTML = displayName
+    document.getElementById("user-email").innerHTML = email
+    document.getElementById("user-profile-image").src = photoURL
+    document.getElementById("user-motd").innerHTML = motd
 }
 
 window.profileImageSetTest = function() {

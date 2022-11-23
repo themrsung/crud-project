@@ -5,7 +5,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth
 
 import { getDoc, collection, doc, updateDoc, deleteDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 
-import { onMyProfileLoad } from "./pages/myprofile.js"
+import { onFileChange, onMyProfileLoad } from "./pages/myprofile.js"
 import { onProfileLoad } from "./profileLoader.js"
 
 window.loadNewsfeed = async function() {
@@ -151,3 +151,5 @@ window.lostAccountFromLandingPage = function() {
 window.skipLogin = function() {
     window.location.replace("../index.html?assumeLoggedIn=true")
 }
+
+window.onFileChange = onFileChange
