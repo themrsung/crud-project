@@ -32,8 +32,8 @@ export async function updateMyProfilePassword(newPassword) {
         updatePassword(user, newPassword).then(() => {
             // Success
             return "success"
-        }).catch(error) {
+        }).catch(error=> {
             return error
-        }
+        })
     }
 }
