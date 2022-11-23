@@ -32,13 +32,6 @@ export async function onProfileLoadUID(uid) {
         getUserPhotoURL(uid),
         getUserMotd(uid)
     ]).then(function(response) {
-        console.log("aaaa", response)
-        // renderProfileInfo(
-        //     response[0],
-        //     response[1],
-        //     response[2],
-        //     response[3]
-        // )
         const [displayName, email, photoURL, motd] = response
         renderProfileInfo(
             displayName,

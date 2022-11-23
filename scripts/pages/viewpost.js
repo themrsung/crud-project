@@ -51,6 +51,7 @@ export async function onViewPostLoad(postId) {
                     onClick = "loadMyProfile()"
                 }
 
+                console.log(comment["createdBy"])
                 Promise.all([
                     getUserDisplayName(comment["createdBy"]),
                     getUserPhotoURL(comment["createdBy"])

@@ -54,7 +54,7 @@ export async function updateUserInfoToCache() {
         //     photoURL: user.photoURL
         // })
         // console.log(user.displayName, user.email, user.photoURL)
-        setDoc(
+        await setDoc(
             doc(dbService, "userData", user.uid),
             {
                 displayName: user.displayName,
@@ -69,26 +69,46 @@ export async function getUserDisplayName(uid) {
     const user = await getDoc(
         doc(dbService, "userData", uid)
     )
-    return user.data()["displayName"]
+    if (user.exists()) {
+        return user.data()["displayName"]
+    }
+    else {
+        return "(displayname)"
+    }
 }
 
 export async function getUserEmail(uid) {
     const user = await getDoc(
         doc(dbService, "userData", uid)
     )
-    return user.data()["email"]
+    if (user.exists()) {
+        return user.data()["email"]
+    }
+    else {
+        return "(email)"
+    }
 }
 
 export async function getUserPhotoURL(uid) {
     const user = await getDoc(
         doc(dbService, "userData", uid)
     )
-    return user.data()["photoURL"]
+    if (user.exists()) {
+        return user.data()["photoURL"]
+    }
+    else {
+        return "#"
+    }
 }
 
 export async function getUserMotd(uid) {
     const user = await getDoc(
         doc(dbService, "userData", uid)
     )
-    return user.data()["motd"]
+    if (user.exists()) {
+        return user.data()["motd"]
+    }
+    else {
+        return "(motd)"
+    }
 }
