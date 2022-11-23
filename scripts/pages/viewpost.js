@@ -50,33 +50,39 @@ export async function onViewPostLoad(postId) {
                 if (isOwnComment) {
                     onClick = "loadMyProfile()"
                 }
-                // 댓글 1개 영역
-                const comment_HTML = `
+
+                var displayName = ""
+                Promise.all([
+                    getUserDisplayName(authService.currentUser.uid)
+                ]).then(function(response) {
+                    displayName = response[0]
+                    // 댓글 1개 영역
+                    const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
-    <p onclick="${onClick}")"><span>${getUserDisplayName(comment["createdBy"])}</span> - <span>${comment["createdAt"]}</span></p>
+    <p onclick="${onClick}")"><span>${displayName}</span> - <span>${comment["createdAt"]}</span></p>
     <p style="display:block" class="commentBefore${i}" >${comment["content"]}</p>
     <input type="text" id="updatingComment${i}" class="commentAfter${i}" style="display:none">
-
-                `
-                const comment_BNT = `
+                                `
+                    const comment_BNT = `
     <button onclick="editComment('${postId}.${i}')" style="display:inline-block" class="commentBefore${i}" >수정</button>
     <button onclick="scratchComment('${postId}.${i}')" style="display:inline-block" class="commentBefore${i}" >삭제</button>
     <button onclick="onEditCommentCompleted('${postId}.${i}')" style="display:none" class="commentAfter${i}">완료</button>
     <button onclick="drop('${postId}.${i}')" style="display:none" class="commentAfter${i}">취소</button>
 </div>
-                `
-                // 코멘트가 삭제되지 않았으면 
-                if (comment["deleted"] == false) {
-                    $("#comments").append(comment_HTML)
-                    if (commCreatedBy===authService.currentUser.uid)
-                    {
-                        $("#comments").append(comment_BNT)
+                                `
+                    // 코멘트가 삭제되지 않았으면 
+                    if (comment["deleted"] == false) {
+                        $("#comments").append(comment_HTML)
+                        if (commCreatedBy===authService.currentUser.uid)
+                        {
+                            $("#comments").append(comment_BNT)
+                        }
+                        else
+                        {
+                            $("#comments").append("</div>")
+                        }
                     }
-                    else
-                    {
-                        $("#comments").append("</div>")
-                    }
-                }
+                })     
             })
         }
         
@@ -110,7 +116,7 @@ window.writeComment = async function(postId) {
     }
 
     const docSnap = await getDoc(doc(dbService, "posts", postId))
-    console.log(docSnap)
+    // console.log(docSnap)
     var comments = docSnap.data()["comments"]
 
     comments.push(comment)

@@ -66,20 +66,10 @@ export async function updateUserInfoToCache() {
 }
 
 export async function getUserDisplayName(uid) {
-    const docRef = doc(dbService, "userData", uid)
-    // const docSnap = await getDoc(docRef)
-    // // docSnap.then(function() {
-    // //     return docSnap.data()["displayName"]
-        
-    // // })
-    // console.log( docSnap)
-    // console.log( docSnap.data())
-    // console.log( docSnap.data()["displayName"])
-    // return docSnap.data()["displayName"]
-    getDoc(docRef).then(function(doc) {
-        console.log(doc.data())
-        return doc.data()["displayName"]
-    })
+    const user = await getDoc(
+        doc(dbService, "userData", uid)
+    )
+    return user.data()["displayName"]
 }
 
 export async function getUserEmail(uid) {
