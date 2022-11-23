@@ -172,39 +172,46 @@ window.skipLogin = function() {
 window.onpopstate = function() {
 
     const hashData = window.location.hash;
-
-    if(hashData === "") 
-    {
-        return
-        //
-    }
+    
+    if(hashData === "") return;
+    
     
     switch (hashData) {
-        case "#loadNewsfeed":
-          loadNewsfeed();
+        
+
+          case "#loadNewsfeed":
+            loadNewsfeed();
           break;
-        case "#loadLogin":
-          loadLogin();
+        
+          case "#loadLogin":
+            loadLogin();
           break;
-        case "#loadLostAccount":
+        
+          case "#loadLostAccount":
           loadLostAccount();
           break;
-        case "#loadMyProfile":
+        
+          case "#loadMyProfile":
             loadMyProfile();
           break;
-        case "#loadRegister":
+        
+          case "#loadRegister":
             loadRegister();
           break;
-        case "#loadViewPost":
+        
+          case "#loadViewPost":
             loadViewPost();
           break;
-        case "#loadWritePost":
+        
+          case "#loadWritePost":
             loadWritePost();
           break;
-        case "#hideDevButtons":
+        
+          case "#hideDevButtons":
             hideDevButtons();
           break;
-        case "#loadLandingPage":
+        
+          case "#loadLandingPage":
             loadLandingPage();
           break;
         default :
