@@ -14,13 +14,6 @@ window.goToLandingPage = function() {
                 if (!user) { // 로그인 안되어있으면 + 로그아웃 된 상태
                     checkHash("#loadLandingPage");
                 }
-                else
-                {
-                    checkHash("#loadNewsfeed");
-                }
-                // else if (랜딩페이지 보기 설정된 유저일 경우) {
-                //     loadLandingPage()   
-                // }
             })
         })
     }

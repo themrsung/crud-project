@@ -25,7 +25,7 @@ $(document).ready(function() {
         })
         const where = window.location.hash;
 
-        if(where.match("loadNewsfeed.")){
+        if(where.match("loadViewPost.")){
             const postNum = where.split(".");
             loadViewPost(postNum[1])
         }
