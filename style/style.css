@@ -110,10 +110,10 @@ html {
     }
 
     .wrap-inner {
-        max-width: 1300px;
-        width: 50vw;
-        height: 70vh;
-        margin-left: 70px;
+        max-width: 1500px;
+        width: 65vw;
+        height: 80vh;
+        /* margin-left: 70px; */
     }
 
     .profile-menu {
