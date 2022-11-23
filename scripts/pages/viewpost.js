@@ -22,6 +22,7 @@ export async function onViewPostLoad(postId) {
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
+        <img id="viewprofile" src="../img/default-profile.png">
         <h1>${docSnap.data()["title"]}</h1>
         <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
     </div>
@@ -40,6 +41,7 @@ export async function onViewPostLoad(postId) {
             getUserPhotoURL(postCreatedBy)
         ]).then(function(response) {
             const [userName, profileURL] = response
+            document["viewprofile"].src = profileURL;
             // 여기서 변수로 위에 html 수정
         })
 
