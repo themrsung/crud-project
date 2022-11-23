@@ -1,7 +1,7 @@
 import { getDoc, collection, doc, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService, getParam } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
-import { getUserDisplayName } from "../userService.js"
+import { getUserDisplayName, getUserPhotoURL } from "../userService.js"
 
 // $(document).ready(function() { onViewPostLoad() })
 
@@ -52,9 +52,11 @@ export async function onViewPostLoad(postId) {
                 }
 
                 Promise.all([
-                    getUserDisplayName(authService.currentUser.uid)
+                    getUserDisplayName(authService.currentUser.uid),
+                    getUserPhotoURL(authService.currentUser.uid)
                 ]).then(function(response) {
                     const displayName = response[0]
+                    const photoURL = response[1]
                     // 댓글 1개 영역
                     const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
