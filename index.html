@@ -47,16 +47,16 @@
 
         <div id="devbuttons">
             <h3>DEVELOPERS ONLY</h3>
-            <button onclick="loadNewsfeed()">NEWS FEED</button>
-            <button onclick="loadLogin()">LOGIN</button>
-            <button onclick="loadLostAccount()">LOST ACCOUNT</button>
-            <button onclick="loadMyProfile()">MY PROFILE</button>
-            <button onclick="loadRegister()">REGISTER</button>
-            <button onclick="loadUserProfile('2p70swzhsCReOAHz8abiDcuelR62')">OTHER USER's PROFILE</button>
-            <button onclick="loadViewPost('6Xrupp27DH1ZdeVDb3Ek')">VIEW POST</button>
-            <button onclick="loadWritePost()">WRITE POST</button>
-            <button onclick="hideDevButtons()">HIDE BUTTONS</button>
-            <button onclick="loadLandingPage()">GO TO LANDING PAGE</button>
+            <button onclick="checkHash('#loadNewsfeed')">NEWS FEED</button>
+            <button onclick="checkHash('#loadLogin')">LOGIN</button>
+            <button onclick="checkHash('#loadLostAccount')">LOST ACCOUNT</button>
+            <button onclick="checkHash('#loadMyProfile')">MY PROFILE</button>
+            <button onclick="checkHash('#loadRegister')">REGISTER</button>
+            <button onclick="checkHash('#loadUserProfile')">OTHER USER's PROFILE</button>
+            <button onclick="checkHash('#loadViewPost')">VIEW POST</button>
+            <button onclick="checkHash('#loadWritePost')">WRITE POST</button>
+            <button onclick="checkHash('#hideDevButtons')">HIDE BUTTONS</button>
+            <button onclick="checkHash('#loadLandingPage')">GO TO LANDING PAGE</button>
             <button onclick="logOut()">LOG OUT</button>
         </div>
 
