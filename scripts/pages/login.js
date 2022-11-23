@@ -44,6 +44,7 @@ window.logIn =  function() {
         {
             autoLogIn ?  document.cookie="auto=true" : document.cookie="auto=false"
             updateUserInfoToCache()
+            window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=false&#loadNewsfeed");
             return loadNewsfeed();
         }
     
@@ -85,6 +86,7 @@ window.googit  = (event) => {
       if(result.user)
       {
         autoLogIn ?  document.cookie="auto=true" : document.cookie="auto=false"
+        window.location.replace("../index.html?assumeLoggedIn=true&goToLogin=false&#loadNewsfeed");
         return loadNewsfeed();
       }
 
