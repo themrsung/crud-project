@@ -29,13 +29,13 @@ $(document).ready(function() {
             const postNum = where.split(".");
             loadViewPost(postNum[1])
         }
-        else if(where.match("loadLogin")){
-            
-            loadLogin()
-        }
         else if(where.match("loadUserProfile.")){
             const postNum = where.split(".");
             loadUserProfile(postNum[1]);
+        }
+        else if(where.match("loadLogin")){
+            
+            loadLogin()
         }
         else
         {
