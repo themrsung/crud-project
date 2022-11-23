@@ -21,20 +21,6 @@ window.goToLandingPage = function() {
     }
 }
 
-window.goToPost = function() {
-    if (getParam("postNum") != "false" && getParam("postNum") && !getParam("goToLogin")) {
-        $(document).ready(function() {
-            authService.onAuthStateChanged((user) => {
-                if (user) {
-                    loadViewPost(getParam("postNum"));
-                }
-                else{
-                    loadLandingPage() 
-                }
-            })
-        })
-    }
-}
+
 
 goToLandingPage()
-goToPost()
