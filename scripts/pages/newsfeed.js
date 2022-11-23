@@ -40,9 +40,9 @@ function renderPost(doc, isFirst = false) {
             <img class="post-thumbnail" src="${thumbnailURL}">
         </div>
         <div class="post-content">
-            <h1 class="post-title">${doc.data()["title"]}</h1>
+            <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
             <p class="post-author-name">by ${displayName}</p>
-            <p class="post-content-text"><pre class="post-content-pre">${doc.data()["content"]}</pre></p>
+            <p class="post-content-text"><pre class="post-content-pre">${doc.data()["content"].substring(0, 100)}</pre></p>
         </div>
         <div class="comments" id="comments"></div>
     </div>
