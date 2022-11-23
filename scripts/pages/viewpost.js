@@ -31,7 +31,7 @@ export async function onViewPostLoad(postId) {
     </div>
     <div class="comments" id="comments"></div>
 </div>`
-    const post_Btn = `
+        const post_Btn = `
     <div>
         <button onclick="editPost('${postId}')">글 수정</button>
         <button onclick="scratchPost('${postId}')">글 삭제</button>
