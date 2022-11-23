@@ -174,7 +174,9 @@ window.onpopstate = function() {
     const hashData = window.location.hash;
     
     if(hashData === "") return;
-    
+
+
+    //return eval("loadNewsfeed()");
     let id;
     const where = hashData.replace("#","");
     if(where.indexOf(".") > 0)
@@ -187,92 +189,9 @@ window.onpopstate = function() {
         new Function(where+'();')();
     }
     
-    // switch (hashData) {
-        
-
-    //     case "#loadNewsfeed":
-    //     loadNewsfeed();
-    //     break;
-    
-    //     case "#loadLogin":
-    //     loadLogin();
-    //     break;
-    
-    //     case "#loadLostAccount":
-    //     loadLostAccount();
-    //     break;
-    
-    //     case "#loadMyProfile":
-    //     loadMyProfile();
-    //     break;
-    
-    //     case "#loadRegister":
-    //     loadRegister();
-    //     break;
-    
-    //     case "#loadViewPost":
-    //     loadViewPost();
-    //     break;
-    
-    //     case "#loadWritePost":
-    //     loadWritePost();
-    //     break;
-    
-    //     case "#hideDevButtons":
-    //     hideDevButtons();
-    //     break;
-    
-    //     case "#loadLandingPage":
-    //     loadLandingPage();
-    //     break;
-
-    //     case "#lostAccountFromLandingPage":
-    //     lostAccountFromLandingPage();
-    //     break;
-
-    //     case "#lostAccountFromLandingPage":
-    //     lostAccountFromLandingPage();
-    //     break;
-
-    //     case "#loginFromLandingPage":
-    //     loginFromLandingPage();
-    //     break;
-
-    //     case "#registerFromLandingPage":
-    //     registerFromLandingPage();
-    //     break;
-
-           
-
-    //     default :
-        
-    //     const info = hashData.split(".");
-
-    //     if (info[0]==="#loadUserProfile") loadUserProfile(info[1]);
-    //     else if (info[0]==="#loadNewsfeed") loadViewPost(info[1]);
-      
-       
-    // }
-      
-
-    
- }
+}
 
 window.checkHash= function(hashData) 
 {
     window.location.hash = hashData;
 }
-
-// window.addEventListener('click', function(event){
-//     alert(event.currentTarget.location.hash)
-//     window.location.hash = event.currentTarget.location.hash
-    
-// }); 
-
-
-
-// window.whereYouGet = function(){
-// 	var state = {page_id : window.location.hash, data : 'test'};
-//     var url = location.origin + window.location.hash;
-//     history.pushState(state, null, url);
-// }
