@@ -23,6 +23,7 @@ export async function onViewPostLoad(postId) {
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
         <img id="post-creator-profile" src="../img/default-profile.png">
+        <p id="post-creator-name"></p>
         <h1>${docSnap.data()["title"]}</h1>
         <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
     </div>
@@ -42,6 +43,7 @@ export async function onViewPostLoad(postId) {
         ]).then(function(response) {
             const [userName, profileURL] = response
             document.getElementById("post-creator-profile").src = profileURL;
+            document.getElementById("post-creator-name").innerHTML = userName;
             // 여기서 변수로 위에 html 수정
         })
 
