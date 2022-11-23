@@ -15,6 +15,8 @@ export async function onViewPostLoad(postId) {
     
     // 삭제되지 않았으면
     if (docSnap.data()["deleted"] == false){
+        let isOwnPost = authService.currentUser.uid == docSnap.data()["createdBy"]
+        let createdBy = docSnap.data()["createdBy"]
         // 게시글 영역
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
@@ -23,21 +25,26 @@ export async function onViewPostLoad(postId) {
         <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
     </div>
     <div class="comments" id="comments"></div>
-</div>
-<div>
-<button onclick="editPost('${postId}')">글 수정</button>
-<button onclick="scratchPost('${postId}')">글 삭제</button>
-</div>
+</div>`
+    const post_Btn = `
+    <div>
+        <button onclick="editPost('${postId}')">글 수정</button>
+        <button onclick="scratchPost('${postId}')">글 삭제</button>
+    </div>
         `
         // console.log(post_HTML)
         $("#viewpost-outer").append(post_HTML)
+        if (createdBy===authService.currentUser.uid)
+                {
+                    $("#viewpost-outer").append(post_Btn)
+                }
         
         // 코멘트가 있으면
         if (docSnap.data()["comments"].length > 1) {
             // 1 코멘트당 이 코드 실행 (forEach)
             docSnap.data()["comments"].forEach((comment, i) => {
-                const isOwnComment = authService.currentUser.uid == comment["createdBy"]
-                const createdBy = comment["createdBy"]
+                let isOwnComment = authService.currentUser.uid == comment["createdBy"]
+                let createdBy = comment["createdBy"]
                 var onClick = "loadUserProfile('" + createdBy + "')"
                 if (isOwnComment) {
                     onClick = "loadMyProfile()"
