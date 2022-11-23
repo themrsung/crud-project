@@ -179,41 +179,60 @@ window.onpopstate = function() {
     switch (hashData) {
         
 
-          case "#loadNewsfeed":
-            loadNewsfeed();
-          break;
-        
-          case "#loadLogin":
-            loadLogin();
-          break;
-        
-          case "#loadLostAccount":
-          loadLostAccount();
-          break;
-        
-          case "#loadMyProfile":
-            loadMyProfile();
-          break;
-        
-          case "#loadRegister":
-            loadRegister();
-          break;
-        
-          case "#loadViewPost":
-            loadViewPost();
-          break;
-        
-          case "#loadWritePost":
-            loadWritePost();
-          break;
-        
-          case "#hideDevButtons":
-            hideDevButtons();
-          break;
-        
-          case "#loadLandingPage":
-            loadLandingPage();
-          break;
+        case "#loadNewsfeed":
+        loadNewsfeed();
+        break;
+    
+        case "#loadLogin":
+        loadLogin();
+        break;
+    
+        case "#loadLostAccount":
+        loadLostAccount();
+        break;
+    
+        case "#loadMyProfile":
+        loadMyProfile();
+        break;
+    
+        case "#loadRegister":
+        loadRegister();
+        break;
+    
+        case "#loadViewPost":
+        loadViewPost();
+        break;
+    
+        case "#loadWritePost":
+        loadWritePost();
+        break;
+    
+        case "#hideDevButtons":
+        hideDevButtons();
+        break;
+    
+        case "#loadLandingPage":
+        loadLandingPage();
+        break;
+
+        case "#lostAccountFromLandingPage":
+        lostAccountFromLandingPage();
+        break;
+
+        case "#lostAccountFromLandingPage":
+        lostAccountFromLandingPage();
+        break;
+
+        case "#loginFromLandingPage":
+        loginFromLandingPage();
+        break;
+
+        case "#registerFromLandingPage":
+        registerFromLandingPage();
+        break;
+
+           
+
         default :
         
         const info = hashData.split(".");
