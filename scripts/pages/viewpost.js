@@ -33,6 +33,16 @@ export async function onViewPostLoad(postId) {
         <button onclick="scratchPost('${postId}')">글 삭제</button>
     </div>
         `
+
+        
+        Promise.all([
+            getUserDisplayName(postCreatedBy),
+            getUserPhotoURL(postCreatedBy)
+        ]).then(function(response) {
+            const [userName, profileURL] = response
+            // 여기서 변수로 위에 html 수정
+        })
+
         // console.log(post_HTML)
         $("#viewpost-outer").append(post_HTML)
         if (postCreatedBy===authService.currentUser.uid)
