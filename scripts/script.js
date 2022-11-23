@@ -111,9 +111,9 @@ window.loadUserProfile = async function(userId) {
     
     document.getElementById("content").innerHTML = userProfileHTML 
 
-    if (user) {
-        await onProfileLoadUID(userId)
-    }
+
+    await onProfileLoadUID(userId)
+
 }
 
 window.loadViewPost = function(postId) {
