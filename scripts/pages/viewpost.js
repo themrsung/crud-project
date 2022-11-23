@@ -51,11 +51,10 @@ export async function onViewPostLoad(postId) {
                     onClick = "loadMyProfile()"
                 }
 
-                var displayName = ""
                 Promise.all([
                     getUserDisplayName(authService.currentUser.uid)
                 ]).then(function(response) {
-                    displayName = response[0]
+                    const displayName = response[0]
                     // 댓글 1개 영역
                     const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
