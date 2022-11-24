@@ -17,6 +17,14 @@ window.goToLandingPage = function() {
             })
         })
     }
+    else
+    {
+        authService.onAuthStateChanged((user) => {
+            if (user) {
+                checkHash("#loadNewsfeed");
+            }
+        })
+    }
 }
 
 
