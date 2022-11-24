@@ -45,7 +45,7 @@ export async function updateMyProfileMotd(newMotd) {
             doc(dbService,"userData", user.uid)
         )
         
-        const newName = user.name
+        const newName = user.displayName
         const newEmail = user.email
         const newPhotoURL = user.photoURL
         var newMBTI = null
