@@ -68,8 +68,3 @@ label {
   transition: ease .3s;
   margin-top: 20px;
 }
-
-button:hover {
-  background: #BA55D3;
-  color: #ffffff;
-}

@@ -7,7 +7,7 @@
 }
 /* 웹 폰트 적용 */
 
-.post-content-pre {
+.post-content-pre, button {
     font-family: 'LeferiPoint-WhiteObliqueA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
     font-weight: normal;
@@ -83,6 +83,37 @@ html {
 .footer-text {
     margin: 0px;
 }
+
+button {
+    border: none;
+    border-radius: 3px;;
+    padding-top: 6px;
+    padding: 6px 10px 0px;
+
+    background-color: rgba( 0, 0, 0, 0.12);
+    color: aquamarine;
+}
+
+button:hover {
+    background: #BA55D3;
+    color: white;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (width >=1000px) {
     .outer-wrap {
