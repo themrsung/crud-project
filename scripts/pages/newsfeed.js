@@ -24,8 +24,8 @@ export async function onNewsfeedLoad() {
 
 }
 
-export function renderPostToProfile(doc) {
-    renderPost(doc)
+export function renderPostToProfile(doc, isFirst = false) {
+    renderPost(doc, isFirst)
 }
 
 function renderPost(doc, isFirst = false) {

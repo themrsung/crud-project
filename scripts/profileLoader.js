@@ -13,8 +13,11 @@ export async function onProfileLoad(user) {
         )
     )
 
+    var isFirst = true
+
     querySnapshot.forEach((doc) => {
-        renderPostToProfile(doc)
+        renderPostToProfile(doc, isFirst)
+        isFirst = false
     })
 
     Promise.all([
