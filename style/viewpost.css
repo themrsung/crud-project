@@ -42,12 +42,12 @@
     justify-content: left;
 }
 
-.post-creator-profile {
+.post-creator-profile, .comment-creator-profile {
     width: 6%;
     height: 6%;
 }
 
-.post-creator-name {
+.post-creator-name, .comment-creator-name {
     margin-left: 10px;
     margin-right: auto;
 }

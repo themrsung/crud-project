@@ -78,9 +78,10 @@ export async function onViewPostLoad(postId) {
                     // 댓글 1개 영역
                     const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
-    <div class="comment-creator-info">
-    <img src="${photoURL}">
-    <p onclick="${onClick}")"><span>${displayName}</span> - <span>${comment["createdAt"]}</span></p>
+    <div onclick="${onClick}") class="comment-creator-info">
+        <img class="comment-creator-profile" src="${photoURL}">
+        <p class="comment-creator-name"><span>${displayName}</span> - <span>${comment["createdAt"]}</span></p>
+    </div>
     <p style="display:block" class="commentBefore${i}" >${comment["content"]}</p>
     <input type="text" id="updatingComment${i}" class="commentAfter${i}" style="display:none">
                                 `
