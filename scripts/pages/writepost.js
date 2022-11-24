@@ -46,8 +46,6 @@ window.writePost = function() {
 // document.querySelector("#write-post-button").addEventListener("click", writePost)
 window.fileControl = (event) => {
 
-    document.getElementById("imgList").innerHTML = "";
-    document.getElementById("fileNameList").innerHTML = "";
     window.filePack= [];
     window.fileNames= [];
     
@@ -72,6 +70,9 @@ window.fileControl = (event) => {
 
 window.showFiles = function()
 {
+    document.getElementById("imgList").innerHTML = "";
+    document.getElementById("fileNameList").innerHTML = "";
+
     for (let j=0; j<window.filePack.length ; j++){
         const imgDataUrl = window.filePack[j];
         //localStorage.setItem("posting-img"+j, imgDataUrl);
@@ -84,7 +85,7 @@ window.showFiles = function()
         ` 
             <div style="display=inline-block" id="fileInfo${j}">
                 <p>${window.fileNames[j]}</p>
-                <button onclick="removeFile("${window.fileNames[j]}","${j}")">x</button>
+                <button onclick="removeFile('${window.fileNames[j]}','${j}')">x</button>
             </div>
         `;
         document.getElementById("imgList").innerHTML += imgList;
