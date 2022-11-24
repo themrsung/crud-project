@@ -29,7 +29,7 @@ export async function onViewPostLoad(postId) {
             <p id="post-creator-name" class="post-creator-name"></p>
         </div>
         <p class="text-content-text">${content}</p>
-        
+        <img id="posting-img" class="posting-img" src="${docSnap.data()["img"]}">
     </div>
     <div class="comments" id="comments"></div>
 </div>`
@@ -57,15 +57,15 @@ export async function onViewPostLoad(postId) {
                 {
                     $("#viewpost-outer").append(post_Btn)
                 }
-        if(docSnap.data()["img"] !== null)
-        {
-            for(let jj in docSnap.data()["img"])
-            {
-                document.getElementById("post-content").innerHTML += `
-                <img id="posting-img${jj}" class="posting-img" src="${docSnap.data()["img"][jj]}">
-                `
-            }
-        }       
+        // if(docSnap.data()["img"] !== null)
+        // {
+        //     for(let jj in docSnap.data()["img"])
+        //     {
+        //         document.getElementById("post-content").innerHTML += `
+        //         <img id="posting-img${jj}" class="posting-img" src="${docSnap.data()["img"][jj]}">
+        //         `
+        //     }
+        // }       
         
         
         // 코멘트가 있으면
