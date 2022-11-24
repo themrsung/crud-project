@@ -18,6 +18,7 @@ export async function onViewPostLoad(postId) {
     if (docSnap.data()["deleted"] == false){
         const isOwnPost = authService.currentUser.uid == docSnap.data()["createdBy"]
         const postCreatedBy = docSnap.data()["createdBy"]
+        const content = docSnap.data()["content"].replaceAll("\n", "<br>")
         // 게시글 영역
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
@@ -27,14 +28,12 @@ export async function onViewPostLoad(postId) {
             <img id="post-creator-profile" class="post-creator-profile" src="../img/default-profile.png">
             <p id="post-creator-name" class="post-creator-name"></p>
         </div>
-        <p><pre class="post-content-pre">${docSnap.data()["content"]}</pre></p>
-        <img id="posting-img" class="posting-img" src="${docSnap.data()["img"]}">
-       
+        <p class="text-content-text">${content}</p>
     </div>
     <div class="comments" id="comments"></div>
 </div>`
         const post_Btn = `
-    <div>
+    <div class="post-manage-button-box">
         <button onclick="editPost('${postId}')">글 수정</button>
         <button onclick="scratchPost('${postId}')">글 삭제</button>
     </div>
@@ -69,7 +68,7 @@ export async function onViewPostLoad(postId) {
                     onClick = "loadMyProfile()"
                 }
 
-                console.log(comment["createdBy"])
+                // console.log(comment["createdBy"])
                 Promise.all([
                     getUserDisplayName(comment["createdBy"]),
                     getUserPhotoURL(comment["createdBy"])
@@ -79,6 +78,7 @@ export async function onViewPostLoad(postId) {
                     // 댓글 1개 영역
                     const comment_HTML = `
 <div class="comment" id="${postId}.${i}">
+    <div class="comment-creator-info">
     <img src="${photoURL}">
     <p onclick="${onClick}")"><span>${displayName}</span> - <span>${comment["createdAt"]}</span></p>
     <p style="display:block" class="commentBefore${i}" >${comment["content"]}</p>

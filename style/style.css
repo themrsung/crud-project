@@ -115,6 +115,26 @@ input:focus, textarea:focus {
     border-color: #BA55D3;
 }
 
+/* text */
+
+.post-content {
+    margin: 10px;
+    max-width: auto;
+}
+
+/* .post-content-text {
+    max-width: 70%;
+} */
+
+.post-content-pre {
+    max-width: 100%;
+}
+
+p, pre {
+    overflow-wrap: normal;
+    word-wrap: normal;
+    display: inline-block;
+}
 
 
 

@@ -35,16 +35,15 @@ function renderPost(doc, isFirst = false) {
         const [displayName] = response
         const thumbnailURL = "../../img/default-profile.png"
         const post_HTML = `
-    <div class="post" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)">
+    <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)">
         <div class="post-thumbnail-container">
             <img class="post-thumbnail" src="${thumbnailURL}">
         </div>
-        <div class="post-content">
+        <div class="post-content post-content-newsfeed">
             <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
             <p class="post-author-name">by ${displayName}</p>
-            <p class="post-content-text"><pre class="post-content-pre">${doc.data()["content"].substring(0, 100)}</pre></p>
+            <p class="post-content-text">${doc.data()["content"].substring(0, 100).replaceAll("\n", "<br>")}</p>
         </div>
-        <div class="comments" id="comments"></div>
     </div>
         `
         if (!isFirst) {

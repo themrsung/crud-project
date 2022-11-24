@@ -34,3 +34,24 @@
         margin: 2.5%;
     }
 }
+
+.post-creator-info, .comment-creator-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+}
+
+.post-creator-profile {
+    width: 6%;
+    height: 6%;
+}
+
+.post-creator-name {
+    margin-left: 10px;
+    margin-right: auto;
+}
+
+.post-manage-button-box {
+    margin: auto auto auto 2.5%;
+}

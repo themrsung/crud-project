@@ -31,20 +31,12 @@
     width: 156px;
 }
 
-.post-content {
-    margin: 10px;
-    max-width: auto;
-    overflow: hidden;
-    overflow-wrap: break-word;
+.post-newsfeed {
+    width: 100%!important;
 }
 
-.post-content-text {
-    max-width: 70%;
-}
-
-.post-content-pre {
-    max-width: 100%;
-    word-wrap: break-word;
+.post-content-newsfeed {
+    width: auto!important;
 }
 
 @media (width < 500px) {
