@@ -114,7 +114,7 @@ export async function onViewPostLoad(postId) {
 </div>
         `
         $("#comments").append(write_comment_HTML)
-        window.location.hash = "loadNewsfeed."+postId
+        
     }
 }
 
