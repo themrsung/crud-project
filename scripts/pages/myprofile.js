@@ -107,9 +107,9 @@ window.onPasswordChanged = async function() {
 //     alert("개발중")
 // }
 
-export const changeProfile = async (event) => {
-    event.preventDefault();
-    // document.getElementById("profileBtn").disabled = true;
+window.changeProfile = async (event) => {
+    // event.preventDefault();
+    document.getElementById("profileBtn").disabled = true;
     const imgRef = ref(
         storageService,
         `${authService.currentUser.uid}/${uuidv4()}`
@@ -124,9 +124,17 @@ export const changeProfile = async (event) => {
         downloadUrl = await getDownloadURL(response.ref)
     }
     await updateProfile(authService.currentUser, {
-        photoURL: downloadUrl ? downloadUrl : null
-    })
+        photoURL: downloadUrl ? downloadUrl : null,
+    })    .then(() => {
+        alert("프로필 수정 완료");
+      })
+      .catch((error) => {
+        alert("프로필 수정 실패");
+        console.log("error:", error);
+      });
+    
 }
+
 
 window.onFileChange = event => {
     const theFile = event.target.files[0] // file 객체
