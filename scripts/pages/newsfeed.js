@@ -2,8 +2,11 @@ import { getDocs, collection, query, where, orderBy, limit } from "https://www.g
 import { dbService } from "../firebase.js"
 import { getUserDisplayName, updateUserInfoToCache } from "../userService.js"
 
+// 메인 페이지 로드 시
 export async function onNewsfeedLoad() {
+    // 유저 정보 캐시
     updateUserInfoToCache()
+    // 포스트 목록 가져오기
     const querySnapshot = await getDocs(
         query(
             collection(dbService, "posts"),
@@ -14,10 +17,9 @@ export async function onNewsfeedLoad() {
         )
     )
 
-    // // 시간순 정렬
-    // querySnapshot.reverse()
     var isFirst = true
     querySnapshot.forEach((doc) => {
+        // 포스트 1개당 실행
         renderPost(doc, isFirst)
         isFirst = false
     })
@@ -29,14 +31,19 @@ export function renderPostToProfile(doc, isFirst = false) {
 }
 
 function renderPost(doc, isFirst = false) {
+    // 비동기로 캐싱된 유저 데이터 가져오기
     Promise.all([
         getUserDisplayName(doc.data()["createdBy"])
     ]).then(function(response) {
+        // 가져오기 성공!
         const [displayName] = response
+        // 기본 이미지로 설정
         var thumbnailURL = "../../img/default-profile.png"
         if (doc.data()["img"].length > 0) {
+            // 글에 첨부파일이 있을 경우 이미지 URL 가져오기
             thumbnailURL = doc.data()["img"][0]
         }
+        // 게시글 템플릿
         const post_HTML = `
     <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)">
         <div class="post-thumbnail-container">
@@ -49,9 +56,12 @@ function renderPost(doc, isFirst = false) {
         </div>
     </div>
         `
+        // 첫 게시글이 아닌 경우
         if (!isFirst) {
+            // 가로선 긋기
             renderPostDivider()
         }
+        // 게시글 표시하기
         $("#news-feed").prepend(post_HTML)
         
     })
