@@ -22,7 +22,7 @@ export async function onViewPostLoad(postId) {
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
     <div class="post-content">
-        <h1>${docSnap.data()["title"]}</h1>
+        <h1 class="view-post-title">${docSnap.data()["title"]}</h1>
         <div class="post-creator-info" id="#loadUserProfile.${postCreatedBy}" onclick="checkHash(this.id);">
             <img id="post-creator-profile" class="post-creator-profile" src="../img/default-profile.png">
             <p id="post-creator-name" class="post-creator-name"></p>

@@ -1,0 +1,36 @@
+@media (width >= 1000px) {
+    .post {
+        display: flex;
+        flex-direction: row;
+        align-items: top;
+        justify-content: stretch;
+    }
+
+    .post-content {
+        width: 66.25%;
+        margin: 2.5% 1.25% 2.5% 2.5%;
+    }
+
+    .comments {
+        width: 26.25%;
+        margin: calc(2.5% + 25px) 2.5% auto 1.25%;
+    }
+
+    .view-post-title {
+        margin-top: 0px;
+    }    
+}
+
+@media (width < 1000px) {
+    .post {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: left;
+    }
+
+    .post-content, .comments {
+        width: 95%;
+        margin: 2.5%;
+    }
+}
