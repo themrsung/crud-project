@@ -1,12 +1,12 @@
 import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-auth.js";
 
 
- window.resetBtn = function() {
-    loadNewsfeed()
-    resetBtn()
- }
+//  window.resetBtn = function() {
+//     loadNewsfeed()
+//     resetBtn()
+//  }
 
-function resetBtn(){
+window.resetBtn= ()=>{
 
     let email = document.querySelector("#resetEmail")
 

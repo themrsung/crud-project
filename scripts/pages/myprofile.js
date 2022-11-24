@@ -108,7 +108,7 @@ window.onPasswordChanged = async function() {
 // }
 
 window.changeProfile = async (event) => {
-    // event.preventDefault();
+    event.preventDefault();
     document.getElementById("profileBtn").disabled = true;
     const imgRef = ref(
         storageService,
