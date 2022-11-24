@@ -36,7 +36,9 @@ window.writePost = function() {
         createdAt: createdAt,
         comments: comments,
         deleted: deleted,
-        img : window.filePack || null
+        imgUrl : window.filePack || null,
+        imgName : window.fileNames || null,
+
     })
     window.filePack = []
 }
@@ -46,8 +48,8 @@ window.fileControl = (event) => {
 
     document.getElementById("imgList").innerHTML = "";
     document.getElementById("fileNameList").innerHTML = "";
-    window.filePack=[];
-    window.fileNames=[];
+    window.filePack= [];
+    window.fileNames= [];
     
     let files = event.target.files;
     
@@ -72,7 +74,7 @@ window.showFiles = function()
 {
     for (let j=0; j<window.filePack.length ; j++){
         const imgDataUrl = window.filePack[j];
-        localStorage.setItem("posting-img"+j, imgDataUrl);
+        //localStorage.setItem("posting-img"+j, imgDataUrl);
         //document.getElementById("posting-img").src = imgDataUrl;
         const imgList = 
         `
@@ -82,7 +84,7 @@ window.showFiles = function()
         ` 
             <div style="display=inline-block" id="fileInfo${j}">
                 <p>${window.fileNames[j]}</p>
-                <button onclick="removeFile(${j})">x</button>
+                <button onclick="removeFile("${post.data()["imgName"][i]}","${i}")">x</button>
             </div>
         `;
         document.getElementById("imgList").innerHTML += imgList;
@@ -90,10 +92,25 @@ window.showFiles = function()
         };
 }
 
-window.removeFile = function(number)
+window.removeFile = function(fileName,number)
 {
     document.getElementById("fileInfo"+number).style.display="none";
     document.getElementById("posting-img"+number).remove();
-    localStorage.removeItem("posting-img"+number);
+    let fileArray = [];
+    let fileNameArray = [];
+    for(let i in window.fileNames)
+    {
+        if(fileName !== window.fileNames[i])
+        {
+            fileArray.push(window.filePack[i]);
+            fileNameArray.push(window.fileNames[i]);
+        }
+    }
+    window.filePack= fileArray;
+    window.fileNames= fileNameArray;
+
+    
+    
+
 }
 
