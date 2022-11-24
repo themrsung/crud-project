@@ -36,8 +36,9 @@ window.writePost = function() {
         createdAt: createdAt,
         comments: comments,
         deleted: deleted,
-        img : window.filePack
+        img : window.filePack || null
     })
+    window.filePack = []
 }
 
 // document.querySelector("#write-post-button").addEventListener("click", writePost)
