@@ -84,7 +84,7 @@ window.showFiles = function()
         ` 
             <div style="display=inline-block" id="fileInfo${j}">
                 <p>${window.fileNames[j]}</p>
-                <button onclick="removeFile("${post.data()["imgName"][i]}","${i}")">x</button>
+                <button onclick="removeFile("${window.fileNames[j]}","${j}")">x</button>
             </div>
         `;
         document.getElementById("imgList").innerHTML += imgList;
