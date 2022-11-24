@@ -41,14 +41,58 @@ window.writePost = function() {
 }
 
 // document.querySelector("#write-post-button").addEventListener("click", writePost)
+window.filePack=[];
+window.fileNames=[];
+
 window.fileControl = (event) => {
-    const theFile = event.target.files[0]; // file 객체
-    const reader = new FileReader();
-    reader.readAsDataURL(theFile); // file 객체를 브라우저가 읽을 수 있는 data URL로 읽음.
-    reader.onloadend = (finishedEvent) => {
-      // 파일리더가 파일객체를 data URL로 변환 작업을 끝났을 때
-      const imgDataUrl = finishedEvent.currentTarget.result;
-      localStorage.setItem("posting-img", imgDataUrl);
-      document.getElementById("posting-img").src = imgDataUrl;
-    };
-  };
+
+    document.getElementById("imgList").innerHTML = "";
+    document.getElementById("fileNameList").innerHTML = "";
+    
+    let files = event.target.files;
+    
+    let file;
+       for (let i=0; i<files.length ; i++){
+            let reader = new FileReader();
+            file = files[i];
+            window.fileNames.push(files[i].name)
+            reader.onload = (file) => {
+               
+                window.filePack[i] = reader.result;
+                window.filePack.length === window.fileNames.length ? window.showFiles() : false
+                //window.showFiles();
+                
+             }
+            reader.readAsDataURL(file)
+        }
+        
+}
+
+window.showFiles = function()
+{
+    for (let j=0; j<window.filePack.length ; j++){
+        const imgDataUrl = window.filePack[j];
+        localStorage.setItem("posting-img"+j, imgDataUrl);
+        //document.getElementById("posting-img").src = imgDataUrl;
+        const imgList = 
+        `
+            <img src="${imgDataUrl}" id="posting-img${j}">
+        `;
+        const fileNameList = 
+        ` 
+            <div style="display=inline-block" id="fileInfo${j}">
+                <p>${window.fileNames[j]}</p>
+                <button onclick="removeFile(${j})">x</button>
+            </div>
+        `;
+        document.getElementById("imgList").innerHTML += imgList;
+        document.getElementById("fileNameList").innerHTML += fileNameList;
+        };
+}
+
+window.removeFile = function(number)
+{
+    document.getElementById("fileInfo"+number).style.display="none";
+    localStorage.removeItem("posting-img"+number);
+}
+
