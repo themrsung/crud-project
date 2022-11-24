@@ -1,7 +1,7 @@
 import { getDocs, collection, query, where, orderBy } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { authService, dbService } from "./firebase.js"
 import { renderPostToProfile } from "./pages/newsfeed.js"
-import { getUserDisplayName, getUserEmail, getUserMotd, getUserPhotoURL } from "./userService.js"
+import { getUserDisplayName, getUserEmail, getUserMBTI, getUserMotd, getUserPhotoURL } from "./userService.js"
 
 export async function onProfileLoad(user) {
     const querySnapshot = await getDocs(
@@ -18,14 +18,16 @@ export async function onProfileLoad(user) {
     })
 
     Promise.all([
-        getUserMotd(user.uid)
+        getUserMotd(user.uid),
+        getUserMBTI(user.uid)
     ]).then(function(response) {
-        const [motd] = response
+        const [motd, mbti] = response
         renderProfileInfo(
             user.displayName,
             user.email,
             user.photoURL,
-            motd
+            motd,
+            mbti
         )
     })
     
@@ -66,7 +68,7 @@ export async function onProfileLoadUID(uid) {
 //     document.getElementById("user-motd").innerHTML = user.motd
 // }
 
-function renderProfileInfo(displayName, email, photoURL, motd) {
+function renderProfileInfo(displayName, email, photoURL, motd, mbti) {
     // console.log("aaaa", displayName)
     document.getElementById("user-name").innerHTML = displayName
     document.getElementById("user-email").innerHTML = email
