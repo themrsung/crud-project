@@ -62,7 +62,29 @@ window.loadEditPost = async function(postId) {
     //console.log(post)
     document.getElementById("edit-post-title").value = post.data()["title"]
     document.getElementById("edit-post-content").value = post.data()["content"]
-    document.getElementById("posting-img").src = post.data()["img"]
+    
+    document.getElementById("imgList").innerHTML = "";
+    document.getElementById("fileNameList").innerHTML = "";
+
+    for(let i in post.data()["imgUrl"])
+    {
+        const imgList = 
+        `
+            <img src="${post.data()["imgUrl"][i]}" id="posting-img${i}">
+        `;
+        const fileNameList = 
+        ` 
+            <div style="display=inline-block" id="fileInfo${i}">
+                <p>${post.data()["imgName"][i]}</p>
+                <button onclick="removeFile('${post.data()["imgName"][i]}','${i}')">x</button>
+            </div>
+        `;
+        document.getElementById("imgList").innerHTML += imgList;
+        document.getElementById("fileNameList").innerHTML += fileNameList;
+    }
+    
+    window.filePack = post.data()["imgUrl"];
+    window.fileNames = post.data()["imgName"];
 }
 
 window.loadLogin = function() {
