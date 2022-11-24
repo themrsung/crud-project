@@ -5,8 +5,13 @@
         
         <input type="text" id="write-post-title" placeholder="글 제목"><br><br>
         <textarea name="text" id="write-post-content" placeholder="글 내용"></textarea>
-        <img src="#" id ="posting-img">
+        <div id="imgList">
+
+        </div>
         <input type="file" id="write-post-file" onchange="fileControl(event)" placeholder="첨부파일" multiple/>
+        <div id="fileNameList">
+
+        </div>
         <br>
         <button id="write-post-button" onclick="writePost();loadNewsfeed()">작성하기</button>
         

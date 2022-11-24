@@ -35,11 +35,12 @@ $(document).ready(function() {
         }
         else if(where.match("loadLogin")){
             
-            checkHash("#"+where)
+            loadLogin()
         }
         else
         {
-            checkHash("#loadNewsfeed")
+            loadNewsfeed()
+            window.location.hash ="#loadNewsfeed"
         }
         
     }

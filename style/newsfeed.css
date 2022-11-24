@@ -37,6 +37,9 @@
 
 .post-content-newsfeed {
     width: auto!important;
+    
+    display: flex;
+    flex-direction: column;
 }
 
 @media (width < 500px) {
