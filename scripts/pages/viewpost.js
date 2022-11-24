@@ -41,9 +41,10 @@ export async function onViewPostLoad(postId) {
         
         Promise.all([
             getUserDisplayName(postCreatedBy),
-            getUserPhotoURL(postCreatedBy)
+            getUserPhotoURL(postCreatedBy),
+            getUserMotd(postCreatedBy)
         ]).then(function(response) {
-            const [userName, profileURL] = response
+            const [userName, profileURL, userMotd] = response
             document.getElementById("post-creator-profile").src = profileURL;
             document.getElementById("post-creator-name").innerHTML = userName;
             // 여기서 변수로 위에 html 수정
