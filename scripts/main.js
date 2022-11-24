@@ -34,6 +34,10 @@ $(document).ready(function() {
             const postNum = where.split(".");
             loadUserProfile(postNum[1]);
         }
+        else if(where.match("loadMyProfile")){
+            
+            loadMyProfile()
+        }
         else if(where.match("loadLogin")){
             
             loadLogin()
