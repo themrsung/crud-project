@@ -41,8 +41,20 @@ export async function updateMyProfilePassword(newPassword) {
 export async function updateMyProfileMotd(newMotd) {
     const user = authService.currentUser
     if (user) {
+        const docSnap = await getDoc(
+            doc(dbService,"userData", user.uid)
+        )
+        
+        var newName, newEmail, newPhotoURL, newMBTI = null
+
+        if (docSnap.exists()) {
+            newName, newEmail, newPhotoURL, newMBTI = docSnap.data()["name"], docSnap.data()["email"], docSnap.data()["photoURL"], docSnap.data()["mbti"]
+        }
         await setDoc(
             doc(dbService, "userData", user.uid), {
+                name: newName,
+                email: newEmail,
+                photoURL: newPhotoURL,
                 motd: newMotd
             }
         )
@@ -52,8 +64,21 @@ export async function updateMyProfileMotd(newMotd) {
 export async function updateMyProfileMBTI(newMBTI) {
     const user = authService.currentUser
     if (user) {
+        const docSnap = await getDoc(
+            doc(dbService,"userData", user.uid)
+        )
+        
+        var newName, newEmail, newPhotoURL, newMotd = null
+
+        if (docSnap.exists()) {
+            newName, newEmail, newPhotoURL, newMotd = docSnap.data()["name"], docSnap.data()["email"], docSnap.data()["photoURL"], docSnap.data()["motd"]
+        }
         await setDoc(
             doc(dbService, "userData", user.uid), {
+                name: newName,
+                email: newEmail,
+                photoURL: newPhotoURL,
+                motd: newMotd,
                 mbti: newMBTI
             }
         )
