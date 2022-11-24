@@ -35,7 +35,8 @@ window.writePost = function() {
         createdBy: createdBy,
         createdAt: createdAt,
         comments: comments,
-        deleted: deleted
+        deleted: deleted,
+        img : localStorage.getItem("write-post-img")
     })
 }
 
@@ -47,7 +48,7 @@ window.fileControl = (event) => {
     reader.onloadend = (finishedEvent) => {
       // 파일리더가 파일객체를 data URL로 변환 작업을 끝났을 때
       const imgDataUrl = finishedEvent.currentTarget.result;
-      localStorage.setItem("imgDataUrl", imgDataUrl);
-      document.getElementById("profileView").src = imgDataUrl;
+      localStorage.setItem("posting-img", imgDataUrl);
+      document.getElementById("posting-img").src = imgDataUrl;
     };
   };
