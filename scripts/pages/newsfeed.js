@@ -33,7 +33,10 @@ function renderPost(doc, isFirst = false) {
         getUserDisplayName(doc.data()["createdBy"])
     ]).then(function(response) {
         const [displayName] = response
-        const thumbnailURL = "../../img/default-profile.png"
+        var thumbnailURL = "../../img/default-profile.png"
+        if (doc.data()["img"].length > 0) {
+            thumbnailURL = doc.data()["img"][0]
+        }
         const post_HTML = `
     <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)">
         <div class="post-thumbnail-container">
