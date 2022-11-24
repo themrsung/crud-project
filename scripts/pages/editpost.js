@@ -13,10 +13,11 @@ window.onEditPostCompleted = async function(postId) {
     const commentRef = doc(dbService, "posts", postId);
     const title = document.getElementById("edit-post-title").value;
     const content = document.getElementById("edit-post-content").value;
+    const img = localStorage.getItem("posting-img");
 
     try {
         
-        await updateDoc(commentRef, { content: content , title : title }) // 게시글
+        await updateDoc(commentRef, { content: content , title : title , img : img }) // 게시글
         return loadViewPost(postId);
      
     } catch (error) {
