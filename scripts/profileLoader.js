@@ -17,12 +17,18 @@ export async function onProfileLoad(user) {
         renderPostToProfile(doc)
     })
 
-    renderProfileInfo(
-        user.displayName,
-        user.email,
-        user.photoURL,
-        "motd"
-    )
+    Promise.all([
+        getUserMotd(user.uid)
+    ]).then(function(response) {
+        const [motd] = response
+        renderProfileInfo(
+            user.displayName,
+            user.email,
+            user.photoURL,
+            motd
+        )
+    })
+    
 }
 
 export async function onProfileLoadUID(uid) {
