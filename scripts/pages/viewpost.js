@@ -22,14 +22,14 @@ export async function onViewPostLoad(postId) {
         // 게시글 영역
         const post_HTML = `
 <div class="post" id="${docSnap.id}">
-    <div class="post-content">
+    <div class="post-content" id="post-content">
         <h1 class="view-post-title">${docSnap.data()["title"]}</h1>
         <div class="post-creator-info" id="#loadUserProfile.${postCreatedBy}" onclick="checkHash(this.id);">
             <img id="post-creator-profile" class="post-creator-profile" src="../img/default-profile.png">
             <p id="post-creator-name" class="post-creator-name"></p>
         </div>
         <p class="text-content-text">${content}</p>
-        <img id="posting-img" class="posting-img" src="${docSnap.data()["img"]}">
+        
     </div>
     <div class="comments" id="comments"></div>
 </div>`
@@ -57,6 +57,16 @@ export async function onViewPostLoad(postId) {
                 {
                     $("#viewpost-outer").append(post_Btn)
                 }
+        if(docSnap.data()["img"] !== null)
+        {
+            for(let jj in docSnap.data()["img"])
+            {
+                document.getElementById("post-content").innerHTML += `
+                <img id="posting-img${jj}" class="posting-img" src="${docSnap.data()["img"][jj]}">
+                `
+            }
+        }       
+        
         
         // 코멘트가 있으면
         if (docSnap.data()["comments"].length > 1) {
