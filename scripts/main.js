@@ -3,8 +3,11 @@ import { authService, dbService, getParam } from "./firebase.js"
 //import * as loginFunc from "./pages/login.js";
 import "./script.js"
 import { onViewPostLoad } from "./pages/viewpost.js"
+import { updateUserInfoToCache } from "./userService.js"
 
 $(document).ready(function() {
+
+    updateUserInfoToCache()
     
     if (getParam("goToRegister") == "true") {
         loadRegister()
