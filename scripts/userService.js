@@ -156,7 +156,7 @@ export async function updateUserInfoToCache() {
             }
         )
 
-        console.log("user info saved")
+        // console.log("user info saved")
         
     }
 }
