@@ -6,8 +6,6 @@ import { onViewPostLoad } from "./pages/viewpost.js"
 import { updateUserInfoToCache } from "./userService.js"
 
 $(document).ready(function() {
-
-    updateUserInfoToCache()
     
     if (getParam("goToRegister") == "true") {
         loadRegister()

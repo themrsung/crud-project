@@ -99,9 +99,15 @@ export async function updateMyProfileMBTI(newMBTI) {
 }
 
 export async function updateUserInfoToCache() {
+    
+    console.log("attempting to cache user info")
+
     // console.log("user info updated")
     const user = authService.currentUser
     // var motd = document.getElementById("user-motd").innerHTML || null
+
+    console.log("user instance retrieved")
+
     if (user) {
         // if (motd == null) {
         //     motd = (await getDoc(
@@ -114,6 +120,8 @@ export async function updateUserInfoToCache() {
         //     photoURL: user.photoURL
         // })
         // console.log(user.displayName, user.email, user.photoURL)
+        console.log("user instance validated")
+
 
         const docSnap = await getDoc(
             doc(dbService, "userData", user.uid)
@@ -135,6 +143,8 @@ export async function updateUserInfoToCache() {
         }
         catch{}
 
+        console.log("attempting to save user info")
+
         setDoc(
             doc(dbService, "userData", user.uid),
             {
@@ -145,6 +155,8 @@ export async function updateUserInfoToCache() {
                 mbti: mbti
             }
         )
+
+        console.log("user info saved")
         
     }
 }
