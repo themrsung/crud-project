@@ -5,3 +5,8 @@
 .profileimage {
     width: 50%;
 }
+
+.profile-desc {
+    display: flex;
+    flex-direction: column;
+}
