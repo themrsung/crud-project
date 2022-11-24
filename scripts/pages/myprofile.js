@@ -1,7 +1,7 @@
 import { authService, storageService } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
 import { onProfileLoad } from "../profileLoader.js"
-import { updateMyProfileDisplayName, updateMyProfilePassword, updateMyProfileMotd, updateUserInfoToCache } from "../userService.js"
+import { updateMyProfileDisplayName, updateMyProfilePassword, updateMyProfileMotd, updateUserInfoToCache, updateMyProfileMBTI } from "../userService.js"
 import {
     ref,
     uploadString,
@@ -47,6 +47,16 @@ window.startMotdChange = async function() {
     )
 }
 
+window.startMBTIChange = async function() {
+    $("#edit-user-mbti-button-container").empty()
+    $("#edit-user-mbti-button-container").append(
+        `
+<input id="new-user-mbti">
+<button onclick="onMBTIChanged()">완료</button>
+        `
+    )
+}
+
 window.onDisplayNameChanged = async function() {
     const ndn = stripHTMLTags($("#new-user-name").val())
     await updateMyProfileDisplayName(ndn)
@@ -61,6 +71,14 @@ window.onMotdChanged = async function() {
     await updateMyProfileMotd(newMotd)
     await $("#edit-user-motd-button-container").empty()
     document.getElementById("user-motd").innerHTML = newMotd
+    updateUserInfoToCache()
+}
+
+window.onMBTIChanged = async function() {
+    const newMBTI = stripHTMLTags($("#new-user-mbti").val())
+    await updateMyProfileMBTI(newMBTI)
+    await $("#edit-user-mbti-button-container").empty()
+    document.getElementById("user-mbti").innerHTML = newMBTI
     updateUserInfoToCache()
 }
 

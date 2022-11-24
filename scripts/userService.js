@@ -49,6 +49,17 @@ export async function updateMyProfileMotd(newMotd) {
     }
 }
 
+export async function updateMyProfileMBTI(newMBTI) {
+    const user = authService.currentUser
+    if (user) {
+        await setDoc(
+            doc(dbService, "userData", user.uid), {
+                mbti: newMBTI
+            }
+        )
+    }
+}
+
 export async function updateUserInfoToCache() {
     // console.log("user info updated")
     const user = authService.currentUser
