@@ -65,14 +65,34 @@ export async function updateUserInfoToCache() {
         //     photoURL: user.photoURL
         // })
         // console.log(user.displayName, user.email, user.photoURL)
-        await setDoc(
-            doc(dbService, "userData", user.uid),
-            {
-                displayName: user.displayName,
-                email: user.email,
-                photoURL: user.photoURL
-            }
+
+        const docSnap = await getDoc(
+            doc(dbService, "userData", user.uid)
         )
+
+        if (docSnap.exists()) {
+            setDoc(
+                doc(dbService, "userData", user.uid),
+                {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    motd: docSnap.data()["motd"]
+                }
+            )
+        }
+        else {
+            setDoc(
+                doc(dbService, "userData", user.uid),
+                {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    motd: null
+                }
+            )
+        }
+        
     }
 }
 
