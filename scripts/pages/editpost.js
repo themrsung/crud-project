@@ -17,7 +17,7 @@ window.onEditPostCompleted = async function(postId) {
 
     try {
         
-        await updateDoc(commentRef, { content: content , title : title , img : window.filePack }) // 게시글
+        await updateDoc(commentRef, { content: content , title : title , imgUrl : window.filePack , imgName : window.fileNames }) // 게시글
         return loadViewPost(postId);
      
     } catch (error) {
