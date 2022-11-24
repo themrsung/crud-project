@@ -1,7 +1,7 @@
 import { authService, storageService } from "../firebase.js"
 import { stripHTMLTags } from "../htmlSecurity.js"
 import { onProfileLoad } from "../profileLoader.js"
-import { updateMyProfileDisplayName, updateMyProfilePassword, updateUserInfoToCache } from "../userService.js"
+import { updateMyProfileDisplayName, updateMyProfilePassword, updateMyProfileMotd, updateUserInfoToCache } from "../userService.js"
 import {
     ref,
     uploadString,
@@ -38,8 +38,8 @@ window.startPasswordChange = async function() {
 }
 
 window.startMotdChange = async function() {
-    $("#edit-user-name-button-container").empty()
-    $("#edit-user-name-button-container").append(
+    $("#edit-user-motd-button-container").empty()
+    $("#edit-user-motd-button-container").append(
         `
 <input id="new-user-motd">
 <button onclick="onMotdChanged()">완료</button>
@@ -51,8 +51,16 @@ window.onDisplayNameChanged = async function() {
     const ndn = stripHTMLTags($("#new-user-name").val())
     await updateMyProfileDisplayName(ndn)
     await $("#edit-user-name-button-container").empty()
-    console.log(ndn)
+    // console.log(ndn)
     document.getElementById("user-name").innerHTML = ndn
+    updateUserInfoToCache()
+}
+
+window.onMotdChanged = async function() {
+    const newMotd = stripHTMLTags($("#new-user-motd").val())
+    await updateMyProfileMotd(newMotd)
+    await $("#edit-user-motd-button-container").empty()
+    document.getElementById("user-motd").innerHTML = newMotd
     updateUserInfoToCache()
 }
 

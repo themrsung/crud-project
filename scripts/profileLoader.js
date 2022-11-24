@@ -65,7 +65,7 @@ export async function onProfileLoadUID(uid) {
 // }
 
 function renderProfileInfo(displayName, email, photoURL, motd) {
-    console.log("aaaa", displayName)
+    // console.log("aaaa", displayName)
     document.getElementById("user-name").innerHTML = displayName
     document.getElementById("user-email").innerHTML = email
     document.getElementById("user-profile-image").src = photoURL

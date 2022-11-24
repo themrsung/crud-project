@@ -38,6 +38,17 @@ export async function updateMyProfilePassword(newPassword) {
     }
 }
 
+export async function updateMyProfileMotd(newMotd) {
+    const user = authService.currentUser
+    if (user) {
+        await setDoc(
+            doc(dbService, "userData", user.uid), {
+                motd: newMotd
+            }
+        )
+    }
+}
+
 export async function updateUserInfoToCache() {
     // console.log("user info updated")
     const user = authService.currentUser
