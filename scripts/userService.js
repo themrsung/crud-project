@@ -143,3 +143,15 @@ export async function getUserMotd(uid) {
         return "(motd)"
     }
 }
+
+export async function getUserMBTI(uid) {
+    const user = await getDoc(
+        doc(dbService, "userData", uid)
+    )
+    if (user.exists()) {
+        return user.data()["mbti"]
+    }
+    else {
+        return "(mbti)"
+    }
+}
