@@ -36,7 +36,7 @@ window.writePost = function() {
         createdAt: createdAt,
         comments: comments,
         deleted: deleted,
-        img : localStorage.getItem("write-post-img")
+        img : window.filePack
     })
 }
 
