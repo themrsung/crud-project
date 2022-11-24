@@ -1,20 +1,54 @@
-.write-post {
+/* .write-post {
     margin: 70px 40px 70px 40px;
-}
+} */
 
-#write-post-title {
+/* #write-post-title {
     width:500px;
     font-size:20px;
 }
 
-#write-post-content {
-    width: 500px;
-    height:300px;
+.write-post-content {
+    width: 70%;
+    height: 50%;
     font-size:14px;
     overflow: scroll;
     overflow-x: hidden;
 }
 
-#write-post-button {
+.write-post-button {
     margin-top: 20px;
+} */
+
+.write-post-content {
+    margin: auto;
+
+    width: 70%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+}
+
+@media (width < 1000px) {
+    .write-post-content {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+.write-post-content > * {
+    width: 100%;
+    margin: auto;
+}
+
+.write-post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
 }

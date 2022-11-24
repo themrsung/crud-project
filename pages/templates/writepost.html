@@ -1,21 +1,18 @@
-<center>
-    <div class="post">
-    <div class="post-content">
-        <h3>글쓰기✏</h3>
-        
-        <input type="text" id="write-post-title" placeholder="글 제목"><br><br>
-        <textarea name="text" id="write-post-content" placeholder="글 내용"></textarea>
-        <div id="imgList">
+<div class="write-post-container">
+    <div class="write-post-content">
+        <h3 class="write-post-page-title">글쓰기</h3>
+
+        <input type="text" class="write-post-title" id="write-post-title" placeholder="글 제목">
+        <textarea name="text" class="write-post-content" id="write-post-content" placeholder="글 내용"></textarea>
+        <div class="write-post-image-list" id="imgList">
 
         </div>
-        <input type="file" id="write-post-file" onchange="fileControl(event)" placeholder="첨부파일" multiple/>
-        <div id="fileNameList">
+        <input class="write-post-file" type="file" id="write-post-file" onchange="fileControl(event)" placeholder="첨부파일" multiple />
+        <div class="write-post-file-name-list" id="fileNameList">
 
         </div>
-        <br>
-        <button id="write-post-button" onclick="writePost();loadNewsfeed()">작성하기</button>
-        
+        <button class="write-post-button" id="write-post-button" onclick="writePost();loadNewsfeed()">작성하기</button>
+
     </div>
 
 </div>
-</center>
