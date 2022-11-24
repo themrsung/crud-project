@@ -41,14 +41,12 @@ window.writePost = function() {
 }
 
 // document.querySelector("#write-post-button").addEventListener("click", writePost)
-window.filePack=[];
-window.fileNames=[];
-
-
 window.fileControl = (event) => {
 
     document.getElementById("imgList").innerHTML = "";
     document.getElementById("fileNameList").innerHTML = "";
+    window.filePack=[];
+    window.fileNames=[];
     
     let files = event.target.files;
     
@@ -95,7 +93,6 @@ window.removeFile = function(number)
 {
     document.getElementById("fileInfo"+number).style.display="none";
     document.getElementById("posting-img"+number).remove();
-    $("#file").val("");
     localStorage.removeItem("posting-img"+number);
 }
 
