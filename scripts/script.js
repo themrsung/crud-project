@@ -59,10 +59,10 @@ window.loadEditPost = async function(postId) {
     // }
 
     const post = await getDoc(doc(dbService, "posts", postId))
-    console.log(post)
+    //console.log(post)
     document.getElementById("edit-post-title").value = post.data()["title"]
     document.getElementById("edit-post-content").value = post.data()["content"]
-
+    document.getElementById("posting-img").src = post.data()["img"]
 }
 
 window.loadLogin = function() {
