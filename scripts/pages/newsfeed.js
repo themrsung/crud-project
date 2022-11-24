@@ -42,7 +42,7 @@ function renderPost(doc, isFirst = false) {
         <div class="post-content post-content-newsfeed">
             <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
             <p class="post-author-name">by ${displayName}</p>
-            <p class="post-content-text">${doc.data()["content"].substring(0, 100).replaceAll("\n", "<br>")}</p>
+            <p class="post-content-text">${doc.data()["content"].replaceAll("\n", "<br>").substring(0, 100)}</p>
         </div>
     </div>
         `

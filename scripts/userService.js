@@ -48,7 +48,15 @@ export async function updateMyProfileMotd(newMotd) {
         const newName = user.name
         const newEmail = user.email
         const newPhotoURL = user.photoURL
-        const newMBTI = docSnap.data()["mbti"] || null
+        var newMBTI = null
+        try {
+            if (docSnap.exists()) {
+                newMBTI = docSnap.data()["mbti"]
+            }
+        }
+        catch {}
+
+        
         await setDoc(
             doc(dbService, "userData", user.uid), {
                 displayName: newName,
@@ -70,7 +78,13 @@ export async function updateMyProfileMBTI(newMBTI) {
         const newName = user.displayName
         const newEmail = user.email
         const newPhotoURL = user.photoURL
-        const newMotd = docSnap.data()["motd"] || null
+        var newMotd = null
+        try {
+            if (docSnap.exists()) {
+                newMotd = docSnap.data()["motd"]
+            }
+        }
+        catch {}
 
         await setDoc(
             doc(dbService, "userData", user.uid), {
@@ -108,8 +122,18 @@ export async function updateUserInfoToCache() {
         const displayName = user.displayName
         const email = user.email
         const photoURL = user.photoURL
-        const motd = docSnap.data()["motd"] || null
-        const mbti = docSnap.data()["mbti"] || null
+        var motd = null
+        var mbti = null
+
+        try {
+            motd = docSnap.data()["motd"]
+        }
+        catch {}
+
+        try {
+            mbti = docSnap.data()["mbti"]
+        }
+        catch{}
 
         setDoc(
             doc(dbService, "userData", user.uid),
