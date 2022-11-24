@@ -29,6 +29,7 @@ export async function onViewPostLoad(postId) {
             <p id="post-creator-name" class="post-creator-name"></p>
         </div>
         <p class="text-content-text">${content}</p>
+        <img id="posting-img" class="posting-img" src="${docSnap.data()["img"]}">
     </div>
     <div class="comments" id="comments"></div>
 </div>`
