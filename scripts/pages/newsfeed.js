@@ -39,9 +39,9 @@ function renderPost(doc, isFirst = false) {
         const [displayName] = response
         // 기본 이미지로 설정
         var thumbnailURL = "../../img/default-profile.png"
-        if (doc.data()["img"].length > 0) {
+        if (doc.data()["imgUrl"].length > 0) {
             // 글에 첨부파일이 있을 경우 이미지 URL 가져오기
-            thumbnailURL = doc.data()["img"][0]
+            thumbnailURL = doc.data()["imgUrl"][0]
         }
         // 게시글 템플릿
         const post_HTML = `
