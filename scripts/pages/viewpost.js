@@ -56,12 +56,12 @@ export async function onViewPostLoad(postId) {
                 {
                     $("#viewpost-outer").append(post_Btn)
                 }
-        if(docSnap.data()["img"] !== null)
+        if(docSnap.data()["imgUrl"] !== null)
         {
-            for(let jj in docSnap.data()["img"])
+            for(let jj in docSnap.data()["imgUrl"])
             {
                 document.getElementById("post-content").innerHTML += `
-                <img id="posting-img${jj}" class="posting-img" src="${docSnap.data()["img"][jj]}">
+                <img id="posting-img${jj}" class="posting-img" src="${docSnap.data()["imgUrl"][jj]}">
                 `
             }
         }       
