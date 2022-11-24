@@ -45,17 +45,17 @@ export async function updateMyProfileMotd(newMotd) {
             doc(dbService,"userData", user.uid)
         )
         
-        var newName, newEmail, newPhotoURL, newMBTI = null
-
-        if (docSnap.exists()) {
-            newName, newEmail, newPhotoURL, newMBTI = docSnap.data()["name"], docSnap.data()["email"], docSnap.data()["photoURL"], docSnap.data()["mbti"]
-        }
+        const newName = user.name
+        const newEmail = user.email
+        const newPhotoURL = user.photoURL
+        const newMBTI = docSnap.data()["mbti"] || null
         await setDoc(
             doc(dbService, "userData", user.uid), {
-                name: newName,
+                displayName: newName,
                 email: newEmail,
                 photoURL: newPhotoURL,
-                motd: newMotd
+                motd: newMotd,
+                mbti: newMBTI
             }
         )
     }
@@ -67,15 +67,14 @@ export async function updateMyProfileMBTI(newMBTI) {
         const docSnap = await getDoc(
             doc(dbService,"userData", user.uid)
         )
-        
-        var newName, newEmail, newPhotoURL, newMotd = null
+        const newName = user.displayName
+        const newEmail = user.email
+        const newPhotoURL = user.photoURL
+        const newMotd = docSnap.data()["motd"] || null
 
-        if (docSnap.exists()) {
-            newName, newEmail, newPhotoURL, newMotd = docSnap.data()["name"], docSnap.data()["email"], docSnap.data()["photoURL"], docSnap.data()["motd"]
-        }
         await setDoc(
             doc(dbService, "userData", user.uid), {
-                name: newName,
+                displayName: newName,
                 email: newEmail,
                 photoURL: newPhotoURL,
                 motd: newMotd,
@@ -105,29 +104,23 @@ export async function updateUserInfoToCache() {
         const docSnap = await getDoc(
             doc(dbService, "userData", user.uid)
         )
+        
+        const displayName = user.displayName
+        const email = user.email
+        const photoURL = user.photoURL
+        const motd = docSnap.data()["motd"] || null
+        const mbti = docSnap.data()["mbti"] || null
 
-        if (docSnap.exists()) {
-            setDoc(
-                doc(dbService, "userData", user.uid),
-                {
-                    displayName: user.displayName,
-                    email: user.email,
-                    photoURL: user.photoURL,
-                    motd: docSnap.data()["motd"]
-                }
-            )
-        }
-        else {
-            setDoc(
-                doc(dbService, "userData", user.uid),
-                {
-                    displayName: user.displayName,
-                    email: user.email,
-                    photoURL: user.photoURL,
-                    motd: null
-                }
-            )
-        }
+        setDoc(
+            doc(dbService, "userData", user.uid),
+            {
+                displayName: displayName,
+                email: email,
+                photoURL: photoURL,
+                motd: motd,
+                mbti: mbti
+            }
+        )
         
     }
 }
