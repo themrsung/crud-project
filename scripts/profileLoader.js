@@ -36,14 +36,16 @@ export async function onProfileLoadUID(uid) {
         getUserDisplayName(uid),
         getUserEmail(uid),
         getUserPhotoURL(uid),
-        getUserMotd(uid)
+        getUserMotd(uid),
+        getUserMBTI(uid)
     ]).then(function(response) {
-        const [displayName, email, photoURL, motd] = response
+        const [displayName, email, photoURL, motd, mbti] = response
         renderProfileInfo(
             displayName,
             email,
             photoURL,
-            motd
+            motd,
+            mbti
         )
         window.location.hash = "loadUserProfile."+uid
     })
@@ -70,6 +72,7 @@ function renderProfileInfo(displayName, email, photoURL, motd) {
     document.getElementById("user-email").innerHTML = email
     document.getElementById("user-profile-image").src = photoURL
     document.getElementById("user-motd").innerHTML = motd
+    document.getElementById("user-mbti").innerHTML = mbti
 }
 
 window.profileImageSetTest = function() {
