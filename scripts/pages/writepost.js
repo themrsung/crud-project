@@ -50,20 +50,31 @@ window.fileControl = (event) => {
     window.fileNames= [];
     
     let files = event.target.files;
+
+    
     
     let file;
        for (let i=0; i<files.length ; i++){
             let reader = new FileReader();
-            file = files[i];
-            window.fileNames.push(files[i].name)
-            reader.onload = (file) => {
-               
-                window.filePack[i] = reader.result;
-                window.filePack.length === window.fileNames.length ? window.showFiles() : false
-                //window.showFiles();
-                
-             }
-            reader.readAsDataURL(file)
+            if(files[i].type === "image/jpg" || files[i].type ==="image/png" || files[i].type === "image/jpeg"){
+                file = files[i];
+                window.fileNames.push(files[i].name)
+                reader.onload = (file) => {
+                   
+                    window.filePack[i] = reader.result;
+                    window.filePack.length === window.fileNames.length ? window.showFiles() : false
+                    //window.showFiles();
+                    
+                 }
+                reader.readAsDataURL(file)
+            }
+            else
+            {
+                alert("jpg,png 파일만 가능합니다")
+                event.target.value="";
+                break;
+            }
+            
         }
         
 }
@@ -90,7 +101,7 @@ window.showFiles = function()
         `;
         document.getElementById("imgList").innerHTML += imgList;
         document.getElementById("fileNameList").innerHTML += fileNameList;
-        };
+    };
 }
 
 window.removeFile = function(fileName,number)
