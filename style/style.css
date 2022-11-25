@@ -252,6 +252,7 @@ p, pre {
     }
 
     .title-text {
+        font-size: medium;
         display: flex;
         justify-content: center;
         text-align: left;
