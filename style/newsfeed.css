@@ -29,6 +29,8 @@
     margin: auto;
     height: 156px;
     width: 156px;
+
+    object-fit: cover;
 }
 
 .post-newsfeed {

@@ -10,6 +10,11 @@ window.writePost = function() {
     const title = stripHTMLTags(document.getElementById("write-post-title").value) || null
     const content = stripHTMLTags(document.getElementById("write-post-content").value) || null
 
+    if (title == null || content == null) {
+        alert("제목과 내용을 입력하세요.")
+        return
+    }
+
     var createdBy = "user"
 
     const user = authService.currentUser

@@ -18,10 +18,10 @@ export async function onNewsfeedLoad() {
     )
 
     var isFirst = true
-    querySnapshot.forEach((doc) => {
+    var index = 0
+    querySnapshot.forEach(async (doc) => {
         // 포스트 1개당 실행
-        renderPost(doc, isFirst)
-        isFirst = false
+        renderPost(doc, false, index++)
     })
 
 }
@@ -30,7 +30,7 @@ export function renderPostToProfile(doc, isFirst = false) {
     renderPost(doc, isFirst)
 }
 
-function renderPost(doc, isFirst = false) {
+async function renderPost(doc, isFirst = false, index = -1) {
     // 비동기로 캐싱된 유저 데이터 가져오기
     Promise.all([
         getUserDisplayName(doc.data()["createdBy"])
@@ -39,10 +39,13 @@ function renderPost(doc, isFirst = false) {
         const [displayName] = response
         // 기본 이미지로 설정
         var thumbnailURL = "../../img/default-profile.png"
-        if (doc.data()["imgUrl"].length > 0) {
-            // 글에 첨부파일이 있을 경우 이미지 URL 가져오기
-            thumbnailURL = doc.data()["imgUrl"][0]
+        if (doc.data()["imgUrl"] != null) {
+            if (doc.data()["imgUrl"].length > 0) {
+                // 글에 첨부파일이 있을 경우 이미지 URL 가져오기
+                thumbnailURL = doc.data()["imgUrl"][0]
+            }
         }
+
         // 게시글 템플릿
         const post_HTML = `
     <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)">
@@ -59,7 +62,7 @@ function renderPost(doc, isFirst = false) {
         // 첫 게시글이 아닌 경우
         if (!isFirst) {
             // 가로선 긋기
-            renderPostDivider()
+            renderPostDivider(index)
         }
         // 게시글 표시하기
         $("#news-feed").prepend(post_HTML)
@@ -82,9 +85,9 @@ function renderPost(doc, isFirst = false) {
 //     }
 }
 
-function renderPostDivider() {
+function renderPostDivider(index) {
     const divider_HTML = `
-    <hr class="newsfeed-divider">
+    <hr class="newsfeed-divider" id="newsfeed-divider-${index}">
     `
     $("#news-feed").prepend(divider_HTML)
 }
