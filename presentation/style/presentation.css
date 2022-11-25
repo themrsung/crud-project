@@ -121,18 +121,18 @@ body {
 }
 
 .kwangya-title {
-    font-size: 4vh;
+    font-size: 50px;
 }
 
 .kwangya-text {
-    font-size: 1.5vh;
+    font-size: 22px;
 }
 
 .kwangya-button {
-    background-color: transparent;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
     border-radius: 0.5vh;
 
-    font-size: 1vh;
+    font-size: 18px;
 
     padding: 5px 25px;
 
@@ -140,7 +140,7 @@ body {
 }
 
 .kwangya-button:hover {
-    background-color: lightgoldenrodyellow;
+    background: linear-gradient(-70deg, aqua, pink);
 }
 
 .introduction-right {
