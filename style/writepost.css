@@ -19,28 +19,41 @@
     margin-top: 20px;
 } */
 
+.write-post-container {
+    height: 100%;
+    display: block;
+    overflow-y: scroll;
+}
+
 .write-post-content {
-    margin: auto;
+    margin: 15% auto;
 
     width: 70%;
-    height: 50%;
+    /* height: 50%; */
 
-    display: flex;
+    /* overflow-y: scroll; */
+
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: stretch;
+    justify-content: stretch; */
+}
+
+.write-post-image-list > img {
+    max-width: 100%;
+    margin-top: 10px;
 }
 
 @media (width < 1000px) {
     .write-post-content {
         width: 90%;
-        height: 90%;
+        /* height: 90%; */
     }
 }
 
 .write-post-content > * {
     width: 100%;
-    margin: auto;
+    margin: 1% auto;
 }
 
 .write-post-container {
