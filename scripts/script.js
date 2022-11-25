@@ -126,14 +126,18 @@ window.loadUserProfile = async function(userId) {
     //window.location.hash = "loadUserProfile"
     // await $("#content").load("../pages/templates/userprofile.html")
 
+
     const userProfileHTML = await fetch("../pages/templates/userprofile.html").then(function(data) {
         return data.text()
     })
     
     document.getElementById("content").innerHTML = userProfileHTML 
 
-
-    await onProfileLoadUID(userId)
+    if(userId === authService.currentUser.uid)
+    { loadMyProfile(); }
+    else 
+    { await onProfileLoadUID(userId) }
+    
 
 }
 
