@@ -187,6 +187,8 @@ img {
     width: 45vw;
     height: 85vh;
     margin: auto;
+
+    border-radius: 5px;
 }
 
 @media (width < 700px) {
