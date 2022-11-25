@@ -24,7 +24,7 @@ export async function onViewPostLoad(postId) {
 <div class="post" id="${docSnap.id}">
     <div class="post-content" id="post-content">
         <h1 class="view-post-title">${docSnap.data()["title"]}</h1>
-        <p class="post-created-at">${Date(docSnap.data()["createdAt"]).toString()}</p>
+        <p class="post-created-at">${Date(docSnap.data()["createdAt"]).toString().substring(0, 15)}</p>
         <div class="post-creator-info" id="#loadUserProfile.${postCreatedBy}" onclick="checkHash(this.id);">
             <img id="post-creator-profile" class="post-creator-profile" src="../img/default-profile.png">
             <p id="post-creator-name" class="post-creator-name"></p>
@@ -91,7 +91,7 @@ export async function onViewPostLoad(postId) {
 <div class="comment" id="${postId}.${i}">
     <div onclick="${onClick}") class="comment-creator-info">
         <img class="comment-creator-profile" src="${photoURL}">
-        <p class="comment-creator-name"><span>${displayName}</span> - <span class="comment-date">${Date(comment["createdAt"]).toString()}</span></p>
+        <p class="comment-creator-name"><span>${displayName}</span> - <span class="comment-date">${Date(comment["createdAt"]).toString().substring(0, 15)}</span></p>
     </div>
     <p style="display:block" class="commentBefore${i}" >${comment["content"]}</p>
     <input type="text" id="updatingComment${i}" class="commentAfter${i}" style="display:none">
