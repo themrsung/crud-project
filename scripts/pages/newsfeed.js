@@ -53,7 +53,7 @@ async function renderPost(doc, isFirst = false) {
         </div>
         <div class="post-content post-content-newsfeed" id="test">
             <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
-            <p class="post-author-name">by ${displayName}</p>
+            <p class="post-author-name">by ${displayName} at <span class="newsfeed-post-created-at">${Date(doc.data()["createdAt"]).toString()}</span></p>
             <p class="post-content-text">${doc.data()["content"].replaceAll("\n", "<br>").substring(0, 100)}</p>
         </div>
     </div>
