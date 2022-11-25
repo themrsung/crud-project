@@ -2,11 +2,33 @@
     margin: 40px 40px 40px 40px;
 }
 
+.profile-image {
+    /* max-width: 30%; */
+    height: 100%;
+    margin-right: 2.5%;
+}
+
 .user-profile-image {
-    width: 50%;
-    height: auto;
+    width: 100%;
+    height: 27vh;
+
+    max-width: 250px;
+    max-height: 250px;
+
+    overflow: hidden;
 
     object-fit: cover;
+}
+
+.edit-profile-image-area {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 250px;
+}
+
+.edit-profile-image-area > * {
+    margin-top: 10px;
 }
 
 .profile-desc {
