@@ -3,7 +3,7 @@ body {
 }
 
 .nav-bar {
-    width: 100vw;
+    width: 100%;
     height: 9vh;
     margin: 0px;
 
@@ -23,6 +23,7 @@ body {
 
 .nav-bar-dummy {
     height: 9vh;
+    width: 100%;
     margin: 0px;
 }
 
@@ -31,6 +32,7 @@ body {
 }
 
 .infinity-logo {
+    margin: auto 10px;
     height: calc(9vh - 10px);
 }
 
@@ -39,17 +41,18 @@ body {
 }
 
 .nav-actual {
-    margin-left: auto;
+    margin: auto;
+    margin-right: 10px;
 }
 
 .wrap {
-    width: 100vw;
+    width: 100%;
 
     background: linear-gradient(70deg, aqua, pink);
 }
 
 .content-wrap {
-    width: 100vw;
+    width: 100%;
     height: 91vh;
 
     margin: 0px;
@@ -60,7 +63,7 @@ body {
 }
 
 .content-inner {
-    width: 70vw;
+    width: 85%;
     max-width: 3000px;
 
     height: 89vh;
