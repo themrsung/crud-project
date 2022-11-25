@@ -35,6 +35,15 @@
     }
 }
 
+.view-post-title {
+    margin-bottom: 0px;
+}
+
+.post-created-at {
+    margin: 0px 0px 10px 0px;
+    font-size: small;
+}
+
 .post-creator-info, .comment-creator-info {
     display: flex;
     flex-direction: row;
