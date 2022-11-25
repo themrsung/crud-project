@@ -6,6 +6,10 @@ body {
     margin: 0px;
 }
 
+img {
+    object-fit: cover;
+}
+
 .nav-bar {
     width: 100%;
     height: 9vh;
@@ -157,6 +161,7 @@ body {
 
 .flex-column-right > * {
     margin-left: auto;
+    text-align: right;
 }
 
 .content-inner {
@@ -169,12 +174,13 @@ body {
 .content-left {
     margin: auto;
     margin-left: 0px;
+    overflow: hidden;
 }
 
 .content-right {
     margin: auto;
-    margin-left: 20px;
     margin-right: 0px;
+    overflow: hidden;
 }
 
 .main-content {
@@ -196,6 +202,8 @@ body {
 
     font-size: 0.3vh;
 
+    padding-left: 10%;
+
     background-color: rgba(0, 0, 0, 0.05);
 }
 
@@ -210,4 +218,18 @@ body {
 .crew-card {
     margin: 20px auto;
     margin-left: 0px;
+}
+
+/* THANK YOU */
+
+.thank-you-main-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
+}
+
+.thank-you-main-text {
+    font-size: 100px;
+    text-align: right;
 }
