@@ -7,11 +7,15 @@
 }
 /* 웹 폰트 적용 */
 
-.post-content-pre, button, input, textarea {
+.post-content-pre, button, input, textarea, select {
     font-family: 'LeferiPoint-WhiteObliqueA';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/LeferiPoint-WhiteObliqueA.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+select {
+    padding: 5px;
 }
 
 .page-body {
@@ -252,6 +256,7 @@ p, pre {
     }
 
     .title-text {
+        font-size: medium;
         display: flex;
         justify-content: center;
         text-align: left;
