@@ -92,3 +92,13 @@ function renderPostDivider() {
 window.newWritePost = function() {
     $("#content").load("../pages/templates/writepost.html")
 }
+
+// const target = document.querySelector("#test");
+// const option = {
+//     root: null,
+//     rootMargin: "0px 0px 0px 0px",
+//     thredhold: 0,
+// }
+
+// const observer = new IntersectionObserver(callback, option);
+// observer.observe(target);
