@@ -6,7 +6,7 @@ import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebas
 //     resetBtn()
 //  }
 
-window.resetBtn= ()=>{
+window.resetBtn = ()=>{
 
     let email = document.querySelector("#resetEmail")
 
