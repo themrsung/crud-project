@@ -21,12 +21,13 @@ export async function onProfileLoad(user) {
     })
 
     Promise.all([
+        getUserDisplayName(user.uid,),
         getUserMotd(user.uid),
         getUserMBTI(user.uid)
     ]).then(function(response) {
-        const [motd, mbti] = response
+        const [displayName, motd, mbti] = response
         renderProfileInfo(
-            user.displayName,
+            displayName,
             user.email,
             user.photoURL,
             motd,
@@ -37,6 +38,22 @@ export async function onProfileLoad(user) {
 }
 
 export async function onProfileLoadUID(uid) {
+    const querySnapshot = await getDocs(
+        query(
+            collection(dbService, "posts"),
+            where("deleted", "==", false),
+            where("createdBy", "==", uid),
+            orderBy("createdAt")
+        )
+    )
+
+    var isFirst = true
+
+    querySnapshot.forEach((doc) => {
+        renderPostToProfile(doc, isFirst)
+        isFirst = false
+    })
+
     Promise.all([
         getUserDisplayName(uid),
         getUserEmail(uid),
@@ -73,11 +90,11 @@ export async function onProfileLoadUID(uid) {
 
 function renderProfileInfo(displayName, email, photoURL, motd, mbti) {
     // console.log("aaaa", displayName)
-    document.getElementById("user-name").innerHTML = displayName
-    document.getElementById("user-email").innerHTML = email
-    document.getElementById("user-profile-image").src = photoURL
-    document.getElementById("user-motd").innerHTML = motd
-    document.getElementById("user-mbti").innerHTML = mbti
+    document.getElementById("user-name").innerHTML = displayName || "이름"
+    // document.getElementById("user-email").innerHTML = email || "이메일"
+    document.getElementById("user-profile-image").src = photoURL || "../img/default-profile.png"
+    document.getElementById("user-motd").innerHTML = motd || "상태메시지"
+    document.getElementById("user-mbti").innerHTML = mbti || "MBTI"
 }
 
 window.profileImageSetTest = function() {
