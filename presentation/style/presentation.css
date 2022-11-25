@@ -186,6 +186,13 @@ body {
 
 /* DEVLOG-1 */
 
+.repo-filetree {
+    /* list-style-type: none; */
+    margin: 0px;
+    margin-right: 20px;
+    padding: 0px;
+}
+
 /* CREW */
 
 .crew-card {
