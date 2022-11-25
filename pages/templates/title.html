@@ -1,10 +1,10 @@
 <div class="header-wrap">
     <div class="profile-menu">
-        <button onclick="checkHash('#loadWritePost')">글쓰기</button>
-        <button onclick="checkHash('#loadMyProfile')">내 프로필</button>
+        <button onclick="checkHash('#loadWritePost');loadWritePost()">글쓰기</button>
+        <button onclick="checkHash('#loadMyProfile');loadMyProfile()">내 프로필</button>
         <button onclick="logOut()">로그아웃</button>
-        <img onclick="checkHash('#loadWritePost')" src="img/write-post.png">
-        <img onclick="checkHash('#loadMyProfile')" src="img/my-profile.png">
+        <img onclick="checkHash('#loadWritePost');loadWritePost()" src="img/write-post.png">
+        <img onclick="checkHash('#loadMyProfile');loadMyProfile()" src="img/my-profile.png">
         <img onclick="logOut()" src="img/logout.png">
     </div>
     <div class="title-box" onclick="loadNewsfeedFromTitleClick()">
