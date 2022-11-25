@@ -25,6 +25,14 @@
     object-fit: cover;
 }
 
+.user-profile-box {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: solid 1px;
+    border-color: white;
+    
+}
+
 @media (width < 500px) {
     .user-profile-box {
         padding-bottom: 20px;
