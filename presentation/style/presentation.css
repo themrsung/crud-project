@@ -103,7 +103,7 @@ img {
 }
 
 .content-inner {
-    width: 85%;
+    width: 83vw;
     max-width: 3000px;
 
     height: 89vh;
@@ -187,6 +187,12 @@ img {
     width: 45vw;
     height: 85vh;
     margin: auto;
+}
+
+@media (width < 700px) {
+    .content-inner {
+        flex-direction: column;
+    }
 }
 
 /* INTRO */
