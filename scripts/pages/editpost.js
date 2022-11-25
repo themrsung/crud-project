@@ -34,7 +34,7 @@ window.scratchPost = async function(postId) {
     try {
        
         await updateDoc(commentRef, { deleted : true }) 
-        return loadNewsfeed();
+        return checkHash("#loadNewsfeed");
 
     } catch (error) {
         alert(error);
