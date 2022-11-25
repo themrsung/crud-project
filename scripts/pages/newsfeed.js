@@ -18,19 +18,18 @@ export async function onNewsfeedLoad() {
     )
 
     var isFirst = true
-    var index = 0
     querySnapshot.forEach(async (doc) => {
         // 포스트 1개당 실행
-        renderPost(doc, false, index++)
+        renderPost(doc, isFirst)
+        isFirst = false
     })
-
 }
 
 export function renderPostToProfile(doc, isFirst = false) {
     renderPost(doc, isFirst)
 }
 
-async function renderPost(doc, isFirst = false, index = -1) {
+async function renderPost(doc, isFirst = false) {
     // 비동기로 캐싱된 유저 데이터 가져오기
     Promise.all([
         getUserDisplayName(doc.data()["createdBy"])
@@ -62,7 +61,7 @@ async function renderPost(doc, isFirst = false, index = -1) {
         // 첫 게시글이 아닌 경우
         if (!isFirst) {
             // 가로선 긋기
-            renderPostDivider(index)
+            renderPostDivider()
         }
         // 게시글 표시하기
         $("#news-feed").prepend(post_HTML)
@@ -85,9 +84,9 @@ async function renderPost(doc, isFirst = false, index = -1) {
 //     }
 }
 
-function renderPostDivider(index) {
+function renderPostDivider() {
     const divider_HTML = `
-    <hr class="newsfeed-divider" id="newsfeed-divider-${index}">
+    <hr class="newsfeed-divider" id="newsfeed-divider">
     `
     $("#news-feed").prepend(divider_HTML)
 }
