@@ -188,9 +188,12 @@ body {
 
 .repo-filetree {
     /* list-style-type: none; */
-    margin: 0px;
-    margin-right: 20px;
-    padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+    font-size: 0.3vh;
 }
 
 /* CREW */
