@@ -3,9 +3,56 @@ body {
 }
 
 .nav-bar {
-    width: 100%;
+    width: 100vw;
     height: 9vh;
+    margin: 0px;
+
+    padding: 5px 10px;
 
     color: white;
     background-color: black;
+
+    position: fixed;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: stretch;
+}
+
+.nav-bar-dummy {
+    height: 9vh;
+    margin: 0px;
+}
+
+.nav-bar-dummy > * {
+    display: none;
+}
+
+
+.infinity-logo {
+    height: 100%;
+}
+
+.infinity-title {
+    margin-right: auto;
+}
+
+.nav-actual {
+    margin-left: auto;
+}
+
+
+.wrap {
+    width: 100vw;
+
+    background: linear-gradient(70deg, aqua, pink);
+}
+
+.content-wrap {
+    width: 100vw;
+    height: 91vh;
+
+    margin: 0px;
+    padding: 2vh 6wh;
 }
