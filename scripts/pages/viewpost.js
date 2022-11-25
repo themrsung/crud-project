@@ -90,7 +90,7 @@ export async function onViewPostLoad(postId) {
 <div class="comment" id="${postId}.${i}">
     <div onclick="${onClick}") class="comment-creator-info">
         <img class="comment-creator-profile" src="${photoURL}">
-        <p class="comment-creator-name"><span>${displayName}</span> - <span>${comment["createdAt"]}</span></p>
+        <p class="comment-creator-name"><span>${displayName}</span> - <span class="comment-date">${Date(comment["createdAt"]).toString()}</span></p>
     </div>
     <p style="display:block" class="commentBefore${i}" >${comment["content"]}</p>
     <input type="text" id="updatingComment${i}" class="commentAfter${i}" style="display:none">
@@ -121,8 +121,8 @@ export async function onViewPostLoad(postId) {
         // 댓글 쓰기 영역
         const write_comment_HTML = `
 <div class="write-comment-area">
-    <input id="write-comment-content" placeholder="댓글을 입력해주세요...">
-    <button onclick="writeComment('${docSnap.id}')">댓글 달기</button>
+    <input class="write-comment-input" id="write-comment-content" placeholder="댓글을 입력해주세요...">
+    <button class="write-comment-button" onclick="writeComment('${docSnap.id}')">댓글 달기</button>
 </div>
         `
         $("#comments").append(write_comment_HTML)
@@ -138,6 +138,11 @@ export async function onViewPostLoad(postId) {
 window.writeComment = async function(postId) {
     updateUserInfoToCache()
     const content = stripHTMLTags(document.getElementById("write-comment-content").value)
+    
+    if (content == null || content == "") {
+        alert("내용을 입력해주세요.")
+        return
+    }
 
     var createdBy = "user"
 

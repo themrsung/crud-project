@@ -64,3 +64,16 @@
 .posting-img {
     width: 100%;
 }
+
+.comment-date {
+    font-size: smaller;
+}
+
+.write-comment-input  {
+    width: 100%;
+}
+
+.write-comment-button {
+    width: 100%;
+    margin-top: 10px;
+}

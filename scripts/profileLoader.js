@@ -31,7 +31,8 @@ export async function onProfileLoad(user) {
             user.email,
             user.photoURL,
             motd,
-            mbti
+            mbti,
+            true
         )
     })
     
@@ -88,11 +89,13 @@ export async function onProfileLoadUID(uid) {
 //     document.getElementById("user-motd").innerHTML = user.motd
 // }
 
-function renderProfileInfo(displayName, email, photoURL, motd, mbti) {
+function renderProfileInfo(displayName, email, photoURL, motd, mbti, renderEmail = false) {
     // console.log("aaaa", displayName)
     document.getElementById("user-name").innerHTML = displayName || "이름"
-    // document.getElementById("user-email").innerHTML = email || "이메일"
-    document.getElementById("user-profile-image").src = photoURL || "../img/default-profile.png"
+    document.getElementById("user-email").innerHTML = email || "이메일"
+    if (renderEmail) {
+        document.getElementById("user-profile-image").src = photoURL || "../img/default-profile.png"
+    }
     document.getElementById("user-motd").innerHTML = motd || "상태메시지"
     document.getElementById("user-mbti").innerHTML = mbti || "MBTI"
 }
