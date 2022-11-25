@@ -185,6 +185,11 @@ p, pre {
     .profile-menu {
         position: fixed;
         top: 5%;
+        margin: auto;
+    }
+
+    .profile-menu > img {
+        display: none;
     }
 }
 
@@ -213,6 +218,10 @@ p, pre {
 
     .wrap-inner {
         height: calc(100vh - 308px);
+    }
+
+    .profile-menu > img {
+        display: none;
     }
 }
 
@@ -253,6 +262,18 @@ p, pre {
         display: flex;
         flex-direction: row;
         justify-content: right;
+    }
+
+    .profile-menu > button {
+        display: none;
+    }
+
+    .profile-menu > img {
+        width: 15%;
+        height: 15%;
+
+        min-width: 30px;
+        min-height: 30px;
     }
 
     .wrap-inner {
