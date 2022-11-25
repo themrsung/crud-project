@@ -49,7 +49,7 @@ function renderPost(doc, isFirst = false) {
         <div class="post-thumbnail-container">
             <img class="post-thumbnail" src="${thumbnailURL}">
         </div>
-        <div class="post-content post-content-newsfeed">
+        <div class="post-content post-content-newsfeed" id="test">
             <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
             <p class="post-author-name">by ${displayName}</p>
             <p class="post-content-text">${doc.data()["content"].replaceAll("\n", "<br>").substring(0, 100)}</p>
@@ -92,3 +92,13 @@ function renderPostDivider() {
 window.newWritePost = function() {
     $("#content").load("../pages/templates/writepost.html")
 }
+
+// const target = document.querySelector("#test");
+// const option = {
+//     root: null,
+//     rootMargin: "0px 0px 0px 0px",
+//     thredhold: 0,
+// }
+
+// const observer = new IntersectionObserver(callback, option);
+// observer.observe(target);

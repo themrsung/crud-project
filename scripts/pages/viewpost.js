@@ -128,6 +128,11 @@ export async function onViewPostLoad(postId) {
         $("#comments").append(write_comment_HTML)
         
     }
+    else
+    {
+        alert("존재하지 않는 게시글 입니다");
+        return checkHash("#loadNewsfeed");
+    }
 }
 
 window.writeComment = async function(postId) {

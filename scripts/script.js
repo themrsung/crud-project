@@ -136,7 +136,7 @@ window.loadUserProfile = async function(userId) {
     if(authService.currentUser === null) 
     {
         alert("로그인이 필요합니다")
-        loadLogin();
+        checkHash("#load")
     }
     if(userId === authService.currentUser.uid)
     { loadMyProfile(); }
