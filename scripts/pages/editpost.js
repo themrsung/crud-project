@@ -1,6 +1,7 @@
 import {  doc, updateDoc , getDoc } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js"
 import { dbService } from "../firebase.js"
 import "../script.js"
+import { loadNewsfeed } from "../script.js"
 import {onViewPostLoad} from "./viewpost.js"
 
 window.editPost = function(postId) {
@@ -33,7 +34,7 @@ window.scratchPost = async function(postId) {
     try {
        
         await updateDoc(commentRef, { deleted : true }) 
-        return onViewPostLoad(postId);
+        return loadNewsfeed();
 
     } catch (error) {
         alert(error);
