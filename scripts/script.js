@@ -133,6 +133,10 @@ window.loadUserProfile = async function(userId) {
     
     document.getElementById("content").innerHTML = userProfileHTML 
 
+    if(authService.currentUser === null) 
+    {
+        alert("로그인이 필요합니다")
+    }
     if(userId === authService.currentUser.uid)
     { loadMyProfile(); }
     else 
