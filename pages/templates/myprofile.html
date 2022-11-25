@@ -3,9 +3,11 @@
         <div class="profile-upper">
           
                 <div class="profile-image">
-                    <img id="user-profile-image" class="profileimage" src="../img/default-profile.png">
-                    <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
-                    <button id="profileBtn" onclick="changeProfile()" >사진변경</button>
+                    <img id="user-profile-image" class="user-profile-image" src="../img/default-profile.png">
+                    <div class="edit-profile-image-area">
+                        <input onchange="onFileChange(event)" id="imgInput" type="file" accept="images/*" />
+                        <button id="profileBtn" onclick="changeProfile()" >사진변경</button>
+                    </div>
                 </div>
        
                 <div class="profile-title">

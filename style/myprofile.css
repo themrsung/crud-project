@@ -2,8 +2,11 @@
     margin: 40px 40px 40px 40px;
 }
 
-.profileimage {
+.user-profile-image {
     width: 50%;
+    height: auto;
+
+    object-fit: cover;
 }
 
 .profile-desc {
