@@ -1,3 +1,7 @@
+* {
+    font-family: 'IBM Plex Sans KR', sans-serif;
+}
+
 body {
     margin: 0px;
 }
@@ -45,6 +49,37 @@ body {
     margin-right: 10px;
 }
 
+.nav-ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-ul > li {
+    margin-right: 20px;
+}
+
+.nav-ul > li > button {
+    font-size: 20px;
+
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: solid 1px black;
+    color: white;
+
+    transition: linear 0.3s;
+}
+
+.nav-ul > li > button:hover {
+    border: solid 1px white;
+}
+
 .wrap {
     width: 100%;
 
@@ -70,5 +105,50 @@ body {
 
     margin: 1vh auto;
 
-    background-color: rgba(0, 0, 0, 0.2);
+    /* background-color: rgba(0, 0, 0, 0.2); */
+}
+
+/* INTRO */
+
+.introduction-content-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.introduction-left {
+    margin: auto;
+    margin-left: 0px;
+}
+
+.kwangya-title {
+    font-size: 4vh;
+}
+
+.kwangya-text {
+    font-size: 1.5vh;
+}
+
+.kwangya-button {
+    background-color: transparent;
+    border-radius: 0.5vh;
+
+    font-size: 1vh;
+
+    padding: 5px 25px;
+
+    transition: linear 0.3s;
+}
+
+.kwangya-button:hover {
+    background-color: lightgoldenrodyellow;
+}
+
+.introduction-right {
+    margin: auto;
+    margin-right: 0px;
+}
+
+.website-demo {
+    width: 45vw;
+    height: 85vh;
 }
