@@ -143,30 +143,35 @@ window.newWritePost = function() {
 }
 
 
+try{ // 랜딩페이지에서 오류남
+    document.getElementById("wrap-inner").onscroll = function(event){
 
-document.getElementById("wrap-inner").onscroll = function(event){
-
-    
-    let aim = document.getElementById("wrap-inner").scrollTop;
-
-    
-
-    //if(postDiv[length-1].style.display !== "flex"){ // 게시글을 다 안보여준 경우
-    setTimeout(function(){
-        if(document.getElementById("wrap-inner").scrollHeight <= Math.round(document.getElementById("wrap-inner").scrollTop + document.getElementById("wrap-inner").offsetHeight))
-        {
-           
-          // setTimeout(function(){
-                infinityScroll();
-          //  }, 1500)
-            
-        }
         
-    }, 1500)
-    document.getElementById("wrap-inner").scrollTo({ left: 100, top: aim, behavior: "smooth" });
-    
-    
+        let aim = document.getElementById("wrap-inner").scrollTop;
+
+        
+
+        //if(postDiv[length-1].style.display !== "flex"){ // 게시글을 다 안보여준 경우
+        setTimeout(function(){
+            if(document.getElementById("wrap-inner").scrollHeight <= Math.round(document.getElementById("wrap-inner").scrollTop + document.getElementById("wrap-inner").offsetHeight))
+            {
+            
+            // setTimeout(function(){
+                    infinityScroll();
+            //  }, 1500)
+                
+            }
+            
+        }, 1500)
+        document.getElementById("wrap-inner").scrollTo({ left: 100, top: aim, behavior: "smooth" });
+        
+        
+    }
+}catch(e)
+{
+    console.log("")
 }
+
 
 // const observer = new IntersectionObserver(callback, option);
 // observer.observe(target);
