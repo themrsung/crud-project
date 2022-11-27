@@ -226,3 +226,29 @@ window.checkHash= function(hashData)
 {
     window.location.hash = hashData;
 }
+
+window.aespaintro = async function() {
+    //window.location.hash = "loadRegister"
+    await $("#content").load("../pages/templates/aespa.html")
+}
+
+
+window.karina = async function() {
+    //window.location.hash = "loadRegister"
+    await $("#content").load("../pages/templates/karina.html")
+}
+
+window.winter = async function() {
+    //window.location.hash = "loadRegister"
+    await $("#content").load("../pages/templates/winter.html")
+}
+
+window.giselle = async function() {
+    //window.location.hash = "loadRegister"
+    await $("#content").load("../pages/templates/giselle.html")
+}
+
+window.niningnining = async function() {
+    //window.location.hash = "loadRegister"
+    await $("#content").load("../pages/templates/niningnining.html")
+}
