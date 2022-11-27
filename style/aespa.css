@@ -1,0 +1,163 @@
+#topMenu {
+    height: 10px;
+    width:  850px;
+    
+}
+
+#topMenu ul li {                       
+    list-style: none;           
+    color: black;                
+    float: right;                
+    line-height: 100px;  
+        border-color: black;
+    border-bottom: 5px;
+        
+      }  
+
+#topMenu .menuLink { 
+   
+                             
+        text-decoration:none;                      
+        color: white;                              
+        display: block;                            
+        width: 150px;                              
+        font-size: 30px;                          
+        font-weight: bold;                        
+        font-family: "Trebuchet MS", Dotum, Arial; 
+}
+
+nav {
+    position: relative;
+    top: -40px;
+    float : right;
+}
+
+#topMenu .menuLink:hover {          
+    color: purple;                  
+    
+}
+
+#logo {
+    position: relative;
+    top: 30px;
+
+}
+
+#biglogo{
+    font-size : 200px;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+header{
+    border-color: black;
+    border-bottom: 5px;
+
+}
+
+#aespaPic{
+    position:relative;
+    top: 150px;
+
+}
+
+
+#aespainformation1{
+
+    position: relative;
+    width: 550px;
+    position: absolute;
+
+}
+
+#aespainformation2{
+        
+    position: absolute;
+    top: 150px;
+    left: 680px;
+
+}
+
+#aespainfomation3{
+    
+    position: absolute;
+    top: 290px;
+    left: 30px;
+    font-size: 30px;
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: table;
+    background-color: black;
+  }
+  
+  @font-face {
+    font-family: neon;
+    src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/707108/neon.ttf);
+  }
+  
+  .container {
+    position: relative;
+    top: 50px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  
+  .neon {
+    font-family: neon;
+    color: #FB4264;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #F40A35;
+  }
+  
+  .flux {
+    font-family: neon;
+    color: #426DFB;
+    font-size: 9vw;
+    line-height: 9vw;
+    text-shadow: 0 0 3vw #2356FF;
+  }
+  
+  .neon {
+    animation: neon 1s ease infinite;
+    -moz-animation: neon 1s ease infinite;
+    -webkit-animation: neon 1s ease infinite;
+  }
+  
+  @keyframes neon {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #FA1C16, 0 0 3vw #FA1C16, 0 0 10vw #FA1C16, 0 0 10vw #FA1C16, 0 0 .4vw #FED128, .5vw .5vw .1vw #806914;
+      color: #FED128;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #800E0B, 0 0 1.5vw #800E0B, 0 0 5vw #800E0B, 0 0 5vw #800E0B, 0 0 .2vw #800E0B, .5vw .5vw .1vw #40340A;
+      color: #806914;
+    }
+  }
+  
+  .flux {
+    animation: flux 2s linear infinite;
+    -moz-animation: flux 2s linear infinite;
+    -webkit-animation: flux 2s linear infinite;
+    -o-animation: flux 2s linear infinite;
+  }
+  
+  @keyframes flux {
+    0%,
+    100% {
+      text-shadow: 0 0 1vw #1041FF, 0 0 3vw #1041FF, 0 0 10vw #1041FF, 0 0 10vw #1041FF, 0 0 .4vw #8BFDFE, .5vw .5vw .1vw #147280;
+      color: #28D7FE;
+    }
+    50% {
+      text-shadow: 0 0 .5vw #082180, 0 0 1.5vw #082180, 0 0 5vw #082180, 0 0 5vw #082180, 0 0 .2vw #082180, .5vw .5vw .1vw #0A3940;
+      color: #146C80;
+    }
+  }
