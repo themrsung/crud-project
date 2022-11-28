@@ -6,7 +6,7 @@ import { getUserDisplayName, updateUserInfoToCache } from "../userService.js"
 // 메인 페이지 로드 시
 export async function onNewsfeedLoad(scrolling = 0) {
     // 유저 정보 캐시
-    window.count=0;
+    //window.count=0;
     updateUserInfoToCache()
     // 포스트 목록 가져오기
     
@@ -56,25 +56,25 @@ async function renderPost(doc, isFirst = false) {
         }
 
         let post_HTML = "";
-        if(window.count >= 5)
-        {
-            post_HTML = `
-            <hr class="newsfeed-divider" id="newsfeed-divider" style ="display:none;">
-            <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)"  style ="display:none;">
-                <div class="post-thumbnail-container">
-                    <img class="post-thumbnail" src="${thumbnailURL}">
-                </div>
-                <div class="post-content post-content-newsfeed" id="test">
-                    <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
-                    <p class="post-author-name">by ${displayName} at <span class="newsfeed-post-created-at">${Date(doc.data()["createdAt"]).toString().substring(0, 15)}</span></p>
-                    <p class="post-content-text">${doc.data()["content"].replaceAll("\n", "<br>").substring(0, 100)}</p>
-                </div>
-            </div>
-                `;
+        // if(window.count >= 5)
+        // {
+        //     post_HTML = `
+        //     <hr class="newsfeed-divider" id="newsfeed-divider" style ="display:none;">
+        //     <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)"  style ="display:none;">
+        //         <div class="post-thumbnail-container">
+        //             <img class="post-thumbnail" src="${thumbnailURL}">
+        //         </div>
+        //         <div class="post-content post-content-newsfeed" id="test">
+        //             <h1 class="post-title">${doc.data()["title"].substring(0, 100)}</h1>
+        //             <p class="post-author-name">by ${displayName} at <span class="newsfeed-post-created-at">${Date(doc.data()["createdAt"]).toString().substring(0, 15)}</span></p>
+        //             <p class="post-content-text">${doc.data()["content"].replaceAll("\n", "<br>").substring(0, 100)}</p>
+        //         </div>
+        //     </div>
+        //         `;
 
-        }
-        else
-        {
+        // }
+        // else
+        // {
             post_HTML = `
     <div class="post post-newsfeed" id="${doc.id}" onclick="checkHash('loadViewPost.'+this.id)">
         <div class="post-thumbnail-container">
@@ -92,9 +92,9 @@ async function renderPost(doc, isFirst = false) {
                 // 가로선 긋기
                 renderPostDivider();
             }
-        window.count++;
+       // window.count++;
          
-        }
+      // }
       
 
         // 첫 게시글이 아닌 경우
@@ -143,63 +143,63 @@ window.newWritePost = function() {
 }
 
 
-try{ // 랜딩페이지에서 오류남 
-    document.getElementById("wrap-inner").onscroll = function(event){
+// try{ // 랜딩페이지에서 오류남 
+//     document.getElementById("wrap-inner").onscroll = function(event){
 
         
-        let aim = document.getElementById("wrap-inner").scrollTop;
+//         let aim = document.getElementById("wrap-inner").scrollTop;
 
         
-        if(document.getElementById("news-feed")!==null){
-        //if(postDiv[length-1].style.display !== "flex"){ // 게시글을 다 안보여준 경우
-        setTimeout(function(){
-            if(document.getElementById("wrap-inner").scrollHeight <= Math.round(document.getElementById("wrap-inner").scrollTop + document.getElementById("wrap-inner").offsetHeight))
-            {
+//         if(document.getElementById("news-feed")!==null){
+//         //if(postDiv[length-1].style.display !== "flex"){ // 게시글을 다 안보여준 경우
+//         setTimeout(function(){
+//             if(document.getElementById("wrap-inner").scrollHeight <= Math.round(document.getElementById("wrap-inner").scrollTop + document.getElementById("wrap-inner").offsetHeight))
+//             {
             
-            // setTimeout(function(){
-                    infinityScroll();
-            //  }, 1500)
+//             // setTimeout(function(){
+//                     infinityScroll();
+//             //  }, 1500)
                 
-            }
+//             }
             
-        }, 1500)
-            document.getElementById("wrap-inner").scrollTo({ left: 100, top: aim});
-            //document.getElementById("wrap-inner").scrollBy({ left: 100, top: aim});
-        }
+//         }, 1500)
+//             document.getElementById("wrap-inner").scrollTo({ left: 100, top: aim});
+//             //document.getElementById("wrap-inner").scrollBy({ left: 100, top: aim});
+//         }
         
-    }
-}catch(e)
-{
-    console.log("")
-}
+//     }
+// }catch(e)
+// {
+//     console.log("")
+// }
 
 
 // const observer = new IntersectionObserver(callback, option);
 // observer.observe(target);
 
-window.infinityScroll = function()
-{
-    let blockCount = 0;
-    const postDiv = document.getElementsByClassName("post post-newsfeed");
-    const hrDiv = document.getElementsByClassName("newsfeed-divider")
-    const length = document.getElementsByClassName("post post-newsfeed").length;
-    //setTimeout(function(){
-        for(let i = window.count ; i < length ; i++)
-        {
-            blockCount++;
-            postDiv[i].style.display="flex";
-            hrDiv[i-1].style.display="block";
-            if(length-1 === i) 
-            {
-                document.getElementById("news-feed").innerHTML += `
-                <div style="text-align:center"><p>마지막 글입니다</p></div>
-                `
+// window.infinityScroll = function()
+// {
+//     let blockCount = 0;
+//     const postDiv = document.getElementsByClassName("post post-newsfeed");
+//     const hrDiv = document.getElementsByClassName("newsfeed-divider")
+//     const length = document.getElementsByClassName("post post-newsfeed").length;
+//     //setTimeout(function(){
+//         for(let i = window.count ; i < length ; i++)
+//         {
+//             blockCount++;
+//             postDiv[i].style.display="flex";
+//             hrDiv[i-1].style.display="block";
+//             if(length-1 === i) 
+//             {
+//                 document.getElementById("news-feed").innerHTML += `
+//                 <div style="text-align:center"><p>마지막 글입니다</p></div>
+//                 `
                 
-            }
-            if(blockCount===5) break;
-        }
-        window.count += 5;
-        //window.scrollCounting += 1;
+//             }
+//             if(blockCount===5) break;
+//         }
+//         window.count += 5;
+//         //window.scrollCounting += 1;
         
-}
+// }
 
