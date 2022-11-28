@@ -143,7 +143,7 @@ window.newWritePost = function() {
 }
 
 
-try{ // 랜딩페이지에서 오류남
+try{ // 랜딩페이지에서 오류남 
     document.getElementById("wrap-inner").onscroll = function(event){
 
         
