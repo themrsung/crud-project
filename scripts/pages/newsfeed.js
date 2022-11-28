@@ -150,7 +150,7 @@ try{ // 랜딩페이지에서 오류남
         let aim = document.getElementById("wrap-inner").scrollTop;
 
         
-
+        if(document.getElementById("news-feed")!==null){
         //if(postDiv[length-1].style.display !== "flex"){ // 게시글을 다 안보여준 경우
         setTimeout(function(){
             if(document.getElementById("wrap-inner").scrollHeight <= Math.round(document.getElementById("wrap-inner").scrollTop + document.getElementById("wrap-inner").offsetHeight))
@@ -163,8 +163,9 @@ try{ // 랜딩페이지에서 오류남
             }
             
         }, 1500)
-        document.getElementById("wrap-inner").scrollTo({ left: 100, top: aim, behavior: "smooth" });
-        
+            document.getElementById("wrap-inner").scrollTo({ left: 100, top: aim});
+            //document.getElementById("wrap-inner").scrollBy({ left: 100, top: aim});
+        }
         
     }
 }catch(e)
